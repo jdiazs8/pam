@@ -14,6 +14,7 @@ CREATE TABLE tb_clientes (
     telefono_cliente VARCHAR(11),
     celular_cliente VARCHAR(11),
     path_foto_cliente VARCHAR(256),
+    activado_cliente BOOLEAN NOT NULL,
     fecha_registro_cliente TIMESTAMP NOT NULL,
     fecha_ultm_cliente TIMESTAMP NOT NULL,
     id_usuario INT(10) NOT NULL
@@ -31,6 +32,7 @@ CREATE TABLE tb_veterinarios (
     telefono_veterinario VARCHAR(11),
     celular_veterinario VARCHAR(11) NOT NULL,
     path_foto_veterinario VARCHAR(256),
+    activado_veterinario BOOLEAN NOT NULL,
     fecha_registro_veterinario TIMESTAMP NOT NULL,
     fecha_ultm_veterinario TIMESTAMP NOT NULL,
     id_usuario INT(10) NOT NULL
@@ -44,11 +46,13 @@ CREATE TABLE tb_mascotas (
     direccion_mascota VARCHAR(100),
     path_foto_mascota VARCHAR(256),
     path_foto_cvacunas VARCHAR(256),
+    activado_cliente BOOLEAN NOT NULL,
+    activado_mascota BOOLEAN NOT NULL,
+    fecha_registro_mascota TIMESTAMP NOT NULL,
+    fecha_ultm_mascota TIMESTAMP NOT NULL,
     id_cliente INT(10) NOT NULL,
     id_especie INT(10) NOT NULL,
-    id_raza INT(10) NOT NULL,
-    fecha_registro_mascota TIMESTAMP NOT NULL,
-    fecha_ultm_mascota TIMESTAMP NOT NULL
+    id_raza INT(10) NOT NULL
 );
 
 CREATE TABLE tb_veterinarias (
@@ -59,9 +63,10 @@ CREATE TABLE tb_veterinarias (
     path_foto_veterinaria VARCHAR(256) NOT NULL,
     cantidad_votos_veterinaria INT(1) NOT NULL,
     total_puntos_veterinaria INT(1) NOT NULL,
-    id_veterinario INT(10) NOT NULL,
+    activado_veterinaria BOOLEAN NOT NULL,
     fecha_registro_veterinaria TIMESTAMP NOT NULL,
-    fecha_ultm_veterinaria TIMESTAMP NOT NULL
+    fecha_ultm_veterinaria TIMESTAMP NOT NULL,
+    id_veterinario INT(10) NOT NULL
 );
 
 CREATE TABLE tb_visitas_veterinarias (
@@ -90,29 +95,34 @@ CREATE TABLE tb_registros_vacunas (
 
 CREATE TABLE tb_usuarios (
 	id_usuario INT(10) PRIMARY KEY AUTO_INCREMENT,
-    nombre_usuario VARCHAR(30) NOT NULL
+    nombre_usuario VARCHAR(30) NOT NULL,
+    activado_usuario BOOLEAN NOT NULL
 );
 
 CREATE TABLE tb_vacunas (
 	id_vacuna INT(10) PRIMARY KEY AUTO_INCREMENT,
     nombre_vacuna VARCHAR(30) NOT NULL,
+    activado_vacuna BOOLEAN NOT NULL,
     id_especie INT(10) NOT NULL
 );
 
 CREATE TABLE tb_especies (
 	id_especie INT(10) PRIMARY KEY AUTO_INCREMENT,
-    nombre_especie VARCHAR(30) NOT NULL
+    nombre_especie VARCHAR(30) NOT NULL,
+    activado_especie BOOLEAN NOT NULL
 );
 
 CREATE TABLE tb_razas (
 	id_raza INT(10) PRIMARY KEY AUTO_INCREMENT,
     nombre_raza VARCHAR(30) NOT NULL,
+    activado_raza BOOLEAN NOT NULL,
     id_especie INT(10) NOT NULL
 );
 
 CREATE TABLE tb_admins(
 	id_admin INT(10) PRIMARY KEY AUTO_INCREMENT,
     nombre_admin VARCHAR(30) NOT NULL,
+    activado_admin BOOLEAN NOT NULL,
     id_usuario INT(10) NOT NULL
 );
 
