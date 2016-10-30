@@ -1,0 +1,17 @@
+ALTER TABLE tb_admins ADD FOREIGN KEY(id_usuario) REFERENCES tb_usuarios(id_usuario);
+ALTER TABLE tb_clientes ADD FOREIGN KEY(id_usuario) REFERENCES tb_usuarios(id_usuario);
+ALTER TABLE tb_contacto ADD FOREIGN KEY(id_usuario) REFERENCES tb_usuarios(id_usuario);
+ALTER TABLE tb_fotos_clientes ADD FOREIGN KEY(id_cliente) REFERENCES tb_clientes(id_cliente);
+ALTER TABLE tb_fotos_veterinarios ADD FOREIGN KEY(id_veterinario) REFERENCES tb_veterinarios(id_veterinario);
+ALTER TABLE tb_mascotas ADD FOREIGN KEY(id_cliente) REFERENCES tb_clientes(id_cliente);
+ALTER TABLE tb_mascotas ADD FOREIGN KEY(id_especie) REFERENCES tb_especies(id_especie);
+ALTER TABLE tb_mascotas ADD FOREIGN KEY(id_raza) REFERENCES tb_razas(id_raza);
+ALTER TABLE tb_razas ADD FOREIGN KEY(id_especie) REFERENCES tb_especies(id_especie);
+ALTER TABLE tb_registros_vacunas ADD FOREIGN KEY(id_mascota) REFERENCES tb_mascotas(id_mascota);
+ALTER TABLE tb_registros_vacunas ADD FOREIGN KEY(id_vacuna) REFERENCES tb_vacunas(id_vacuna);
+ALTER TABLE tb_vacunas ADD FOREIGN KEY(id_especie) REFERENCES tb_especies(id_especie);
+ALTER TABLE tb_veterinarias ADD FOREIGN KEY(id_veterinario) REFERENCES tb_veterinarios(id_veterinario);
+ALTER TABLE tb_veterinarios ADD FOREIGN KEY(id_usuario) REFERENCES tb_usuarios(id_usuario);
+ALTER TABLE tb_visitas_veterinarias ADD FOREIGN KEY(id_mascota) REFERENCES tb_mascotas(id_mascota);
+ALTER TABLE tb_visitas_veterinarias ADD FOREIGN KEY(id_veterinario) REFERENCES tb_veterinarios(id_veterinario);
+ALTER TABLE tb_visitas_veterinarias ADD FOREIGN KEY(id_veterinaria) REFERENCES tb_veterinarias(id_veterinaria);
