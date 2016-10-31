@@ -1,4 +1,4 @@
 USE db_pam;
-INSERT INTO tb_usuarios(nombre_usuario) VALUES('cliente');
+INSERT INTO tb_usuarios(nombre_usuario, activado_usuario) VALUES('cliente', '1');
 
-select * from tb_clientes;
+SELECT * FROM tb_clientes;

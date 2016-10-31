@@ -8,14 +8,14 @@ CREATE TABLE tb_clientes (
 	nombre_cliente VARCHAR(30) NOT NULL,
     apellido_cliente VARCHAR(30) NOT NULL,
     identificacion_cliente VARCHAR(11) NOT NULL UNIQUE,
-    correo_cliente VARCHAR(100) NOT NULL,
+    correo_cliente VARCHAR(100) NOT NULL UNIQUE,
     contrasena_cliente VARCHAR(50) NOT NULL,
     direccion_cliente VARCHAR(100),
     telefono_cliente VARCHAR(11),
     celular_cliente VARCHAR(11),
     path_foto_cliente VARCHAR(256),
     activado_cliente BOOLEAN NOT NULL,
-    fecha_registro_cliente TIMESTAMP NOT NULL,
+    fecha_registro_cliente DATETIME NOT NULL,
     fecha_ultm_cliente TIMESTAMP NOT NULL,
     id_usuario INT(10) NOT NULL
 );
@@ -26,14 +26,14 @@ CREATE TABLE tb_veterinarios (
     apellido_veterinario VARCHAR(30) NOT NULL,
     identificacion_veterinario VARCHAR(11) NOT NULL UNIQUE,
     tprofesional_veterinario varchar(20) NOT NULL UNIQUE,
-    correo_veterinario VARCHAR(100) NOT NULL,
+    correo_veterinario VARCHAR(100) NOT NULL UNIQUE,
     contrasena_veterinario VARCHAR(50) NOT NULL,
     direccion_veterinario VARCHAR(100) NOT NULL,
     telefono_veterinario VARCHAR(11),
     celular_veterinario VARCHAR(11) NOT NULL,
     path_foto_veterinario VARCHAR(256),
     activado_veterinario BOOLEAN NOT NULL,
-    fecha_registro_veterinario TIMESTAMP NOT NULL,
+    fecha_registro_veterinario DATETIME NOT NULL,
     fecha_ultm_veterinario TIMESTAMP NOT NULL,
     id_usuario INT(10) NOT NULL
 );
@@ -46,9 +46,8 @@ CREATE TABLE tb_mascotas (
     direccion_mascota VARCHAR(100),
     path_foto_mascota VARCHAR(256),
     path_foto_cvacunas VARCHAR(256),
-    activado_cliente BOOLEAN NOT NULL,
     activado_mascota BOOLEAN NOT NULL,
-    fecha_registro_mascota TIMESTAMP NOT NULL,
+    fecha_registro_mascota DATETIME NOT NULL,
     fecha_ultm_mascota TIMESTAMP NOT NULL,
     id_cliente INT(10) NOT NULL,
     id_especie INT(10) NOT NULL,
@@ -64,7 +63,7 @@ CREATE TABLE tb_veterinarias (
     cantidad_votos_veterinaria INT(1) NOT NULL,
     total_puntos_veterinaria INT(1) NOT NULL,
     activado_veterinaria BOOLEAN NOT NULL,
-    fecha_registro_veterinaria TIMESTAMP NOT NULL,
+    fecha_registro_veterinaria DATETIME NOT NULL,
     fecha_ultm_veterinaria TIMESTAMP NOT NULL,
     id_veterinario INT(10) NOT NULL
 );
@@ -96,38 +95,51 @@ CREATE TABLE tb_registros_vacunas (
 CREATE TABLE tb_usuarios (
 	id_usuario INT(10) PRIMARY KEY AUTO_INCREMENT,
     nombre_usuario VARCHAR(30) NOT NULL,
-    activado_usuario BOOLEAN NOT NULL
+    activado_usuario BOOLEAN NOT NULL,
+    fecha_registro_usuario DATETIME NOT NULL,
+    fecha_ultm_usuario TIMESTAMP NOT NULL
 );
 
 CREATE TABLE tb_vacunas (
 	id_vacuna INT(10) PRIMARY KEY AUTO_INCREMENT,
     nombre_vacuna VARCHAR(30) NOT NULL,
     activado_vacuna BOOLEAN NOT NULL,
+    fecha_registro_vacuna DATETIME NOT NULL,
+    fecha_ultm_vacuna TIMESTAMP NOT NULL,
     id_especie INT(10) NOT NULL
 );
 
 CREATE TABLE tb_especies (
 	id_especie INT(10) PRIMARY KEY AUTO_INCREMENT,
     nombre_especie VARCHAR(30) NOT NULL,
-    activado_especie BOOLEAN NOT NULL
+    activado_especie BOOLEAN NOT NULL,
+    fecha_registro_especie DATETIME NOT NULL,
+    fecha_ultm_especie TIMESTAMP NOT NULL
 );
 
 CREATE TABLE tb_razas (
 	id_raza INT(10) PRIMARY KEY AUTO_INCREMENT,
     nombre_raza VARCHAR(30) NOT NULL,
     activado_raza BOOLEAN NOT NULL,
+    fecha_registro_raza DATETIME NOT NULL,
+    fecha_ultm_raza TIMESTAMP NOT NULL,
     id_especie INT(10) NOT NULL
 );
 
 CREATE TABLE tb_admins(
 	id_admin INT(10) PRIMARY KEY AUTO_INCREMENT,
     nombre_admin VARCHAR(30) NOT NULL,
+    correo_admin VARCHAR(100) NOT NULL UNIQUE,
+    contrasena_admin VARCHAR(50) NOT NULL,
     activado_admin BOOLEAN NOT NULL,
+    fecha_registro_admin DATETIME NOT NULL,
+    fecha_ultm_admin TIMESTAMP NOT NULL,
     id_usuario INT(10) NOT NULL
 );
 
 CREATE TABLE tb_contacto (
 	id_contacto INT(10) PRIMARY KEY AUTO_INCREMENT,
+    fecha_contacto DATETIME NOT NULL,
     nombre_contacto VARCHAR(100) NOT NULL,
     correo_contacto VARCHAR(100) NOT NULL,
     tema_contacto VARCHAR(50) NOT NULL,

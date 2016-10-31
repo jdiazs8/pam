@@ -12,6 +12,7 @@
         protected $telefono;
         protected $celular;
         protected $pathFoto;
+        protected $activado;
         protected $fechaRegistro;
         protected $fechaUM;
         protected $idUsuario;
