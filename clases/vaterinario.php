@@ -24,7 +24,7 @@
                 $sql2 = "INSERT INTO tb_veterinarios(nombre_veterinario, apellido_veterinario, identificacion_veterinario, tprofesional_veterinario, correo_veterinario, contrasena_veterinario, activado_veterinario, fecha_registro_veterinario, id_usuario) VALUES('{$this->nombre}', '{$this->apellido}', '{$this->identificacion}', '{$this->tprofesional}','{$this->correo}', md5('{$this->contrasena}'), '{$this->activado}', NOW(), '{$this->idUsuario}')";
                 $this->con->consultaSimple($sql2);
                 
-                $carpeta = "{$this->identificacion}";//colocar la carpeta usuarios/clientes/
+                $carpeta = "usuarios/veterinarios/{$this->identificacion}/";//colocar la carpeta usuarios/clientes/
                 if(!file_exists($carpeta)) {
                     mkdir($carpeta, 0777, true);
     

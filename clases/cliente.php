@@ -23,7 +23,7 @@
                 $sql2 = "INSERT INTO tb_clientes(nombre_cliente, apellido_cliente, identificacion_cliente, correo_cliente, contrasena_cliente, activado_cliente, fecha_registro_cliente, id_usuario) VALUES('{$this->nombre}', '{$this->apellido}', '{$this->identificacion}', '{$this->correo}', md5('{$this->contrasena}'), '{$this->activado}', NOW(), '{$this->idUsuario}')";
                 $this->con->consultaSimple($sql2);
                 
-                $carpeta = "{$this->identificacion}";//colocar la carpeta usuarios/clientes/
+                $carpeta = "usuarios/clientes/{$this->identificacion}/";//colocar la carpeta usuarios/clientes/
                 if(!file_exists($carpeta)) {
                     mkdir($carpeta, 0777, true);
     
