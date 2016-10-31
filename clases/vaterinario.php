@@ -73,6 +73,13 @@
             
         }
         
+        public function cargarVeterinarias() {
+            $sql = "SELECT * FROM tb_mascotas WHERE id_cliente = '{$this->id}'";
+            $veterinarias =$this->con->consultaRetorno($sql);
+            return $veterinarias;
+            
+        }
+        
     }
 
 ?>
