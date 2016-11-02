@@ -7,7 +7,7 @@
 	box-sizing: border-box;
 }
 
-img {
+.foto-perfil {
     width: 180px;
     height: 180px;
     border-radius: 700px;
@@ -15,11 +15,11 @@ img {
     -moz-box-shadow: 4px 4px 22px -2px rgba(0,0,0,0.72);
     box-shadow: 4px 4px 22px -2px rgba(0,0,0,0.72);
 }
- 
+
 body {
     background-image: url("imagenes/fondo1.png");
 }
- 
+
 .menu_bar {
 	display:none;
 }
@@ -31,13 +31,13 @@ form .check {
 
 form .check a {
     font-size: 10px;
-    color: #c00; 
+    color: #c00;
 }
 
 header {
 	width: 100%;
 }
- 
+
 header nav {
 	background:#0489B1;
 	z-index:1000;
@@ -53,35 +53,35 @@ header nav {
     margin: 0;
     padding: 0;
 }
- 
+
 header nav ul {
 	list-style:none;
 }
- 
+
 header nav ul li {
 	display:inline-block;
 	position: relative;
 }
- 
+
 header nav ul li:hover {
 	background:#01A9DB;
 }
- 
+
 header nav ul li a {
 	color:#fff;
 	display:block;
 	text-decoration:none;
 	padding: 20px;
 }
- 
+
 header nav ul li a span {
 	margin-right:10px;
 }
- 
+
 header nav ul li:hover .children {
 	display:block;
 }
- 
+
 header nav ul li .children {
 	display: none;
 	background: #0489B1;
@@ -89,17 +89,17 @@ header nav ul li .children {
 	width: 150%;
 	z-index:1000;
 }
- 
+
 header nav ul li .children li {
 	display:block;
 	overflow: hidden;
 	border-bottom: 1px solid rgba(255,255,255,.5);
 }
- 
+
 header nav ul li .children li a {
 	display: block;
 }
- 
+
 header nav ul li .children li a span {
 	float: right;
 	position: relative;
@@ -107,7 +107,7 @@ header nav ul li .children li a span {
 	margin-right:0;
 	margin-left:10px;
 }
- 
+
 header nav ul li .caret {
 	position: relative;
 	top:3px;
@@ -118,17 +118,14 @@ header nav ul li .caret {
 footer {
     text-align: center;
     background: #0489B1;
-    padding: 5px;
-    margin-top: 180px;
-	z-index:1000;
-	max-width: 1000px;
-	width:95%;
-	margin:20px auto;
-    margin-top: 50%;;
+		bottom: 0;
+		position: fixed;
+		width: 1000px;
+
 }
 
 footer span {
-    color: white;
+    color: #fff;
 }
 
 form{
@@ -172,27 +169,39 @@ form a {
 	color: #c0392b;
 }
 
-.formulario tr td {
+.formulario tr td a {
     background: #c0392b;
     color: white;
     padding: 5px;
+		text-decoration: none;
 }
 
+.mensaje {
+    margin: 20px auto 0;
+    border: 1px solid #777;
+    padding: 3px;
+    color: #fff;
+    text-align: center;
+		width: 99%;
+    max-width: 100%;
+    background: #c0392b;
+		margin-bottom: 20px;
+}
 
 @media screen and (max-width: 800px) {
 	body {
 		padding-top:80px;
 	}
- 
+
 	.menu_bar {
 		display:block;
 		width:100%;
 		position: fixed;
 		top:0;
 		background:#0489B1;
-        z-index: 999;
+    z-index: 999;
 	}
- 
+
 	.menu_bar .bt-menu {
 		display: block;
 		padding: 17px;
@@ -200,52 +209,53 @@ form a {
 		overflow: hidden;
 		font-size: 17px;
 		text-decoration: none;
-        z-index: 999;
+    z-index: 999;
 	}
- 
+
 	.menu_bar span {
 		float: right;
 		font-size: 40px;
 	}
- 
+
 	header nav {
 		width: 60%;
 		height: calc(100% - 55px);
 		position: fixed;
 		right:100%;
 		margin: 0;
-        margin-top: -24px;
+    margin-top: -24px;
 		overflow: scroll;
 	}
-    
+
 	header nav ul li {
 		display: block;
 		border-bottom:1px solid rgba(255,255,255,.5);
 	}
- 
+
 	header nav ul li a {
 		display: block;
         font-size: 12px;
 	}
- 
+
 	header nav ul li:hover .children {
 		display: none;
 	}
- 
+
 	header nav ul li .children {
 		width: 100%;
 		position: relative;
 	}
- 
+
 	header nav ul li .children li a {
 		margin-left:20px;
 	}
- 
+
 	header nav ul li .caret {
 		float: right;
 	}
-    
+
     footer {
         width: 100%;
+				z-index: 999;
     }
 }
