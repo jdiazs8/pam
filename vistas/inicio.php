@@ -1,3 +1,3 @@
-<?php
-    echo "INICIO<br>";
-?>
+<section>
+    <h1>INICIO</h1>
+</section>

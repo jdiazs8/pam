@@ -1,7 +1,7 @@
 * {
 	padding:0;
 	margin:0;
-    font-family: Arial, Verdana, Geneva, Helvetica, sans-serif;
+  font-family: Arial, Verdana, Geneva, Helvetica, sans-serif;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -119,8 +119,9 @@ footer {
     text-align: center;
     background: #0489B1;
 		bottom: 0;
+		width:95%;
+		margin:20px auto;
 		position: fixed;
-		width: 1000px;
 
 }
 
@@ -254,8 +255,9 @@ form a {
 		float: right;
 	}
 
-    footer {
-        width: 100%;
-				z-index: 999;
-    }
+  footer {
+    width: 100%;
+		z-index: 999;
+		margin: 0;
+  }
 }
