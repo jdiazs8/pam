@@ -15,7 +15,7 @@
     <h2><?php echo $row['nombre_cliente'].' '.$row['apellido_cliente']; ?></h2>
     <br>
     <div class="redondo">
-        <img class="foto-perfil" src="<?php echo $row['pathFoto_cliente']; ?>" />
+        <img class="foto-perfil" src="<?php echo $row['path_foto_cliente']; ?>" />
       </div>
     <br>
     <table>
@@ -44,8 +44,8 @@
     <br>
     <table class="formulario">
         <tr>
-            <td><a href="?cargar=editarcliente&id=<?php echo $row['id_cliente']; ?>">Actualizar</a></td>
-            <td><a href="?cargar=desactivarcliente&id=<?php echo $row['id_cliente']; ?>">Desactivar</a></td>
+            <td><a href="?cargar=editarCliente&id=<?php echo $row['id_cliente']; ?>">Actualizar</a></td>
+            <td><a href="?cargar=desactivarCliente&id=<?php echo $row['id_cliente']; ?>">Desactivar</a></td>
         </tr>
     </table>
 </center>

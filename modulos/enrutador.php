@@ -6,27 +6,27 @@
                     include_once('vistas/'.$vista.'.php');
                     break;
 
-                case 'crearcliente':
+                case 'crearCliente':
                     include_once('vistas/'.$vista.'.php');
                     break;
 
-                case 'vercliente':
+                case 'verCliente':
                     include_once('vistas/'.$vista.'.php');
                     break;
 
-                case 'editarcliente':
+                case 'editarCliente':
                     include_once('vistas/'.$vista.'.php');
                     break;
 
-                case 'desactivarcliente':
+                case 'desactivarCliente':
                     include_once('vistas/'.$vista.'.php');
                     break;
 
-                case 'cerrarsesion':
+                case 'cerrarSesion':
                     include_once('modulos/'.$vista.'.php');
                     break;
 
-                case 'iniciosesion':
+                case 'inicioSesion':
                     include_once('vistas/'.$vista.'.php');
                     break;
 

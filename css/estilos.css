@@ -17,7 +17,7 @@
 }
 
 body {
-    background-image: url("imagenes/fondo1.png");
+    background-image: url("imagenes/fondo.png");
 }
 
 .menu_bar {
@@ -44,6 +44,10 @@ header nav {
 	max-width: 1000px;
 	width:95%;
 	margin:20px auto;
+}
+
+section {
+	padding: 2px;
 }
 
 .logo {
@@ -220,7 +224,7 @@ form a {
 
 	header nav {
 		width: 60%;
-		height: calc(100% - 55px);
+		height: calc(97% - 55px);
 		position: fixed;
 		right:100%;
 		margin: 0;

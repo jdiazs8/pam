@@ -10,11 +10,11 @@
       <li class="submenu">
         <a href="#"><span class="icon-rocket"></span>Registro<span class="caret icon-arrow-down6"></span></a>
         <ul class="children">
-          <li><a href="?cargar=crearcliente">Dueño de Mascota<span class="icon-dot"></span></a></li>
-          <li><a href="?cargar=crearveterinario">Veterinario<span class="icon-dot"></span></a></li>
+          <li><a href="?cargar=crearCliente">Dueño de Mascota<span class="icon-dot"></span></a></li>
+          <li><a href="?cargar=crearVeterinario">Veterinario<span class="icon-dot"></span></a></li>
         </ul>
       </li >
-      <li><a href="?cargar=iniciosesion"><span class="icon-suitcase"></span>Inciar Sesión</a></li>
+      <li><a href="?cargar=inicioSesion"><span class="icon-suitcase"></span>Inciar Sesión</a></li>
       <li><a href="#"><span class="icon-mail"></span>Contacto</a></li>
     </ul>
   </nav>

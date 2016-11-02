@@ -11,9 +11,21 @@
                 $mensaje = 'Las contraseñas deben coincidir.';
             }else{
                 if(isset($_POST['actualizar'])) {
-                    $controlador->editar($_GET['id'], $_POST['nombre'], $_POST['apellido'], $_POST['identificacion'], $_POST['correo'], $_POST['contrasena'], $_POST['direccion'], $_POST['telefono'], $_POST['celular'], $_POST['pathFoto'], '1');
-                    header('location: index.php?cargar=vercliente&id='.$row['id_cliente']);
+                    $tamano = $_FILES["archivo"]['size'];
+                    $tipo = $_FILES["archivo"]['type'];
+                    $archivo = $_FILES["foto"]['name'];
 
+                    if($archivo != "") {
+
+                        $ruta = "usuarios/clientes/{$_GET['id']}/imagenes/fotos/perfil.jpg";
+                        if(copy($_FILES['foto']['tmp_name'], $ruta)) {
+                            $estatus = 'ok';
+                        }
+
+                    }
+
+                    $controlador->editar($_GET['id'], $_POST['nombre'], $_POST['apellido'], $_POST['identificacion'], $_POST['correo'], $_POST['contrasena'], $_POST['direccion'], $_POST['telefono'], $_POST['celular'], $ruta, '1');
+                    header('location: index.php?cargar=verCliente&id='.$row['id_cliente']);
                 }
             }
 
@@ -55,7 +67,8 @@
     <br>
     <input type="text" name="celular" maxlength="10" placeholder="No. celular" value="<?php echo $row['celular_cliente'] ?>" >
     <br>
-    <input type="text" name="pathFoto" maxlength="10" placeholder="Direccion foto" value="<?php echo $row['path_foto_cliente'] ?>" >
+    <label>Foto</label>
+    <input type="file" name="foto" >
     <br>
     <input type="submit" class="boton" name="actualizar" value="Actualizar">
 </form>

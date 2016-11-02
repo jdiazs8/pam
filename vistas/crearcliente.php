@@ -10,7 +10,7 @@
 
                 if($resultado) {
                     $mensaje = 'Se ha registrado como usuario.';
-                    echo "<a href='?cargar=iniciosesion'>Iniciar Sesión</a>";
+                    echo "<a href='?cargar=inicioSesion'>Iniciar Sesión</a>";
 
                 }else {
                     $mensaje = 'Alguno de los datos ingresados ya está registrado.';

@@ -9,7 +9,7 @@
 
         if(isset($_POST['desactivar'])) {
             $controlador->eliminar($_GET['id']);
-                header('location: index.php?cargar=cerrarsesion');
+                header('location: index.php?cargar=cerrarSesion');
 
         }
 
