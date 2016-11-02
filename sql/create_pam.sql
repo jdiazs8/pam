@@ -40,7 +40,7 @@ CREATE TABLE tb_veterinarios (
 
 CREATE TABLE tb_mascotas (
 	id_mascota INT(10) PRIMARY KEY AUTO_INCREMENT,
-    nombre_mascota VARCHAR(30) NOT NULL,
+    nombre_mascota VARCHAR(70) NOT NULL,
     identificacion_mascota VARCHAR(20),
     fecha_nacimiento_mascota DATE NOT NULL,
     direccion_mascota VARCHAR(100),

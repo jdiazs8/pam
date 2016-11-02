@@ -1,6 +1,6 @@
 <header>
   <div class="menu_bar">
-    <a href="#" class="bt-menu"><span class="icon-list2"></span>Menú</a>
+    <a href="#" class="bt-menu"><span class="icon-list2"></span>PAM</a>
   </div>
 
   <nav>
@@ -13,7 +13,7 @@
           <li><a href="?cargar=verCliente&id=<?php echo $_SESSION['id']; ?>">Administrar<span class="icon-dot"></span></a></li>
           <li><a href="?cargar=subirFoto">Subir Fotos<span class="icon-dot"></span></a></li>
           <li><a href="?cargar=misMascotas&id=<?php echo $_SESSION['id']; ?>">Mis Mascotas<span class="icon-dot"></span></a></li>
-          <li><a href="?cargar=registrarMascota">Registrar Mascota<span class="icon-dot"></span></a></li>
+          <li><a href="?cargar=crearMascota">Registrar Mascota<span class="icon-dot"></span></a></li>
         </ul>
       </li >
       <li><a href="?cargar=contacto"><span class="icon-mail"></span>Contacto</a></li>

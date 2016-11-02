@@ -30,7 +30,7 @@
         <title>PAM Portal de Apoyo a Mascotas</title>
     </head>
 
-    <body>
+    <body background="imagenes/fondo.png">
         <?php
             if(isset($_SESSION['idCliente'])) {
                 include_once('vistas/cabeceracliente.php');

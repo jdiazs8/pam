@@ -11,21 +11,27 @@
                 $mensaje = 'Las contraseñas deben coincidir.';
             }else{
                 if(isset($_POST['actualizar'])) {
-                    $tamano = $_FILES["archivo"]['size'];
-                    $tipo = $_FILES["archivo"]['type'];
-                    $archivo = $_FILES["foto"]['name'];
+                    if(empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['identificacion']) || empty($_POST['correo']) || empty($_POST['contrasena']) || empty($_POST['contrasena2'] || empty($_POST['acuerdo']))){
+                        $mensaje = 'Lo campos marcados con * deben estar diligenciados';
+                    }else {
+                        $tamano = $_FILES["archivo"]['size'];
+                        $tipo = $_FILES["archivo"]['type'];
+                        $archivo = $_FILES["foto"]['name'];
 
-                    if($archivo != "") {
+                        if($archivo != "") {
 
-                        $ruta = "usuarios/clientes/{$_GET['id']}/imagenes/fotos/perfil.jpg";
-                        if(copy($_FILES['foto']['tmp_name'], $ruta)) {
-                            $estatus = 'ok';
+                            $ruta = "usuarios/clientes/{$_GET['id']}/imagenes/fotos/perfil.jpg";
+                            if(copy($_FILES['foto']['tmp_name'], $ruta)) {
+                                $estatus = 'ok';
+                            }
+
+                        }else {
+                            $ruta = $row['path_foto_cliente'];
                         }
 
+                        $controlador->editar($_GET['id'], $_POST['nombre'], $_POST['apellido'], $_POST['identificacion'], $_POST['correo'], $_POST['contrasena'], $_POST['direccion'], $_POST['telefono'], $_POST['celular'], $ruta, '1');
+                        header('location: index.php?cargar=verCliente&id='.$row['id_cliente']);
                     }
-
-                    $controlador->editar($_GET['id'], $_POST['nombre'], $_POST['apellido'], $_POST['identificacion'], $_POST['correo'], $_POST['contrasena'], $_POST['direccion'], $_POST['telefono'], $_POST['celular'], $ruta, '1');
-                    header('location: index.php?cargar=verCliente&id='.$row['id_cliente']);
                 }
             }
 
@@ -49,17 +55,13 @@
 
     ?>
     <h2>Actualizar Datos Cliente</h2>
-    <input type="text" name="nombre" maxlength="29" placeholder="Nombre" value="<?php echo $row['nombre_cliente'] ?>" required>
+    <input type="text" name="nombre" maxlength="29" placeholder="Nombre*" value="<?php echo $row['nombre_cliente'] ?>" required>
     <br>
-    <input type="text" name="apellido" maxlength="29" placeholder="Apellido" value="<?php echo $row['apellido_cliente'] ?>" required>
+    <input type="text" name="apellido" maxlength="29" placeholder="Apellido*" value="<?php echo $row['apellido_cliente'] ?>" required>
     <br>
-    <input type="text" name="identificacion" maxlength="10" placeholder="identificacion" value="<?php echo $row['identificacion_cliente'] ?>" required>
+    <input type="text" name="identificacion" maxlength="10" placeholder="identificacion*" value="<?php echo $row['identificacion_cliente'] ?>" required>
     <br>
     <input type="email" name="correo" maxlength="99" placeholder="Correo electrónico" value="<?php echo $row['correo_cliente'] ?>" required>
-    <br>
-    <input type="password" name="contrasena" maxlength="49" placeholder="Contraseña" required>
-    <br>
-    <input type="password" name="contrasena2" maxlength="49" placeholder="Contraseña" required>
     <br>
     <input type="text" name="direccion" maxlength="99" placeholder="Direccion de residencia" value="<?php echo $row['direccion_cliente'] ?>" >
     <br>
@@ -69,6 +71,10 @@
     <br>
     <label>Foto</label>
     <input type="file" name="foto" >
+    <br>
+    <input type="password" name="contrasena" maxlength="49" placeholder="Contraseña*" required>
+    <br>
+    <input type="password" name="contrasena2" maxlength="49" placeholder="Contraseña*" required>
     <br>
     <input type="submit" class="boton" name="actualizar" value="Actualizar">
 </form>

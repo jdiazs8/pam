@@ -2,17 +2,30 @@
     $controlador = new ControladorCliente();
 
     if(isset($_POST['iniciosesion'])) {
-        $resultado = $controlador->inicioSesion($_POST['usuario'], $_POST['contrasena']);
+      if(empty($_POST['usuario']) || empty($_POST['contrasena'])){
+          $mensaje = 'Lo campos marcados con * deben estar diligenciados';
+      }else {
+          $resultado = $controlador->inicioSesion($_POST['usuario'], $_POST['contrasena']);
 
-        if($resultado) {
-            echo "paso 1<br>";
-            $_SESSION['idCliente'] = $resultado['id_usuario'];
-            $_SESSION['id'] = $resultado['id_cliente'];
-            header('location: index.php');
+          if($resultado) {
+              $_SESSION['idCliente'] = $resultado['id_usuario'];
+              $_SESSION['id'] = $resultado['id_cliente'];
+              $_SESSION['activado'] = $resultado['activado_cliente'];
+              if($_SESSION['activado'] == '0') {
+                  header('location: index.php?cargar=desactivado');
+              }else {
+                  $mascotas = $controlador->cargarMascotas($_SESSION['id']);
+                  if($mascotas){
+                      header('location: index.php');
+                  }else {
+                      header('location: index.php?cargar=sinMascotas');
+                  }
+              }
 
-        }else {
-            $mensaje = 'Alguno de los datos ingresados no coincide o, no es un usuario registrado.';
-        }
+          }else {
+              $mensaje = 'Alguno de los datos ingresados no coincide o, no es un usuario registrado.';
+          }
+      }
     }
 
     if(!empty($mensaje)) {
@@ -29,8 +42,8 @@
     <br>
     <br>
     <br>
-    <input type="text" name="usuario" placeholder="Correo Electrónico" required>
-    <input type="password" name="contrasena" placeholder="Contraseña" required>
+    <input type="text" name="usuario" placeholder="Correo Electrónico*" required>
+    <input type="password" name="contrasena" placeholder="Contraseña*" required>
     <br>
     <br>
     <br>

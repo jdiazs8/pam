@@ -77,7 +77,8 @@
         public function cargarMascotas() {
             $sql = "SELECT * FROM tb_mascotas WHERE id_cliente = '{$this->id}'";
             $mascotas = $this->con->consultaRetorno($sql);
-            return $mascotas;
+            $row = mysqli_fetch_assoc($mascotas);
+            return $row;
 
         }
 

@@ -72,5 +72,13 @@
 
         }
 
+        public function cargarMascotas($id) {
+            $this->cliente->set('id', $id);
+            $resultador = $this->cliente->cargarMascotas();
+
+            return $resultado;
+
+        }
+
     }
 ?>

@@ -15,13 +15,17 @@
     -moz-box-shadow: 4px 4px 22px -2px rgba(0,0,0,0.72);
     box-shadow: 4px 4px 22px -2px rgba(0,0,0,0.72);
 }
-
+/*
 body {
     background-image: url("imagenes/fondo.png");
-}
+}*/
 
 .menu_bar {
 	display:none;
+}
+
+section {
+	padding: 2px;
 }
 
 form .check {
@@ -40,14 +44,10 @@ header {
 
 header nav {
 	background:#0489B1;
-	z-index:1000;
+	z-index: 1000;
 	max-width: 1000px;
 	width:95%;
 	margin:20px auto;
-}
-
-section {
-	padding: 2px;
 }
 
 .logo {
@@ -91,7 +91,7 @@ header nav ul li .children {
 	background: #0489B1;
 	position: absolute;
 	width: 150%;
-	z-index:1000;
+	z-index: 1000;
 }
 
 header nav ul li .children li {
@@ -139,11 +139,11 @@ form{
 	margin: 0 auto;
 	padding: 0 1%;
 	margin-bottom: 20px;
-	background-color: #FFF;
 }
 
 .boton {
     border-bottom: 0px solid #c00;
+
 }
 
 input, select {
@@ -170,12 +170,17 @@ input:focus {
     border:none;
 }
 
+a {
+		color: #0B2161;
+		text-decoration:  none;
+}
+
 form a {
-	color: #c0392b;
+	color: #F55C5C;
 }
 
 .formulario tr td a {
-    background: #c0392b;
+    background: #F55C5C;
     color: white;
     padding: 5px;
 		text-decoration: none;
@@ -189,11 +194,12 @@ form a {
     text-align: center;
 		width: 99%;
     max-width: 100%;
-    background: #c0392b;
+    background: #F55C5C;
 		margin-bottom: 20px;
 }
 
 @media screen and (max-width: 800px) {
+
 	body {
 		padding-top:80px;
 	}
@@ -224,7 +230,7 @@ form a {
 
 	header nav {
 		width: 60%;
-		height: calc(97% - 55px);
+		height: calc(96% - 55px);
 		position: fixed;
 		right:100%;
 		margin: 0;
@@ -239,7 +245,7 @@ form a {
 
 	header nav ul li a {
 		display: block;
-        font-size: 12px;
+    font-size: 14px;
 	}
 
 	header nav ul li:hover .children {
@@ -261,7 +267,6 @@ form a {
 
   footer {
     width: 100%;
-		z-index: 999;
 		margin: 0;
   }
 }
