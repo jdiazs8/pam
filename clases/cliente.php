@@ -2,7 +2,7 @@
     include_once('usuario.php');
 
     class Cliente extends Usuario {
-        private $mascotas = array();
+        private $mascotas;
 
         public function listar() {
             $sql = "SELECT * FROM tb_clientes";
@@ -27,6 +27,12 @@
                 $consulta = mysqli_fetch_assoc($this->con->consultaRetorno($sql3));
 
                 $carpeta = "usuarios/clientes/{$consulta['id_cliente']}/imagenes/fotos";
+                if(!file_exists($carpeta)) {
+                    mkdir($carpeta, 0777, true);
+
+                }
+
+                $carpeta = "usuarios/clientes/{$consulta['id_cliente']}/imagenes/mascotas";
                 if(!file_exists($carpeta)) {
                     mkdir($carpeta, 0777, true);
 

@@ -1,8 +1,8 @@
 <?php
     if(isset($_SESSION['idCliente'])) {
         $controlador = new ControladorCliente();
-        if(isset($_GET['id'])) {
-            $row = $controlador->ver($_GET['id']);
+        if(isset($_SESSION['id'])) {
+            $row = $controlador->ver($_SESSION['id']);
 
         }
 
@@ -20,7 +20,7 @@
 
                         if($archivo != "") {
 
-                            $ruta = "usuarios/clientes/{$_GET['id']}/imagenes/fotos/perfil.jpg";
+                            $ruta = "usuarios/clientes/{$_SESSION['id']}/imagenes/fotos/perfil.jpg";
                             if(copy($_FILES['foto']['tmp_name'], $ruta)) {
                                 $estatus = 'ok';
                             }
@@ -29,7 +29,7 @@
                             $ruta = $row['path_foto_cliente'];
                         }
 
-                        $controlador->editar($_GET['id'], $_POST['nombre'], $_POST['apellido'], $_POST['identificacion'], $_POST['correo'], $_POST['contrasena'], $_POST['direccion'], $_POST['telefono'], $_POST['celular'], $ruta, '1');
+                        $controlador->editar($_SESSION['id'], $_POST['nombre'], $_POST['apellido'], $_POST['identificacion'], $_POST['correo'], $_POST['contrasena'], $_POST['direccion'], $_POST['telefono'], $_POST['celular'], $ruta, '1');
                         header('location: index.php?cargar=verCliente&id='.$row['id_cliente']);
                     }
                 }

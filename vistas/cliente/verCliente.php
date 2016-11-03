@@ -1,8 +1,8 @@
 <?php
     if(isset($_SESSION['idCliente'])) {
         $controlador = new ControladorCliente();
-        if(isset($_GET['id'])) {
-            $row = $controlador->ver($_GET['id']);
+        if(isset($_SESSION['id'])) {
+            $row = $controlador->ver($_SESSION['id']);
 
         }
     }else {

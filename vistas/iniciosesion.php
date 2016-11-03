@@ -15,6 +15,7 @@
                   header('location: index.php?cargar=desactivado');
               }else {
                   $mascotas = $controlador->cargarMascotas($_SESSION['id']);
+
                   if($mascotas){
                       header('location: index.php');
                   }else {

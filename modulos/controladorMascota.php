@@ -15,14 +15,13 @@
 
         }
 
-        public function crear($nombre, $fechaNacimiento, $idEspecie, $idRaza, $idCliente) {
+        public function crear($nombre, $fechaNacimiento, $idCliente, $idEspecie, $idRaza) {
             $this->mascota->set('nombre', $nombre);
             $this->mascota->set('fechaNacimiento', $fechaNacimiento);
-            $this->mascota->set('idEspecie', $idEspecie);
-            $this->mascota->set('idRaza', $idRaza);
-            $this->mascota->set('contrasena', $contrasena);
             $this->mascota->set('activado', 1);
             $this->mascota->set('idCliente', $idCliente);
+            $this->mascota->set('idEspecie', $idEspecie);
+            $this->mascota->set('idRaza', $idRaza);
 
             $resultado = $this->mascota->crear();
 
@@ -37,8 +36,16 @@
 
         }
 
-        public function ver($id) {
-            $this->mascota->set('id', $id);
+        public function verTodos($id) {
+            $this->mascota->set('idCliente', $id);
+            $datos = $this->mascota->verTodos();
+
+            return $datos;
+
+        }
+
+        public function ver($idMascota) {
+            $this->mascota->set('id', $idMascota);
             $datos = $this->mascota->ver();
 
             return $datos;
@@ -62,19 +69,10 @@
 
         }
 
-        public function inicioSesion($usuario, $contrasena) {
-            $this->mascota->set('correo', $usuario);
-            $this->mascota->set('contrasena', md5($contrasena));
-
-            $resultado = $this->mascota->inicioSesion();
-
-            return $resultado;
-
-        }
-
-        public function cargarMascotas($id) {
+        public function verHistorial($id) {
             $this->mascota->set('id', $id);
-            $resultador = $this->mascota->cargarMascotas();
+
+            $resultado = $this->mascota->verHistorial();
 
             return $resultado;
 

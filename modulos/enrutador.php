@@ -7,19 +7,19 @@
                     break;
 
                 case 'crearCliente':
-                    include_once('vistas/'.$vista.'.php');
+                    include_once('vistas/cliente/'.$vista.'.php');
                     break;
 
                 case 'verCliente':
-                    include_once('vistas/'.$vista.'.php');
+                    include_once('vistas/cliente/'.$vista.'.php');
                     break;
 
                 case 'editarCliente':
-                    include_once('vistas/'.$vista.'.php');
+                    include_once('vistas/cliente/'.$vista.'.php');
                     break;
 
                 case 'desactivarCliente':
-                    include_once('vistas/'.$vista.'.php');
+                    include_once('vistas/cliente/'.$vista.'.php');
                     break;
 
                 case 'cerrarSesion':
@@ -27,11 +27,19 @@
                     break;
 
                 case 'sinMascotas':
-                    include_once('vistas/'.$vista.'.php');
+                    include_once('vistas/mascota/'.$vista.'.php');
                     break;
 
                 case 'crearMascota':
-                    include_once('vistas/'.$vista.'.php');
+                    include_once('vistas/mascota/'.$vista.'.php');
+                    break;
+
+                case 'verMascota':
+                    include_once('vistas/mascota/'.$vista.'.php');
+                    break;
+
+                case 'misMascotas':
+                    include_once('vistas/mascota/'.$vista.'.php');
                     break;
 
                 case 'inicioSesion':

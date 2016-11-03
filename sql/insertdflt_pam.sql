@@ -271,6 +271,7 @@ INSERT INTO tb_razas(nombre_raza, activado_raza, fecha_registro_raza, id_especie
 
 INSERT INTO tb_razas(nombre_raza, activado_raza, fecha_registro_raza, id_especie) VALUES('Otro', '1', NOW(), '3');
 
+SELECT * FROM tb_mascotas;
 SELECT * FROM tb_clientes;
 SELECT * FROM tb_especies;
 SELECT * FROM tb_razas;

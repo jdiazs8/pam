@@ -31,7 +31,7 @@ CREATE TABLE tb_veterinarios (
     direccion_veterinario VARCHAR(100) NOT NULL,
     telefono_veterinario VARCHAR(11),
     celular_veterinario VARCHAR(11) NOT NULL,
-    path_foto_veterinario VARCHAR(256) NOT NULL DEFAULT 'imagenes/deafultPerfil.jpg',
+    path_foto_veterinario VARCHAR(256) NOT NULL DEFAULT 'imagenes/defaultPerfil.jpg',
     activado_veterinario BOOLEAN NOT NULL,
     fecha_registro_veterinario DATETIME NOT NULL,
     fecha_ultm_veterinario TIMESTAMP NOT NULL,
@@ -44,12 +44,13 @@ CREATE TABLE tb_mascotas (
     identificacion_mascota VARCHAR(20),
     fecha_nacimiento_mascota DATE NOT NULL,
     direccion_mascota VARCHAR(100),
-    path_foto_mascota VARCHAR(256) NOT NULL DEFAULT 'imagenes/deafultMascota.jpg',
-    path_foto_cvacunas VARCHAR(256) NOT NULL DEFAULT 'imagenes/deafultVacunas.jpg',
+    path_foto_mascota VARCHAR(256) NOT NULL DEFAULT 'imagenes/defaultMascota.jpg',
+    path_foto_cvacunas VARCHAR(256) NOT NULL DEFAULT 'imagenes/defaultVacunas.jpg',
     activado_mascota BOOLEAN NOT NULL,
     fecha_registro_mascota DATETIME NOT NULL,
     fecha_ultm_mascota TIMESTAMP NOT NULL,
     id_cliente INT(10) NOT NULL,
+    /*id_veterinario INT(10) NOT NULL, AGREGAR EN LA PROXIMA EJECUCIÓN*/
     id_especie INT(10) NOT NULL,
     id_raza INT(10) NOT NULL
 );

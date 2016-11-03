@@ -198,6 +198,11 @@ form a {
 		margin-bottom: 20px;
 }
 
+.firma {
+	font-size: 30px;
+	font-family: Brush Script MT;
+}
+
 @media screen and (max-width: 800px) {
 
 	body {

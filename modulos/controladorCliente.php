@@ -74,7 +74,7 @@
 
         public function cargarMascotas($id) {
             $this->cliente->set('id', $id);
-            $resultador = $this->cliente->cargarMascotas();
+            $resultado = $this->cliente->cargarMascotas();
 
             return $resultado;
 
