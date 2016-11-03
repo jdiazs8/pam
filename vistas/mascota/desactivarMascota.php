@@ -1,6 +1,6 @@
 <?php
     if(isset($_SESSION['idCliente'])) {
-        $controlador = new ControladorCliente();
+        $controlador = new ControladorMascota();
         if(isset($_GET['id'])) {
             $row = $controlador->ver($_GET['id']);
 
@@ -9,11 +9,11 @@
 
         if(isset($_POST['desactivar'])) {
             $controlador->eliminar($_GET['id']);
-                header('location: index.php?cargar=cerrarSesion');
+            header('location: index.php?cargar=misMascotas&id='.$_SESSION['id']);
 
         }
 
-        $mensaje = '¿Realmente quieres desactivar tu cuenta?';
+        $mensaje = "¿Realmente quieres eliminar la información de {$row['nombre_mascota']}?";
 
     }else {
         header('location: index.php');
@@ -28,5 +28,5 @@
         }
 
     ?>
-    <input type="submit" class="boton" name="desactivar" value="Desactivar">
+    <input type="submit" class="boton" name="desactivar" value="Eliminar">
 </form>

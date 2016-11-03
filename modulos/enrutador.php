@@ -42,6 +42,18 @@
                     include_once('vistas/mascota/'.$vista.'.php');
                     break;
 
+                case 'editarMascota':
+                    include_once('vistas/mascota/'.$vista.'.php');
+                    break;
+
+                case 'desactivarMascota':
+                    include_once('vistas/mascota/'.$vista.'.php');
+                    break;
+
+                case 'carnetVacunas':
+                    include_once('vistas/mascota/'.$vista.'.php');
+                    break;
+
                 case 'inicioSesion':
                     include_once('vistas/'.$vista.'.php');
                     break;

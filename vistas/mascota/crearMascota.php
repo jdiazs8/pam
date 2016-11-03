@@ -1,41 +1,21 @@
 <?php
-    $controlador = new ControladorMascota();
+    if(isset($_SESSION['idCliente'])) {
+        $controlador = new ControladorMascota();
 
-            if(isset($_POST['guardar'])) {
-                if(empty($_POST['nombre']) || empty($_POST['fechaNacimiento']) || empty($_POST['especie']) || empty($_POST['raza'])){
-                    $mensaje = 'Lo campos marcados con * deben estar diligenciados';
-                }else {
-                    /*$archivo = $_FILES["foto"]['name'];
+        if(isset($_POST['guardar'])) {
+            if(empty($_POST['nombre']) || empty($_POST['fechaNacimiento']) || empty($_POST['especie']) || empty($_POST['raza'])){
+                $mensaje = 'Lo campos marcados con * deben estar diligenciados';
+            }else {
+                $resultado = $controlador->crear($_POST['nombre'], $_POST['fechaNacimiento'], $_SESSION['id'], $_POST['especie'], $_POST['raza']);
 
-                    if($archivo != "") {
-                        $ruta = "usuarios/clientes/{$_SESSION['id']}/imagenes/mascotas/{$_POST['nombre']}.jpg";
-                        if(copy($_FILES['foto']['tmp_name'], $ruta)) {
-                            $estatus = 'ok';
-                        }
-
-                    }else {
-                        $ruta = $row['path_foto_mascota'];
-                    }*/
-
-                    /*$archivo2 = $_FILES["vacunas"]['name'];
-                    /*
-                    if($archivo2 != "") {
-                        $ruta2 = "usuarios/clientes/{$_SESSION['id']}/imagenes/mascotas/vacunas{$_POST['nombre']}.jpg";
-                        if(copy($_FILES['vacunas']['tmp_name'], $ruta2)) {
-                            $estatus = 'ok';
-                        }
-
-                    }else {
-                        $ruta2 = $row['path_foto_mascota'];
-                    }*/
-
-                    $resultado = $controlador->crear($_POST['nombre'], $_POST['fechaNacimiento'], $_SESSION['id'], $_POST['especie'], $_POST['raza']);
-
-                    if($resultado) {
-                        $mensaje = 'Se ha registrado tu mascota.';
-                    }
+                if($resultado) {
+                    $mensaje = 'Se ha registrado tu mascota.';
                 }
             }
+        }
+    }else {
+        header('location: index.php');
+    }
 
 ?>
 
@@ -49,9 +29,9 @@
 
     ?>
     <h2>Registro de usuario</h2>
-    <input type="text" name="nombre" maxlength="29" placeholder="Nombre*" required>
+    <input type="text" name="nombre" maxlength="50" placeholder="Nombre*" required>
     <br>
-    <label>Fecha nacimiento o adopción</label>
+    <label>Fecha nacimiento o adopción*</label>
     <br>
     <input type="date" name="fechaNacimiento" required>
     <br>

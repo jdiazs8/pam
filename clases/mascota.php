@@ -55,7 +55,7 @@
         }
 
         public function eliminar() {
-            $sql = "UPDATE tb_mascotas SET activado_mascota = '{$this->activado}', WHERE id_mascota = '{$this->id}'";
+            $sql = "UPDATE tb_mascotas SET activado_mascota = '{$this->activado}' WHERE id_mascota = '{$this->id}'";
             $this->con->consultaSimple($sql);
 
         }
@@ -94,16 +94,21 @@
 
         public function editar() {
             $sql = "UPDATE tb_mascotas SET nombre_mascota = '{$this->nombre}', identificacion_mascota = '{$this->identificacion}', fecha_nacimiento_mascota = '{$this->fechaNacimiento}', direccion_mascota = '{$this->direccion}', path_foto_mascota = '{$this->pathFoto}', path_foto_cvacunas = '{$this->pathVacuna}', activado_mascota = '{$this->activado}', id_cliente = '{$this->idCliente}', id_especie = '{$this->idEspecie}', id_raza = '{$this->idRaza}' WHERE id_mascota = '{$this->id}'";
-
+            $resultado = $this->con->consultaRetorno($sql);
         }
 
         public function verHistorial() {
-          $sql = "SELECT * FROM tb_visitas_veterinarias h, tb_veterinarias va, tb_veterinarios vo WHERE id_mascota = '{$this->id}' AND h.id_veterinaria = va.id_veterinaria AND h.id_veterinario = vo.id_veterinario";
+          $sql = "SELECT * FROM tb_visitas_veterinarias h, tb_veterinarias va, tb_veterinarios vo WHERE id_mascota = '{$this->id}' AND h.id_veterinaria = va.id_veterinaria AND h.id_veterinario = vo.id_veterinario ORDER BY fecha_visita_veterinaria DESC";
           $resultado = $this->con->consultaRetorno($sql);
 
           return $resultado;
+        }
 
+        public function verVacunas() {
+          $sql = "SELECT * FROM tb_registros_vacunas WHERE id_mascota = {$this->id}";
+          $resultado = $this->con->consultaRetorno($sql);
 
+          return $resultado;
         }
 
     }

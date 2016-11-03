@@ -52,18 +52,18 @@
 
         }
 
-        public function editar($id, $nombre, $apellido, $identificacion, $correo, $contrasena, $direccion, $telefono, $celular, $pathFoto, $activado) {
+        public function editar($id, $nombre, $identificacion, $fechaNacimiento, $direccion, $pathFoto, $pathVacuna, $idCliente, $idEspecie, $idRaza) {
             $this->mascota->set('id', $id);
             $this->mascota->set('nombre', $nombre);
-            $this->mascota->set('apellido', $apellido);
             $this->mascota->set('identificacion', $identificacion);
-            $this->mascota->set('correo', $correo);
-            $this->mascota->set('contrasena', $contrasena);
+            $this->mascota->set('fechaNacimiento', $fechaNacimiento);
             $this->mascota->set('direccion', $direccion);
-            $this->mascota->set('telefono', $telefono);
-            $this->mascota->set('celular', $celular);
             $this->mascota->set('pathFoto', $pathFoto);
-            $this->mascota->set('activado', $activado);
+            $this->mascota->set('pathVacuna', $pathVacuna);
+            $this->mascota->set('idCliente', $idCliente);
+            $this->mascota->set('idEspecie', $idEspecie);
+            $this->mascota->set('idRaza', $idRaza);
+            $this->mascota->set('activado', '1');
 
             $this->mascota->editar();
 
@@ -76,6 +76,14 @@
 
             return $resultado;
 
+        }
+
+        public function verVacunas($id) {
+          $this->mascota->set('id', $id);
+
+          $resultado = $this->mascota->verVacunas();
+
+          return $resultado;
         }
 
     }
