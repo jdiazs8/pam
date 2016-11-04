@@ -1,6 +1,6 @@
 <?php
-    if(isset($_SESSION['idVeterinario'])) {
-        $controlador = new ControladorVeterinario();
+    if(isset($_SESSION['idCliente'])) {
+        $controlador = new ControladorCliente();
         if(isset($_SESSION['id'])) {
             $row = $controlador->ver($_SESSION['id']);
 
@@ -11,26 +11,11 @@
                 $mensaje = 'Las contraseñas deben coincidir.';
             }else{
                 if(isset($_POST['actualizar'])) {
-                    if(empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['identificacion']) || empty($_POST['correo']) || empty($_POST['contrasena']) || empty($_POST['contrasena2'] || empty($_POST['acuerdo']))){
+                    if(empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['identificacion']) || empty($_POST['correo']) || empty($_POST['contrasena']) || empty($_POST['contrasena2'])){
                         $mensaje = 'Lo campos marcados con * deben estar diligenciados';
                     }else {
-                        $tamano = $_FILES["archivo"]['size'];
-                        $tipo = $_FILES["archivo"]['type'];
-                        $archivo = $_FILES["foto"]['name'];
-
-                        if($archivo != "") {
-
-                            $ruta = "usuarios/veterinarios/{$_SESSION['id']}/imagenes/fotos/perfil.jpg";
-                            if(copy($_FILES['foto']['tmp_name'], $ruta)) {
-                                $estatus = 'ok';
-                            }
-
-                        }else {
-                            $ruta = $row['path_foto_veterinario'];
-                        }
-
-                        $controlador->editar($_SESSION['id'], $_POST['nombre'], $_POST['apellido'], $_POST['identificacion'], $_POST['correo'], $_POST['contrasena'], $_POST['direccion'], $_POST['telefono'], $_POST['celular'], $ruta, '1');
-                        header('location: index.php?cargar=verVeterinario&id='.$row['id_veterinario']);
+                        $controlador->editar($_SESSION['id'], $_POST['nombre'], $_POST['apellido'], $_POST['identificacion'], $_POST['correo'], $_POST['contrasena'], $_POST['direccion'], $_POST['telefono'], $_POST['celular'], $_FILES['foto']['name'], $_FILES['foto']['tmp_name'], '1');
+                        header('location: index.php?cargar=verCliente&id='.$row['id_cliente']);
                     }
                 }
             }
@@ -54,20 +39,20 @@
         }
 
     ?>
-    <h2>Actualizar Datos veterinario</h2>
-    <input type="text" name="nombre" maxlength="29" placeholder="Nombre*" value="<?php echo $row['nombre_veterinario'] ?>" required>
+    <h2>Actualizar Datos Cliente</h2>
+    <input type="text" name="nombre" maxlength="29" placeholder="Nombre*" value="<?php echo $row['nombre_cliente'] ?>" required>
     <br>
-    <input type="text" name="apellido" maxlength="29" placeholder="Apellido*" value="<?php echo $row['apellido_veterinario'] ?>" required>
+    <input type="text" name="apellido" maxlength="29" placeholder="Apellido*" value="<?php echo $row['apellido_cliente'] ?>" required>
     <br>
-    <input type="text" name="identificacion" maxlength="10" placeholder="identificacion*" value="<?php echo $row['identificacion_veterinario'] ?>" required>
+    <input type="text" name="identificacion" maxlength="10" placeholder="identificacion*" value="<?php echo $row['identificacion_cliente'] ?>" required>
     <br>
-    <input type="email" name="correo" maxlength="99" placeholder="Correo electrónico" value="<?php echo $row['correo_veterinario'] ?>" required>
+    <input type="email" name="correo" maxlength="99" placeholder="Correo electrónico" value="<?php echo $row['correo_cliente'] ?>" required>
     <br>
-    <input type="text" name="direccion" maxlength="99" placeholder="Direccion de residencia" value="<?php echo $row['direccion_veterinario'] ?>" >
+    <input type="text" name="direccion" maxlength="99" placeholder="Direccion de residencia" value="<?php echo $row['direccion_cliente'] ?>" >
     <br>
-    <input type="text" name="telefono" maxlength="10" placeholder="No.teléfono fijo" value="<?php echo $row['telefono_veterinario'] ?>" >
+    <input type="text" name="telefono" maxlength="10" placeholder="No.teléfono fijo" value="<?php echo $row['telefono_cliente'] ?>" >
     <br>
-    <input type="text" name="celular" maxlength="10" placeholder="No. celular" value="<?php echo $row['celular_veterinario'] ?>" >
+    <input type="text" name="celular" maxlength="10" placeholder="No. celular" value="<?php echo $row['celular_cliente'] ?>" >
     <br>
     <label>Foto</label>
     <input type="file" name="foto" >

@@ -1,6 +1,6 @@
 <?php
-    if(isset($_SESSION['idVeterinario'])) {
-        $controlador = new ControladorVeterinario();
+    if(isset($_SESSION['idCliente'])) {
+        $controlador = new ControladorCliente();
         if(isset($_GET['id'])) {
             $row = $controlador->ver($_GET['id']);
 

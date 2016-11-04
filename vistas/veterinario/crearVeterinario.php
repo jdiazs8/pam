@@ -1,5 +1,5 @@
 <?php
-    $controlador = new ControladorVeterinario();
+    $controlador = new ControladorCliente();
 
     if(isset($_POST['contrasena']) && isset($_POST['contrasena2'])) {
         if(strcmp($_POST['contrasena'], $_POST['contrasena2'])) {

@@ -1,84 +1,81 @@
 <?php
-    include_once('clases/veterinario.php');
+    include_once('clases/cliente.php');
 
-    class ControladorVeterinario {
-        private $veterinario;
+    class ControladorCliente {
+        private $cliente;
 
         public function __construct() {
-            $this->veterinario = new Veterinario();
+            $this->cliente = new Cliente();
 
         }
 
         public function index() {
-            $resultado = $this->veterinario->listar();
+            $resultado = $this->cliente->listar();
             return $resultado;
 
         }
 
         public function crear($nombre, $apellido, $identificacion, $correo, $contrasena) {
-            $this->veterinario->set('nombre', $nombre);
-            $this->veterinario->set('apellido', $apellido);
-            $this->veterinario->set('identificacion', $identificacion);
-            $this->veterinario->set('correo', $correo);
-            $this->veterinario->set('contrasena', $contrasena);
-            $this->veterinario->set('activado', 1);
-            $this->veterinario->set('idUsuario', 2);
+            $this->cliente->set('nombre', $nombre);
+            $this->cliente->set('apellido', $apellido);
+            $this->cliente->set('identificacion', $identificacion);
+            $this->cliente->set('correo', $correo);
+            $this->cliente->set('contrasena', $contrasena);
+            $this->cliente->set('activado', 1);
+            $this->cliente->set('idUsuario', 2);
 
-            $resultado = $this->veterinario->crear();
+            $resultado = $this->cliente->crear();
 
             return $resultado;
 
         }
 
         public function eliminar($id) {
-            $this->veterinario->set('id', $id);
-            $this->veterinario->set('activado', '0');
-            $this->veterinario->eliminar();
+            $this->cliente->set('id', $id);
+            $this->cliente->set('activado', '0');
+            $this->cliente->eliminar();
 
         }
 
         public function ver($id) {
-            $this->veterinario->set('id', $id);
-            $datos = $this->veterinario->ver();
+            $this->cliente->set('id', $id);
+            $datos = $this->cliente->ver();
 
             return $datos;
 
         }
 
-        public function editar($id, $nombre, $apellido, $identificacion, $correo, $contrasena, $direccion, $telefono, $celular, $pathFoto, $activado) {
-            $this->veterinario->set('id', $id);
-            $this->veterinario->set('nombre', $nombre);
-            $this->veterinario->set('apellido', $apellido);
-            $this->veterinario->set('identificacion', $identificacion);
-            $this->veterinario->set('correo', $correo);
-            $this->veterinario->set('contrasena', $contrasena);
-            $this->veterinario->set('direccion', $direccion);
-            $this->veterinario->set('telefono', $telefono);
-            $this->veterinario->set('celular', $celular);
-            $this->veterinario->set('pathFoto', $pathFoto);
-            $this->veterinario->set('activado', $activado);
+        public function editar($id, $nombre, $apellido, $identificacion, $correo, $contrasena, $direccion, $telefono, $celular, $pathFoto, $estFoto, $activado) {
+            $this->cliente->set('id', $id);
+            $this->cliente->set('nombre', $nombre);
+            $this->cliente->set('apellido', $apellido);
+            $this->cliente->set('identificacion', $identificacion);
+            $this->cliente->set('correo', $correo);
+            $this->cliente->set('contrasena', $contrasena);
+            $this->cliente->set('direccion', $direccion);
+            $this->cliente->set('telefono', $telefono);
+            $this->cliente->set('celular', $celular);
+            $this->cliente->set('pathFoto', $pathFoto);
+            $this->cliente->set('activado', $activado);
 
-            $this->veterinario->editar();
+            $this->cliente->editar($estFoto);
 
         }
 
         public function inicioSesion($usuario, $contrasena) {
-            $this->veterinario->set('correo', $usuario);
-            $this->veterinario->set('contrasena', md5($contrasena));
+            $this->cliente->set('correo', $usuario);
+            $this->cliente->set('contrasena', md5($contrasena));
 
-            $resultado = $this->veterinario->inicioSesion();
-
-            return $resultado;
-
-        }
-
-        public function cargarMascotas($id) {
-            $this->veterinario->set('id', $id);
-            $resultado = $this->veterinario->cargarMascotas();
+            $resultado = $this->cliente->inicioSesion();
 
             return $resultado;
 
         }
 
+        public function misMascotas($id) {
+            $this->cliente->set('id', $id);
+            $resultado = $this->cliente->misMascotas();
+            return $resultado;
+        }
     }
 ?>
