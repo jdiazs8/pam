@@ -14,7 +14,7 @@
         private $idEspecie;
         private $idRaza;
         private $historial;
-        private $vacunas;
+        private $vacuna;
 
         public function __construct() {
             $this->con = new Conexion();
@@ -93,16 +93,16 @@
 
         public function verHistorial() {
           $sql = "SELECT * FROM tb_visitas_veterinarias h, tb_veterinarias va, tb_veterinarios vo WHERE id_mascota = '{$this->id}' AND h.id_veterinaria = va.id_veterinaria AND h.id_veterinario = vo.id_veterinario ORDER BY fecha_visita_veterinaria DESC";
-          $resultado = $this->con->consultaRetorno($sql);
+          $historial = $this->con->consultaRetorno($sql);
 
-          return $resultado;
+          return $historial;
         }
 
         public function verVacunas() {
           $sql = "SELECT * FROM tb_registros_vacunas WHERE id_mascota = {$this->id}";
-          $resultado = $this->con->consultaRetorno($sql);
+          $vacuna = $this->con->consultaRetorno($sql);
 
-          return $resultado;
+          return $vacuna;
         }
 
     }
