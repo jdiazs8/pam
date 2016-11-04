@@ -11,25 +11,12 @@
                 $mensaje = 'Las contraseñas deben coincidir.';
             }else{
                 if(isset($_POST['actualizar'])) {
-                    if(empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['identificacion']) || empty($_POST['correo']) || empty($_POST['contrasena']) || empty($_POST['contrasena2'] || empty($_POST['acuerdo']))){
+                    if(empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['identificacion']) || empty($_POST['correo']) || empty($_POST['contrasena']) || empty($_POST['contrasena2'])){
                         $mensaje = 'Lo campos marcados con * deben estar diligenciados';
                     }else {
-                        $tamano = $_FILES["archivo"]['size'];
-                        $tipo = $_FILES["archivo"]['type'];
                         $archivo = $_FILES["foto"]['name'];
 
-                        if($archivo != "") {
-
-                            $ruta = "usuarios/clientes/{$_SESSION['id']}/imagenes/fotos/perfil.jpg";
-                            if(copy($_FILES['foto']['tmp_name'], $ruta)) {
-                                $estatus = 'ok';
-                            }
-
-                        }else {
-                            $ruta = $row['path_foto_cliente'];
-                        }
-
-                        $controlador->editar($_SESSION['id'], $_POST['nombre'], $_POST['apellido'], $_POST['identificacion'], $_POST['correo'], $_POST['contrasena'], $_POST['direccion'], $_POST['telefono'], $_POST['celular'], $ruta, '1');
+                        $controlador->editar($_SESSION['id'], $_POST['nombre'], $_POST['apellido'], $_POST['identificacion'], $_POST['correo'], $_POST['contrasena'], $_POST['direccion'], $_POST['telefono'], $_POST['celular'], $archivo, '1');
                         header('location: index.php?cargar=verCliente&id='.$row['id_cliente']);
                     }
                 }

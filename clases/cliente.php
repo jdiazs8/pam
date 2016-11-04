@@ -76,7 +76,16 @@
         }
 
         public function editar() {
-            $sql = "UPDATE tb_clientes SET nombre_cliente = '{$this->nombre}', apellido_cliente = '{$this->apellido}', identificacion_cliente = '{$this->identificacion}', correo_cliente = '{$this->correo}', contrasena_cliente = md5('{$this->contrasena}'), direccion_cliente = '{$this->direccion}', telefono_cliente = '{$this->telefono}', celular_cliente = '{$this->celular}', path_foto_cliente = '{$this->pathFoto}', activado_cliente = '{$this->activado}' WHERE id_cliente = '{$this->id}'";
+            if(!empty($pathFoto)) {
+                $ruta = "usuarios/clientes/{$_SESSION['id']}/imagenes/fotos/perfil.jpg";
+                if(copy($_FILES['foto']['tmp_name'], $ruta)) {
+                    $estatus = 'ok';
+                }
+            }else {
+                $ruta = $row['path_foto_cliente'];
+            }
+
+            $sql = "UPDATE tb_clientes SET nombre_cliente = '{$this->nombre}', apellido_cliente = '{$this->apellido}', identificacion_cliente = '{$this->identificacion}', correo_cliente = '{$this->correo}', contrasena_cliente = md5('{$this->contrasena}'), direccion_cliente = '{$this->direccion}', telefono_cliente = '{$this->telefono}', celular_cliente = '{$this->celular}', path_foto_cliente = '{$ruta}', activado_cliente = '{$this->activado}' WHERE id_cliente = '{$this->id}'";
             $this->con->consultaSimple($sql);
         }
 
