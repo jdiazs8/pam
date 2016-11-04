@@ -9,31 +9,7 @@
             if(empty($_POST['nombre']) || empty($_POST['fechaNacimiento']) || empty($_POST['especie']) || empty($_POST['raza'])){
                 $mensaje = 'Lo campos marcados con * deben estar diligenciados';
             }else {
-                $archivo = $_FILES["foto"]['name'];
-
-                if($archivo != "") {
-                    $ruta = "usuarios/clientes/{$_SESSION['id']}/imagenes/mascotas/{$_GET['id']}/{$_GET['id']}.jpg";
-                    if(copy($_FILES['foto']['tmp_name'], $ruta)) {
-                        $estatus = 'ok';
-                    }
-
-                }else {
-                    $ruta = $row['path_foto_mascota'];
-                }
-
-                $archivo2 = $_FILES["vacunas"]['name'];
-
-                if($archivo2 != "") {
-                    $ruta2 = "usuarios/clientes/{$_SESSION['id']}/imagenes/mascotas/{$_GET['id']}/vacunas{$_GET['id']}.jpg";
-                    if(copy($_FILES['vacunas']['tmp_name'], $ruta2)) {
-                        $estatus = 'ok';
-                    }
-
-                }else {
-                    $ruta2 = $row['path_foto_mascota'];
-                }
-
-                $controlador->editar($_GET['id'], $_POST['nombre'], $_POST['identificacion'], $_POST['fechaNacimiento'], $_POST['direccion'], $ruta, $ruta2, $_SESSION['id'], $_POST['especie'], $_POST['raza']);
+                $controlador->editar($_GET['id'], $_POST['nombre'], $_POST['identificacion'], $_POST['fechaNacimiento'], $_POST['direccion'], $_FILES["foto"]['name'], $_FILES["foto"]['tmp_name'], $_FILES["vacunas"]['name'], $_FILES["vacunas"]['tmp_name'], $_SESSION['id'], $_POST['especie'], $_POST['raza']);
                 header('location: index.php?cargar=misMascotas&id='.$_SESSION['id']);
             }
         }
@@ -76,5 +52,5 @@
     <input type="file" name="foto">
     <label>Foto Vacunas</label>
     <input type="file" name="vacunas">
-    <input type="submit" class="boton" name="guardar" value="Registrar mascota">
+    <input type="submit" class="boton" name="guardar" value="Actualizar mascota">
 </form>

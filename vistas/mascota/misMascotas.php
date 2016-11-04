@@ -2,7 +2,7 @@
     if(isset($_SESSION['idCliente'])) {
         $controlador = new ControladorCliente();
         if(isset($_SESSION['id'])) {
-            $resultado = $controlador->listarMascotas($_SESSION['id']);
+            $resultado = $controlador->misMascotas($_SESSION['id']);
         }
     }else {
         header('location: index.php');

@@ -45,7 +45,7 @@
 
         }
 
-        public function editar($id, $nombre, $apellido, $identificacion, $correo, $contrasena, $direccion, $telefono, $celular, $pathFoto, $activado) {
+        public function editar($id, $nombre, $apellido, $identificacion, $correo, $contrasena, $direccion, $telefono, $celular, $pathFoto, $estFoto, $activado) {
             $this->cliente->set('id', $id);
             $this->cliente->set('nombre', $nombre);
             $this->cliente->set('apellido', $apellido);
@@ -58,7 +58,7 @@
             $this->cliente->set('pathFoto', $pathFoto);
             $this->cliente->set('activado', $activado);
 
-            $this->cliente->editar();
+            $this->cliente->editar($estFoto);
 
         }
 
@@ -72,12 +72,10 @@
 
         }
 
-        public function listarMascotas($id) {
-            $this->cliente->set('idCliente', $id);
-            $datos = $this->cliente->listarMascotas();
-
-            return $datos;
+        public function misMascotas($id) {
+            $this->cliente->set('id', $id);
+            $resultado = $this->cliente->misMascotas();
+            return $resultado;
         }
-
     }
 ?>

@@ -75,31 +75,29 @@
 
         }
 
-        public function editar() {
-            if(!empty($pathFoto)) {
-                $ruta = "usuarios/clientes/{$_SESSION['id']}/imagenes/fotos/perfil.jpg";
-                if(copy($_FILES['foto']['tmp_name'], $ruta)) {
-                    $estatus = 'ok';
-                }
-            }else {
-                $ruta = $row['path_foto_cliente'];
-            }
+        public function editar($estFoto) {
+          if(empty($estFoto)){
+              $sql = "SELECT path_foto_cliente FROM tb_clientes WHERE id_cliente = {$this->id} LIMIT 1";
+              $row = mysqli_fetch_assoc($this->con->consultaRetorno($sql));
+              $ruta = $row['path_foto_cliente'];
+          }else {
+              $ruta = "usuarios/clientes/{$this->id}/imagenes/fotos/perfil.jpg";
+              copy($_FILES['foto']['tmp_name'], $ruta);
+          }
 
-            $sql = "UPDATE tb_clientes SET nombre_cliente = '{$this->nombre}', apellido_cliente = '{$this->apellido}', identificacion_cliente = '{$this->identificacion}', correo_cliente = '{$this->correo}', contrasena_cliente = md5('{$this->contrasena}'), direccion_cliente = '{$this->direccion}', telefono_cliente = '{$this->telefono}', celular_cliente = '{$this->celular}', path_foto_cliente = '{$ruta}', activado_cliente = '{$this->activado}' WHERE id_cliente = '{$this->id}'";
-            $this->con->consultaSimple($sql);
+          $sql = "UPDATE tb_clientes SET nombre_cliente = '{$this->nombre}', apellido_cliente = '{$this->apellido}', identificacion_cliente = '{$this->identificacion}', correo_cliente = '{$this->correo}', contrasena_cliente = md5('{$this->contrasena}'), direccion_cliente = '{$this->direccion}', telefono_cliente = '{$this->telefono}', celular_cliente = '{$this->celular}', path_foto_cliente = '{$ruta}', activado_cliente = '{$this->activado}' WHERE id_cliente = '{$this->id}'";
+          $this->con->consultaSimple($sql);
         }
 
-        public function listarMascotas() {
-          $sql = "SELECT * FROM tb_mascotas WHERE id_cliente = {$this->idCliente} AND activado_mascota = '1'";
-          $this->mascotas = $this->con->consultaRetorno($sql);
-
-          return $this->mascotas;
-
+        public function misMascotas() {
+              $controlador = new ControladorMascota();
+              $resultado = $this->mascotas= $controlador->misMascotas($this->id);
+              return $resultado;
         }
 
 
         public function inicioSesion() {
-            $sql = "SELECT * FROM tb_clientes WHERE correo_cliente = '{$this->correo}' and contrasena_cliente = '{$this->contrasena}'";
+            $sql = "SELECT * FROM tb_clientes WHERE correo_cliente = '{$this->correo}' and contrasena_cliente = '{$this->contrasena}' LIMIT 1";
             $resultado = $this->con->consultaRetorno($sql);
 
             $num = mysqli_num_rows($resultado);

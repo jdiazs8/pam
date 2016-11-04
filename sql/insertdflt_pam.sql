@@ -284,7 +284,7 @@ insert into tb_registros_vacunas(laboratorio_rvacuna, cepa_rvacuna, lote_rvacuna
 
 DELETE FROM tb_clientes WHERE id_cliente = 2;
 
-UPDATE tb_clientes SET contrasena_cliente = md5('ValentinA06') WHERE id_cliente = 1;
+UPDATE tb_clientes SET contrasena_cliente = md5('1') WHERE id_cliente = 1;
 
 UPDATE tb_mascotas SET nombre_mascota = 'matias', identificacion_mascota = '12345', fecha_nacimiento_mascota = NOW(), direccion_mascota = '123', path_foto_mascota = '///', path_foto_cvacunas = '///', activado_mascota = '1', id_cliente = '1', id_especie = '1', id_raza = '1' WHERE id_mascota = '1';
 

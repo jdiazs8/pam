@@ -5,7 +5,7 @@
         private $mascota;
 
         public function __construct() {
-            $this->mascota = new mascota();
+            $this->mascota = new Mascota();
 
         }
 
@@ -44,7 +44,7 @@
 
         }
 
-        public function editar($id, $nombre, $identificacion, $fechaNacimiento, $direccion, $pathFoto, $pathVacuna, $idCliente, $idEspecie, $idRaza) {
+        public function editar($id, $nombre, $identificacion, $fechaNacimiento, $direccion, $pathFoto, $estFoto, $pathVacuna, $estVacuna, $idCliente, $idEspecie, $idRaza) {
             $this->mascota->set('id', $id);
             $this->mascota->set('nombre', $nombre);
             $this->mascota->set('identificacion', $identificacion);
@@ -57,7 +57,7 @@
             $this->mascota->set('idRaza', $idRaza);
             $this->mascota->set('activado', '1');
 
-            $this->mascota->editar();
+            $this->mascota->editar($estFoto, $estVacuna);
 
         }
 
@@ -78,5 +78,10 @@
           return $resultado;
         }
 
+        public function misMascotas($id) {
+            $this->mascota->set('idCliente', $id);
+            $resultado = $this->mascota->misMascotas();
+            return $resultado;
+        }
     }
 ?>

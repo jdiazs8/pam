@@ -37,7 +37,7 @@
         abstract protected function crear();
         abstract protected function eliminar();
         abstract protected function ver();
-        abstract protected function editar();
+        abstract protected function editar($estFoto);
 
     }
 ?>

@@ -86,8 +86,26 @@
 
         }
 
-        public function editar() {
-            $sql = "UPDATE tb_mascotas SET nombre_mascota = '{$this->nombre}', identificacion_mascota = '{$this->identificacion}', fecha_nacimiento_mascota = '{$this->fechaNacimiento}', direccion_mascota = '{$this->direccion}', path_foto_mascota = '{$this->pathFoto}', path_foto_cvacunas = '{$this->pathVacuna}', activado_mascota = '{$this->activado}', id_cliente = '{$this->idCliente}', id_especie = '{$this->idEspecie}', id_raza = '{$this->idRaza}' WHERE id_mascota = '{$this->id}'";
+        public function editar($estFoto, $estVacuna) {
+            if(empty($estFoto)){
+                $sql = "SELECT path_foto_mascota FROM tb_mascotas WHERE id_mascota = {$this->id} LIMIT 1";
+                $row = mysqli_fetch_assoc($this->con->consultaRetorno($sql));
+                $ruta = $row['path_foto_mascota'];
+            }else {
+                $ruta = "usuarios/clientes/{$this->idCliente}/imagenes/mascotas/{$this->id}/{$this->id}.jpg";
+                copy($_FILES['foto']['tmp_name'], $ruta);
+            }
+
+            if(empty($estVacuna)) {
+                $sql = "SELECT path_foto_cvacunas FROM tb_mascotas WHERE id_mascota = {$this->id} LIMIT 1";
+                $row = mysqli_fetch_assoc($this->con->consultaRetorno($sql));
+                $ruta2 = $row['path_foto_cvacunas'];
+            }else {
+                $ruta2 = "usuarios/clientes/{$this->idCliente}/imagenes/mascotas/{$this->id}/vacunas{$this->id}.jpg";
+                copy($_FILES['vacunas']['tmp_name'], $ruta2);
+            }
+
+            $sql = "UPDATE tb_mascotas SET nombre_mascota = '{$this->nombre}', identificacion_mascota = '{$this->identificacion}', fecha_nacimiento_mascota = '{$this->fechaNacimiento}', direccion_mascota = '{$this->direccion}', path_foto_mascota = '{$ruta}', path_foto_cvacunas = '{$ruta2}', activado_mascota = '{$this->activado}', id_cliente = '{$this->idCliente}', id_especie = '{$this->idEspecie}', id_raza = '{$this->idRaza}' WHERE id_mascota = '{$this->id}'";
             $resultado = $this->con->consultaRetorno($sql);
         }
 
@@ -103,6 +121,12 @@
           $vacuna = $this->con->consultaRetorno($sql);
 
           return $vacuna;
+        }
+
+        public function misMascotas() {
+          $sql = "SELECT * FROM tb_mascotas WHERE id_cliente = {$this->idCliente} AND activado_mascota = '1'";
+          $resultado = $this->con->consultaRetorno($sql);
+          return $resultado;
         }
 
     }

@@ -9,7 +9,9 @@
                 $resultado = $controlador->crear($_POST['nombre'], $_POST['fechaNacimiento'], $_SESSION['id'], $_POST['especie'], $_POST['raza']);
 
                 if($resultado) {
-                    $mensaje = 'Se ha registrado tu mascota.';
+                    header('location: index.php?cargar=misMascotas&id='.$_SESSION['id']);
+                }else {
+                    $mensaje = 'Ocurrió un error al momento de registrar tu mascota, por favor intenta de nuevo.';
                 }
             }
         }
