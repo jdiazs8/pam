@@ -72,12 +72,11 @@
 
         }
 
-        public function cargarMascotas($id) {
-            $this->cliente->set('id', $id);
-            $resultado = $this->cliente->cargarMascotas();
+        public function listarMascotas($id) {
+            $this->cliente->set('idCliente', $id);
+            $datos = $this->cliente->listarMascotas();
 
-            return $resultado;
-
+            return $datos;
         }
 
     }

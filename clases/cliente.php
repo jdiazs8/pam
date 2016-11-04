@@ -80,13 +80,14 @@
             $this->con->consultaSimple($sql);
         }
 
-        public function cargarMascotas() {
-            $sql = "SELECT * FROM tb_mascotas WHERE id_cliente = '{$this->id}'";
-            $mascotas = $this->con->consultaRetorno($sql);
-            $row = mysqli_fetch_assoc($mascotas);
-            return $row;
+        public function listarMascotas() {
+          $sql = "SELECT * FROM tb_mascotas WHERE id_cliente = {$this->idCliente} AND activado_mascota = '1'";
+          $this->mascotas = $this->con->consultaRetorno($sql);
+
+          return $this->mascotas;
 
         }
+
 
         public function inicioSesion() {
             $sql = "SELECT * FROM tb_clientes WHERE correo_cliente = '{$this->correo}' and contrasena_cliente = '{$this->contrasena}'";
@@ -103,10 +104,7 @@
                     return false;
                 }
             }
-
-
         }
-
     }
 
 ?>

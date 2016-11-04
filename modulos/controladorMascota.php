@@ -36,14 +36,6 @@
 
         }
 
-        public function verTodos($id) {
-            $this->mascota->set('idCliente', $id);
-            $datos = $this->mascota->verTodos();
-
-            return $datos;
-
-        }
-
         public function ver($idMascota) {
             $this->mascota->set('id', $idMascota);
             $datos = $this->mascota->ver();

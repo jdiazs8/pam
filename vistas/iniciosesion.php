@@ -14,7 +14,7 @@
               if($_SESSION['activado'] == '0') {
                   header('location: index.php?cargar=desactivado');
               }else {
-                  $mascotas = $controlador->cargarMascotas($_SESSION['id']);
+                  $mascotas = $controlador->listarMascotas($_SESSION['id']);
 
                   if($mascotas){
                       header('location: index.php');

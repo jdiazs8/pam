@@ -1,8 +1,8 @@
 <?php
     if(isset($_SESSION['idCliente'])) {
-        $controlador = new ControladorMascota();
+        $controlador = new ControladorCliente();
         if(isset($_SESSION['id'])) {
-            $resultado = $controlador->verTodos($_SESSION['id']);
+            $resultado = $controlador->listarMascotas($_SESSION['id']);
         }
     }else {
         header('location: index.php');

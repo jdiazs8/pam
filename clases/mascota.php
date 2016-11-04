@@ -13,6 +13,8 @@
         private $idCliente;
         private $idEspecie;
         private $idRaza;
+        private $historial;
+        private $vacunas;
 
         public function __construct() {
             $this->con = new Conexion();
@@ -57,14 +59,6 @@
         public function eliminar() {
             $sql = "UPDATE tb_mascotas SET activado_mascota = '{$this->activado}' WHERE id_mascota = '{$this->id}'";
             $this->con->consultaSimple($sql);
-
-        }
-
-        public function verTodos() {
-          $sql = "SELECT * FROM tb_mascotas WHERE id_cliente = {$this->idCliente} AND activado_mascota = '1'";
-          $resultado = $this->con->consultaRetorno($sql);
-
-          return $resultado;
 
         }
 
