@@ -65,6 +65,7 @@
             $sql = "SELECT *, nombre_cliente, apellido_cliente, nombre_raza, nombre_especie  FROM tb_mascotas m, tb_clientes c, tb_razas r, tb_especies e WHERE id_mascota = '{$this->id}' AND m.id_cliente = c.id_cliente AND m.id_especie = e.id_especie AND m.id_raza = r.id_raza LIMIT 1";
             $resultado = $this->con->consultaRetorno($sql);
 
+
             $row = mysqli_fetch_assoc($resultado);
 
             $this->id = $row['id_mascota'];

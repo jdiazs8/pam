@@ -292,6 +292,10 @@ UPDATE tb_mascotas SET nombre_mascota = 'matias', identificacion_mascota = '1234
 
 SELECT * FROM tb_visitas_veterinarias h, tb_veterinarias va, tb_veterinarios vo WHERE id_mascota = '1' AND h.id_veterinaria = va.id_veterinaria AND h.id_veterinario = vo.id_veterinario;
 
+SELECT m.*, c.nombre_cliente, c.apellido_cliente, r.nombre_raza, e.nombre_especie  FROM tb_mascotas m, tb_clientes c, tb_razas r, tb_especies e WHERE id_mascota = '1' AND m.id_cliente = c.id_cliente AND m.id_especie = e.id_especie AND m.id_raza = r.id_raza LIMIT 1;
+
 SELECT * FROM tb_veterinarias WHERE id_veterinario = 1 AND activado_veterinaria = '1';
 
 UPDATE tb_veterinarias SET nombre_veterinaria = '2', nit_veterinaria = '2', direccion_veterinaria = '2', telefono_veterinaria = '2', celular_veterinaria = '2', path_foto_veterinaria = '2', activado_veterinaria = '1', id_veterinario = '1' WHERE id_veterinaria = '1';
+
+SELECT * FROM tb_veterinarias WHERE id_veterinaria = 2;

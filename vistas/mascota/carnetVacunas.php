@@ -13,6 +13,12 @@
     <br>
     <h2>Vacunas</h2>
     <br>
+    <table class="formulario">
+        <tr>
+            <td><a href="javascript:window.close();">Cerrar</a></td>
+        </tr>
+    </table>
+    <br>
     <div class="redondo">
         <img class="vacuna" src="<?php echo $row['path_foto_cvacunas']; ?>" />
     </div>
