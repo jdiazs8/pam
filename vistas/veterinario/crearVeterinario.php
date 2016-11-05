@@ -38,7 +38,7 @@
         }
 
     ?>
-    <h2>Registro de usuario</h2>
+    <h2>Registro de médico veterinario</h2>
     <input type="text" name="nombre" maxlength="29" placeholder="Nombre*" required>
     <br>
     <input type="text" name="apellido" maxlength="29" placeholder="Apellido*" required>

@@ -1,6 +1,6 @@
 <?php
-    if(isset($_SESSION['idCliente'])) {
-        $controlador = new ControladorMascota();
+    if(isset($_SESSION['idVeterinario'])) {
+        $controlador = new ControladorVeterinaria();
         if(isset($_SESSION['id'])) {
             $row = $controlador->ver($_GET['id']);
             $resultado = $controlador->verVacunas($_GET['id']);
@@ -13,9 +13,6 @@
     <br>
     <h2>Vacunas</h2>
     <br>
-    <div class="redondo">
-        <img class="vacuna" src="<?php echo $row['path_foto_cvacunas']; ?>" />
-    </div>
     <br>
     <hr>
     <table class="formulario">

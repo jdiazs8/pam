@@ -1,6 +1,6 @@
 <?php
-    if(isset($_SESSION['idCliente'])) {
-        $controlador = new ControladorMascota();
+    if(isset($_SESSION['idVeterinario'])) {
+        $controlador = new ControladorVeterinaria();
         if(isset($_GET['id'])) {
             $row = $controlador->ver($_GET['id']);
 
@@ -9,11 +9,11 @@
 
         if(isset($_POST['desactivar'])) {
             $controlador->eliminar($_GET['id']);
-            header('location: index.php?cargar=misMascotas&id='.$_SESSION['id']);
+            header('location: index.php?cargar=misVeterinarias&id='.$_SESSION['id']);
 
         }
 
-        $mensaje = "¿Realmente quieres eliminar la información de {$row['nombre_mascota']}?";
+        $mensaje = "¿Realmente quieres eliminar la información de {$row['nombre_veterinaria']}?";
 
     }else {
         header('location: index.php');

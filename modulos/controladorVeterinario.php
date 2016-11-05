@@ -76,9 +76,9 @@
 
         }
 
-        public function misMascotas($id) {
+        public function misVeterinarias($id) {
             $this->veterinario->set('id', $id);
-            $resultado = $this->veterinario->misMascotas();
+            $resultado = $this->veterinario->misVeterinarias();
             return $resultado;
         }
     }

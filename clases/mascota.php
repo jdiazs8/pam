@@ -49,7 +49,6 @@
             $carpeta = "usuarios/clientes/{$this->idCliente}/mascotas/{$consulta['id_mascota']}";
             if(!file_exists($carpeta)) {
                 mkdir($carpeta, 0777, true);
-
             }
 
             return true;
@@ -106,7 +105,7 @@
             }
 
             $sql = "UPDATE tb_mascotas SET nombre_mascota = '{$this->nombre}', identificacion_mascota = '{$this->identificacion}', fecha_nacimiento_mascota = '{$this->fechaNacimiento}', direccion_mascota = '{$this->direccion}', path_foto_mascota = '{$ruta}', path_foto_cvacunas = '{$ruta2}', activado_mascota = '{$this->activado}', id_cliente = '{$this->idCliente}', id_especie = '{$this->idEspecie}', id_raza = '{$this->idRaza}' WHERE id_mascota = '{$this->id}'";
-            $resultado = $this->con->consultaRetorno($sql);
+            $this->con->consultaSimple($sql);
         }
 
         public function verHistorial() {

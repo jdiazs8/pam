@@ -291,3 +291,7 @@ UPDATE tb_clientes SET contrasena_cliente = md5('1') WHERE id_cliente = 2;
 UPDATE tb_mascotas SET nombre_mascota = 'matias', identificacion_mascota = '12345', fecha_nacimiento_mascota = NOW(), direccion_mascota = '123', path_foto_mascota = '///', path_foto_cvacunas = '///', activado_mascota = '1', id_cliente = '1', id_especie = '1', id_raza = '1' WHERE id_mascota = '1';
 
 SELECT * FROM tb_visitas_veterinarias h, tb_veterinarias va, tb_veterinarios vo WHERE id_mascota = '1' AND h.id_veterinaria = va.id_veterinaria AND h.id_veterinario = vo.id_veterinario;
+
+SELECT * FROM tb_veterinarias WHERE id_veterinario = 1 AND activado_veterinaria = '1';
+
+UPDATE tb_veterinarias SET nombre_veterinaria = '2', nit_veterinaria = '2', direccion_veterinaria = '2', telefono_veterinaria = '2', celular_veterinaria = '2', path_foto_veterinaria = '2', activado_veterinaria = '1', id_veterinario = '1' WHERE id_veterinaria = '1';

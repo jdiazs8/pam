@@ -25,11 +25,8 @@
                 $sql3 = "SELECT id_veterinario FROM tb_veterinarios WHERE identificacion_veterinario = '{$this->identificacion}'";
                 $consulta = mysqli_fetch_assoc($this->con->consultaRetorno($sql3));
 
-                $sql4 = "INSERT INTO tb_veterinarias(nombre_veterinaria, nit_veterinaria, direccion_veterinaria, celular_veterinaria, activado_veterinaria, id_veterinario) VALUES('{$this->nombre}', '{$this->identificacion}', '{$this->direccion}', '{$this->celular}', '{$this->activado}', '{$consulta['id_veterinario']}')";
-                $this->con->consultaRetorno($sql4);
-
-                $sql5 = "SELECT id_veterinario FROM tb_veterinarios WHERE identificacion_veterinario = {$this->identificacion}";
-                $consulta = mysqli_fetch_assoc($this->con->consultaRetorno($sql5));
+                $sql4 = "SELECT id_veterinario FROM tb_veterinarios WHERE identificacion_veterinario = {$this->identificacion} LIMIT 1";
+                $consulta = mysqli_fetch_assoc($this->con->consultaRetorno($sql4));
 
                 $carpeta = "usuarios/veterinarios/{$consulta['id_veterinario']}/imagenes/fotos";
                 if(!file_exists($carpeta)) {
@@ -42,6 +39,9 @@
                     mkdir($carpeta, 0777, true);
 
                 }
+
+                $controlador2 = new ControladorVeterinaria();
+                $resultado2 = $controlador2->crear($this->nombre, $this->identificacion, $consulta['id_veterinario'], $this->direccion, $this->celular);
 
                 return true;
 
