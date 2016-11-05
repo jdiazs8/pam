@@ -169,3 +169,10 @@ CREATE TABLE tb_fotos_veterinarios (
     privado_foto_veterinario BOOLEAN NOT NULL,
     id_veterinario INT(10) NOT NULL
 );
+
+CREATE TABLE tb_comentarios_veterinarias (
+	id_comentario_veterinaria INT(10) PRIMARY KEY AUTO_INCREMENT,
+    texto_comentario_veterinaria VARCHAR(400) NOT NULL,
+    fecha_comentario_veterinaria DATETIME,
+    id_visita_veterinaria INT(10)
+);

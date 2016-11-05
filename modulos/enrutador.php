@@ -69,6 +69,31 @@
                     include_once('vistas/veterinario/'.$vista.'.php');
                     break;
 
+//-----------------------------------Veterinaria------------------------------------
+                case 'crearVeterinaria':
+                    include_once('vistas/veterinaria/'.$vista.'.php');
+                    break;
+
+                case 'verVeterinaria':
+                    include_once('vistas/veterinaria/'.$vista.'.php');
+                    break;
+
+                case 'editarVeterinaria':
+                    include_once('vistas/veterinaria/'.$vista.'.php');
+                    break;
+
+                case 'desactivarVeterinaria':
+                    include_once('vistas/veterinaria/'.$vista.'.php');
+                    break;
+
+                case 'misVeterinarias':
+                    include_once('vistas/veterinaria/'.$vista.'.php');
+                    break;
+
+                case 'comentariosveterinaria':
+                    include_once('vistas/veterinaria/'.$vista.'.php');
+                    break;
+
 //---------------------------------otros----------------------------------------
                 case 'cerrarSesion':
                     include_once('modulos/'.$vista.'.php');
