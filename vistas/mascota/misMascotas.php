@@ -13,6 +13,10 @@
     <div>
         <h2>Mis Mascotas</h2>
         <?php
+            $num = mysqli_num_rows($resultado);
+            if($num == 0) {
+              header('location: index.php?cargar=sinMascotas');
+            }
             while($row = mysqli_fetch_assoc($resultado)){
         ?>
         <div class="redondo">
