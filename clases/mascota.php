@@ -46,7 +46,7 @@
             $sql2 = "SELECT id_mascota FROM tb_mascotas WHERE id_cliente = {$this->idCliente} AND nombre_mascota = '{$this->nombre}'";
             $consulta = mysqli_fetch_assoc($this->con->consultaRetorno($sql2));
 
-            $carpeta = "usuarios/clientes/{$this->idCliente}/imagenes/mascotas/{$consulta['id_mascota']}";
+            $carpeta = "usuarios/clientes/{$this->idCliente}/mascotas/{$consulta['id_mascota']}";
             if(!file_exists($carpeta)) {
                 mkdir($carpeta, 0777, true);
 
@@ -92,7 +92,7 @@
                 $row = mysqli_fetch_assoc($this->con->consultaRetorno($sql));
                 $ruta = $row['path_foto_mascota'];
             }else {
-                $ruta = "usuarios/clientes/{$this->idCliente}/imagenes/mascotas/{$this->id}/{$this->id}.jpg";
+                $ruta = "usuarios/clientes/{$this->idCliente}/mascotas/{$this->id}/{$this->id}.jpg";
                 copy($_FILES['foto']['tmp_name'], $ruta);
             }
 
@@ -101,7 +101,7 @@
                 $row = mysqli_fetch_assoc($this->con->consultaRetorno($sql));
                 $ruta2 = $row['path_foto_cvacunas'];
             }else {
-                $ruta2 = "usuarios/clientes/{$this->idCliente}/imagenes/mascotas/{$this->id}/vacunas{$this->id}.jpg";
+                $ruta2 = "usuarios/clientes/{$this->idCliente}/mascotas/{$this->id}/vacunas{$this->id}.jpg";
                 copy($_FILES['vacunas']['tmp_name'], $ruta2);
             }
 

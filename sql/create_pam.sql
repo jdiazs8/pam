@@ -50,7 +50,7 @@ CREATE TABLE tb_mascotas (
     fecha_registro_mascota DATETIME NOT NULL,
     fecha_ultm_mascota TIMESTAMP NOT NULL,
     id_cliente INT(10) NOT NULL,
-    /*id_veterinario INT(10) NOT NULL, AGREGAR EN LA PROXIMA EJECUCIÓN*/
+    id_veterinario INT(10) NOT NULL,
     id_especie INT(10) NOT NULL,
     id_raza INT(10) NOT NULL
 );
@@ -60,9 +60,11 @@ CREATE TABLE tb_veterinarias (
     nombre_veterinaria VARCHAR(100) NOT NULL,
     nit_veterinaria VARCHAR(15) NOT NULL UNIQUE,
     direccion_veterinaria VARCHAR(100) NOT NULL,
-    path_foto_veterinaria VARCHAR(256) NOT NULL,
-    cantidad_votos_veterinaria INT(1),
-    total_puntos_veterinaria INT(1),
+    telefono_veterinaria VARCHAR(11),
+    celular_veterinaria VARCHAR(11) NOT NULL,
+    path_foto_veterinaria VARCHAR(256) NOT NULL DEFAULT 'imagenes/defaultVeterinaria.jpg',
+    cantidad_votos_veterinaria INT(1) NOT NULL DEFAULT 0,
+    total_puntos_veterinaria INT(1) NOT NULL DEFAULT 0,
     activado_veterinaria BOOLEAN NOT NULL,
     fecha_registro_veterinaria DATETIME NOT NULL,
     fecha_ultm_veterinaria TIMESTAMP NOT NULL,
@@ -76,6 +78,8 @@ CREATE TABLE tb_visitas_veterinarias (
     diagnostico_visita_veterinaria VARCHAR(400) NOT NULL,
     obervaciones_visita_veterinaria VARCHAR(400) NOT NULL,
     fecha_visita_veterinaria DATETIME NOT NULL,
+    calificacion_visita_veterinaria INT(1),
+    calificado_visita_veterinaria BOOLEAN,
     id_mascota INT(10) NOT NULL,
     id_veterinario INT(10) NOT NULL,
     id_veterinaria INT(10) NOT NULL
@@ -153,7 +157,7 @@ CREATE TABLE tb_fotos_clientes (
     nombre_foto_cliente VARCHAR(30) NOT NULL,
     fecha_foto_cliente DATETIME NOT NULL,
     path_foto_cliente VARCHAR(256) NOT NULL,
-    estado_foto_cliente BOOLEAN NOT NULL,
+    privado_foto_cliente BOOLEAN NOT NULL,
     id_cliente INT(10) NOT NULL
 );
 
@@ -162,6 +166,6 @@ CREATE TABLE tb_fotos_veterinarios (
     nombre_foto_veterinario VARCHAR(30) NOT NULL,
     fecha_foto_veterinario DATETIME NOT NULL,
     path_foto_veterinario VARCHAR(256) NOT NULL,
-    estado_foto_veterinario BOOLEAN NOT NULL,
+    privado_foto_veterinario BOOLEAN NOT NULL,
     id_veterinario INT(10) NOT NULL
 );

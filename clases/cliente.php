@@ -32,7 +32,7 @@
 
                 }
 
-                $carpeta = "usuarios/clientes/{$consulta['id_cliente']}/imagenes/mascotas";
+                $carpeta = "usuarios/clientes/{$consulta['id_cliente']}/mascotas";
                 if(!file_exists($carpeta)) {
                     mkdir($carpeta, 0777, true);
 

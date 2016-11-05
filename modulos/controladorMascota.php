@@ -36,8 +36,8 @@
 
         }
 
-        public function ver($idMascota) {
-            $this->mascota->set('id', $idMascota);
+        public function ver($id) {
+            $this->mascota->set('id', $id);
             $datos = $this->mascota->ver();
 
             return $datos;

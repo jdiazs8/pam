@@ -3,7 +3,6 @@
         $controlador = new ControladorCliente();
         if(isset($_SESSION['id'])) {
             $row = $controlador->ver($_SESSION['id']);
-
         }
     }else {
         header('location: index.php');

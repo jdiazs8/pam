@@ -1,18 +1,18 @@
 <?php
-    $controlador = new ControladorCliente();
+    $controlador = new ControladorVeterinario();
 
     if(isset($_POST['contrasena']) && isset($_POST['contrasena2'])) {
         if(strcmp($_POST['contrasena'], $_POST['contrasena2'])) {
             $mensaje = 'Las contraseñas deben coincidir.';
         }else{
             if(isset($_POST['guardar'])) {
-                if(empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['identificacion']) || empty($_POST['correo']) || empty($_POST['contrasena']) || empty($_POST['contrasena2'] || empty($_POST['acuerdo']))){
+                if(empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['identificacion']) || empty($_POST['tprofesional']) || empty($_POST['correo']) || empty($_POST['contrasena']) || empty($_POST['contrasena2'] || empty($_POST['direccion']) || empty($_POST['celular']) || empty($_POST['acuerdo']))){
                     $mensaje = 'Lo campos marcados con * deben estar diligenciados';
                 }else {
-                    $resultado = $controlador->crear($_POST['nombre'], $_POST['apellido'], $_POST['identificacion'], $_POST['correo'], $_POST['contrasena']);
+                    $resultado = $controlador->crear($_POST['nombre'], $_POST['apellido'], $_POST['identificacion'], $_POST['tprofesional'], $_POST['correo'], $_POST['contrasena'], $_POST['direccion'], $_POST['celular'], '1');
 
                     if($resultado) {
-                        $mensaje = 'Se ha registrado como usuario.';
+                        $mensaje = 'Se ha registrado como médico veterinario.';
                         echo "<center>";
                           echo "<table class='formulario'>";
                             echo "<tr>";
@@ -45,7 +45,13 @@
     <br>
     <input type="text" name="identificacion" maxlength="10" placeholder="identificacion*" required>
     <br>
+    <input type="text" name="tprofesional" maxlength="19" placeholder="Tarjeta profesional*" required>
+    <br>
     <input type="email" name="correo" maxlength="99" placeholder="Correo electrónico*" required>
+    <br>
+    <input type="text" name="direccion" maxlength="29" placeholder="Direccion*" required>
+    <br>
+    <input type="text" name="celular" maxlength="10" placeholder="No. celular*" required>
     <br>
     <input type="password" name="contrasena" maxlength="49" placeholder="Contraseña*" required>
     <br>

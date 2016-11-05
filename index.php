@@ -3,6 +3,7 @@
     include_once('modulos/enrutador.php');
     include_once('modulos/controladorCliente.php');
     include_once('modulos/ControladorMascota.php');
+    include_once('modulos/ControladorVeterinario.php');
 
     if(!isset($_GET['cargar'])) {
         $_GET['cargar'] = 'inicio';

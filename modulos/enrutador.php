@@ -53,20 +53,20 @@
                     break;
 
 //-----------------------------------Veterinario--------------------------------
-                case 'crearCliente':
-                    include_once('vistas/cliente/'.$vista.'.php');
+                case 'crearVeterinario':
+                    include_once('vistas/veterinario/'.$vista.'.php');
                     break;
 
-                case 'verCliente':
-                    include_once('vistas/cliente/'.$vista.'.php');
+                case 'verVeterinario':
+                    include_once('vistas/veterinario/'.$vista.'.php');
                     break;
 
-                case 'editarCliente':
-                    include_once('vistas/cliente/'.$vista.'.php');
+                case 'editarVeterinario':
+                    include_once('vistas/veterinario/'.$vista.'.php');
                     break;
 
-                case 'desactivarCliente':
-                    include_once('vistas/cliente/'.$vista.'.php');
+                case 'desactivarVeterinario':
+                    include_once('vistas/veterinario/'.$vista.'.php');
                     break;
 
 //---------------------------------otros----------------------------------------
