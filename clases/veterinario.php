@@ -94,9 +94,9 @@
           $this->con->consultaSimple($sql);
         }
 
-        public function misMascotas() {
-              $controlador = new ControladorMascota();
-              $resultado = $this->mascotas= $controlador->misMascotas($this->id);
+        public function misVeterinarias() {
+              $controlador = new ControladorVeterinaria();
+              $resultado = $this->mascotas= $controlador->misVeterinarias($this->id);
               return $resultado;
         }
 
