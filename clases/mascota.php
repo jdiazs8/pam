@@ -62,7 +62,7 @@
         }
 
         public function ver() {
-            $sql = "SELECT *, nombre_cliente, apellido_cliente, nombre_raza, nombre_especie  FROM tb_mascotas m, tb_clientes c, tb_razas r, tb_especies e WHERE id_mascota = '{$this->id}' AND m.id_cliente = c.id_cliente AND m.id_especie = e.id_especie AND m.id_raza = r.id_raza LIMIT 1";
+            $sql = "SELECT m.*, c.nombre_cliente, c.apellido_cliente, r.nombre_raza, e.nombre_especie, v.nombre_veterinario, v.apellido_veterinario  FROM tb_mascotas m, tb_clientes c, tb_razas r, tb_especies e, tb_veterinarios v WHERE id_mascota = '{$this->id}' AND m.id_cliente = c.id_cliente AND m.id_especie = e.id_especie AND m.id_raza = r.id_raza LIMIT 1";
             $resultado = $this->con->consultaRetorno($sql);
 
 
@@ -105,7 +105,7 @@
                 copy($_FILES['vacunas']['tmp_name'], $ruta2);
             }
 
-            $sql = "UPDATE tb_mascotas SET nombre_mascota = '{$this->nombre}', identificacion_mascota = '{$this->identificacion}', fecha_nacimiento_mascota = '{$this->fechaNacimiento}', direccion_mascota = '{$this->direccion}', path_foto_mascota = '{$ruta}', path_foto_cvacunas = '{$ruta2}', activado_mascota = '{$this->activado}', id_cliente = '{$this->idCliente}', id_especie = '{$this->idEspecie}', id_raza = '{$this->idRaza}' WHERE id_mascota = '{$this->id}'";
+            $sql = "UPDATE tb_mascotas SET nombre_mascota = '{$this->nombre}', identificacion_mascota = '{$this->identificacion}', fecha_nacimiento_mascota = '{$this->fechaNacimiento}', direccion_mascota = '{$this->direccion}', path_foto_mascota = '{$ruta}', path_foto_cvacunas = '{$ruta2}', activado_mascota = '{$this->activado}', id_cliente = '{$this->idCliente}', id_especie = '{$this->idEspecie}', id_raza = '{$this->idRaza}', id_veterinario = '{$this->idVeterinario}' WHERE id_mascota = '{$this->id}'";
             $this->con->consultaSimple($sql);
         }
 

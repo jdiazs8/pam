@@ -5,9 +5,13 @@
             $row = $controlador->ver($_GET['id']);
             $resultado = $controlador->verHistorial($_GET['id']);
         }
+
+        if(isset($_POST['calificar'])) {
+          $controlador2 = new ControladorCliente();
+          $controlador2->calificarVisita($_POST['calificacion'], $_POST['comentario'], $_POST['idVisita']);
+        }
     }else {
         header('location: index.php');
-
     }
 ?>
 
@@ -44,6 +48,10 @@
             <td><b>Direccion:</b></td>
             <td><?php echo $row['direccion_mascota']; ?></td>
         </tr>
+        <tr>
+            <td><b>Veterinario encargado:</b></td>
+            <td><?php echo $row['nombre_veterinario'].' '.$row['apellido_veterinario']; ?></td>
+        </tr>
 
             <tr>
                 <td><b>Carnet de vacunas:</b></td>
@@ -58,47 +66,80 @@
         </tr>
     </table>
     <br>
+    <h2>Historial Médico</h2>
+    <?php
+        if(mysqli_num_rows($resultado) != 0) {
+            while($row2 = mysqli_fetch_assoc($resultado)) {
+    ?>
     <table class="formulario">
-        <h2>Historial Médico</h2>
+
         <hr>
-        <?php
-            if(mysqli_num_rows($resultado) != 0) {
-                while($row2 = mysqli_fetch_assoc($resultado)) {
 
-                ?>
-                  <tr>
-                      <td>Fecha:</td>
-                      <td><?php echo $row['fecha_visita_veterinaria'] ?></td>
-                  </tr>
-                  <tr>
-                      <td>Peso:</td>
-                      <td><?php echo $row['peso_visita_veterinaria'] ?> Kg.</td>
-                  </tr>
-                  <tr>
-                      <td>Síntomas:</td>
-                      <td><?php echo $row['sintomas_visita_veterinaria'] ?></td>
-                  </tr>
-                  <tr>
-                      <td>Diagnóstico:</td>
-                      <td><?php echo $row['diagnostico_visita_veterinaria'] ?></td>
-                  </tr>
-                  <tr>
-                      <td>Observaciones:</td>
-                      <td><?php echo $row['observaciones_visita_veterinaria'] ?></td>
-                  </tr>
-            </table>
-            <hr>
-                <?php
-                }
-            }else {
-              $mensaje = 'Tu mascota actualmente no cuenta con un historial médico para consultar';
+        <tr>
+            <td><b>Fecha:</b></td>
+            <td><?php echo $row2['fecha_visita_veterinaria'] ?></td>
+        </tr>
+        <tr>
+            <td><b>Peso:</b></td>
+            <td><?php echo $row2['peso_visita_veterinaria'] ?> Kg.</td>
+        </tr>
+        <tr>
+            <td><b>Síntomas:</b></td>
+            <td><?php echo $row2['sintomas_visita_veterinaria'] ?></td>
+        </tr>
+        <tr>
+            <td><b>Diagnóstico:</b></td>
+            <td><?php echo $row2['diagnostico_visita_veterinaria'] ?></td>
+        </tr>
+        <tr>
+            <td><b>Observaciones:</b></td>
+            <td><?php echo $row2['obervaciones_visita_veterinaria'] ?></td>
+        </tr>
+        <tr>
+            <td><b>Atendido en la clínica:</b>
+            <td><?php echo $row2['nombre_veterinaria']; ?></td>
+        </tr>
+        <tr>
+            <td><b>Médico a cargo:</b>
+            <td class="firma"><?php echo $row2['nombre_veterinario'].' '.$row2['apellido_veterinario']; ?></td>
+        </tr>
+        <tr>
+        <td colspan="2">
+            <?php
+                if($row2['calificado_visita_veterinaria']){
+                    echo "<p class='mensaje'>Visita calificada</p>";
+                    echo "</table>";
+                }else {
+            ?>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <form action="" method="post">
+                    <select name="calificacion">
+                        <option value="0">Seleccione una calificación</option>
+                        <option value="5">Excelente</option>
+                        <option value="4">Muy bueno</option>
+                        <option value="3">Bueno</option>
+                        <option value="2">Malo</option>
+                        <option value="1">Muy malo</option>
+                    </select>
+                    <input type="hidden" name="idVisita" value="<?php echo $row2['id_visita_veterinaria'] ?>">
+                    <textarea name="comentario" placeholder="Escribe tu comentario"></textarea>
+                    <input type="submit" class="boton" name="calificar" value="calificar">
+                </form>
+            </td>
+        </tr>
+    </table>
+    <?php
             }
-        ?>
-        <?php
-            if(!empty($mensaje)) {
-                echo "<p class='mensaje'>". $mensaje ."</p>";
+          }
+        }else {
+            $mensaje = 'Tu mascota actualmente no cuenta con un historial médico para consultar';
+        }
 
-            }
-
-        ?>
+        if(!empty($mensaje)) {
+            echo "<p class='mensaje'>". $mensaje ."</p>";
+        }
+    ?>
 </center>

@@ -44,7 +44,7 @@
 
         }
 
-        public function editar($id, $nombre, $identificacion, $fechaNacimiento, $direccion, $pathFoto, $estFoto, $pathVacuna, $estVacuna, $idCliente, $idEspecie, $idRaza) {
+        public function editar($id, $nombre, $identificacion, $fechaNacimiento, $direccion, $pathFoto, $estFoto, $pathVacuna, $estVacuna, $idCliente, $idEspecie, $idRaza, $idVeterinario) {
             $this->mascota->set('id', $id);
             $this->mascota->set('nombre', $nombre);
             $this->mascota->set('identificacion', $identificacion);
@@ -56,6 +56,7 @@
             $this->mascota->set('idEspecie', $idEspecie);
             $this->mascota->set('idRaza', $idRaza);
             $this->mascota->set('activado', '1');
+            $this->mascota->set('idVeterinario', $idVeterinario);
 
             $this->mascota->editar($estFoto, $estVacuna);
 

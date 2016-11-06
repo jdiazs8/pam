@@ -112,6 +112,22 @@
                 }
             }
         }
+
+        public function calificarVisita($calificacion, $comentario, $idVisita) {
+          $sql = "INSERT INTO tb_comentarios_veterinarias(texto_comentario_veterinaria, fecha_comentario_veterinaria, id_visita_veterinaria) VALUES('{$comentario}', NOW(), {$idVisita})";
+          $this->con->consultaSimple($sql);
+
+          $sql = "UPDATE tb_visitas_veterinarias SET calificacion_visita_veterinaria = '{$calificacion}', calificado_visita_veterinaria = true  WHERE id_visita_veterinaria = '{$idVisita}'";
+          $this->con->consultaSimple($sql);
+
+          $sql = "SELECT id_veterinaria FROM tb_visitas_veterinarias WHERE id_visita_veterinaria = '{$idVisita}' LIMIT 1";
+          $resultado = $this->con->consultaRetorno($sql);
+          $row = mysqli_fetch_assoc($resultado);
+
+          $sql = "UPDATE tb_veterinarias SET cantidad_votos_veterinaria = cantidad_votos_veterinaria + 1, total_puntos_veterinaria = total_puntos_veterinaria + {$calificacion} WHERE id_veterinaria = {$row['id_veterinaria']}";
+          $this->con->consultaSimple($sql);
+
+        }
     }
 
 ?>

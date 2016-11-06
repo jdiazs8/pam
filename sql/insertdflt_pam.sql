@@ -278,6 +278,8 @@ SELECT * FROM tb_razas;
 SELECT * FROM tb_registros_vacunas;
 SELECT * FROM tb_veterinarios;
 SELECT * FROM tb_veterinarias;
+SELECT * FROM tb_comentarios_veterinarias;
+select * from tb_visitas_veterinarias;
 
 insert into tb_vacunas(nombre_vacuna, activado_vacuna, fecha_registro_vacuna, id_especie) values('penta', '1', NOW(), '1');
 
@@ -299,3 +301,5 @@ SELECT * FROM tb_veterinarias WHERE id_veterinario = 1 AND activado_veterinaria 
 UPDATE tb_veterinarias SET nombre_veterinaria = '2', nit_veterinaria = '2', direccion_veterinaria = '2', telefono_veterinaria = '2', celular_veterinaria = '2', path_foto_veterinaria = '2', activado_veterinaria = '1', id_veterinario = '1' WHERE id_veterinaria = '1';
 
 SELECT * FROM tb_veterinarias WHERE id_veterinaria = 2;
+
+SELECT h.* FROM tb_visitas_veterinarias h, tb_veterinarias va, tb_veterinarios vo WHERE id_mascota = '1' AND h.id_veterinaria = va.id_veterinaria AND h.id_veterinario = vo.id_veterinario ORDER BY fecha_visita_veterinaria DESC

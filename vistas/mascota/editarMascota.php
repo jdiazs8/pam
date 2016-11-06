@@ -1,15 +1,17 @@
 <?php
     if(isset($_SESSION['idCliente'])){
         $controlador = new ControladorMascota();
+        $controlador2 = new ControladorVeterinario();
         if(isset($_GET['id'])) {
             $row = $controlador->ver($_GET['id']);
+            $resultado = $controlador2->index();
         }
 
         if(isset($_POST['guardar'])) {
             if(empty($_POST['nombre']) || empty($_POST['fechaNacimiento']) || empty($_POST['especie']) || empty($_POST['raza'])){
                 $mensaje = 'Lo campos marcados con * deben estar diligenciados';
             }else {
-                $controlador->editar($_GET['id'], $_POST['nombre'], $_POST['identificacion'], $_POST['fechaNacimiento'], $_POST['direccion'], $_FILES["foto"]['name'], $_FILES["foto"]['tmp_name'], $_FILES["vacunas"]['name'], $_FILES["vacunas"]['tmp_name'], $_SESSION['id'], $_POST['especie'], $_POST['raza']);
+                $controlador->editar($_GET['id'], $_POST['nombre'], $_POST['identificacion'], $_POST['fechaNacimiento'], $_POST['direccion'], $_FILES["foto"]['name'], $_FILES["foto"]['tmp_name'], $_FILES["vacunas"]['name'], $_FILES["vacunas"]['tmp_name'], $_SESSION['id'], $_POST['especie'], $_POST['raza'], $_POST['idVeterinario']);
                 header('location: index.php?cargar=misMascotas&id='.$_SESSION['id']);
             }
         }
@@ -41,12 +43,25 @@
     <br>
     <input type="text" name="direccion" maxlength="99" placeholder="Dirección" value="<?php echo $row['direccion_mascota'] ?>">
     <br>
+    <label>Mi mascota es...</label><br>
     <select name="especie" id="especie" required>
         <option value="<?php echo $row['id_especie'] ?>"><?php echo $row['nombre_especie'] ?></option>
     </select>
     <br>
+    <label>Y es de raza...</label>
     <select name="raza" id="raza" required>
         <option value="<?php echo $row['id_raza'] ?>"><?php echo $row['nombre_raza'] ?></option>
+    </select>
+    <label>Mi veterinario es: <?php echo $row['nombre_veterinario'].' '.$row['apellido_veterinario'] ?></label><br>
+    <label>Cambiar a:</label>
+    <select name="idVeterinario" id="veterinario" required>
+        <?php
+          while($row2 = mysqli_fetch_assoc($resultado)) {
+        ?>
+        <option value="<?php echo $row2['id_veterinario'] ?>"><?php echo $row2['nombre_veterinario'].' '.$row2['apellido_veterinario'] ?></option>
+        <?php
+          }
+        ?>
     </select>
     <label>Foto</foto>
     <input type="file" name="foto">

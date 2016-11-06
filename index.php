@@ -50,7 +50,6 @@
                 $enrutador = new Enrutador();
                 if($enrutador->validarGET($_GET['cargar'])) {
                     $enrutador->cargarVista($_GET['cargar']);
-
                 }
             ?>
         </section>
