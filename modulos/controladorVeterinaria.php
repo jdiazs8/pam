@@ -72,5 +72,9 @@
             $resultado = $this->veterinaria->misVeterinarias();
             return $resultado;
         }
+
+        public function ingresarHistorial($idMascota, $peso, $sintomas, $diagnostico, $observacion, $idVeterinaria, $idVeterinario) {
+            $this->veterinaria->ingresarHistorial($idMascota, $peso, $sintomas, $diagnostico, $observacion, $idVeterinaria, $idVeterinario);
+        }
     }
 ?>

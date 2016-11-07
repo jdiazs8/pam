@@ -100,6 +100,12 @@
               return $resultado;
         }
 
+        public function miConsultorio(){
+          $sql = "SELECT * FROM tb_mascotas WHERE id_veterinario = {$this->idVeterinario} AND activado_mascota = '1'";
+          $resultado = $this->con->consultaRetorno($sql);
+          return $resultado;
+        }
+
 
         public function inicioSesion() {
             $sql = "SELECT * FROM tb_veterinarios WHERE correo_veterinario = '{$this->correo}' and contrasena_veterinario = '{$this->contrasena}' LIMIT 1";

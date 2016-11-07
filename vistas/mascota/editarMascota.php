@@ -58,7 +58,7 @@
         <?php
           while($row2 = mysqli_fetch_assoc($resultado)) {
         ?>
-        <option value="<?php echo $row2['id_veterinario'] ?>"><?php echo $row2['nombre_veterinario'].' '.$row2['apellido_veterinario'] ?></option>
+        <option value="<?php echo $row2['id_veterinario']; ?>"><?php echo $row2['nombre_veterinario'].' '.$row2['apellido_veterinario']; ?></option>
         <?php
           }
         ?>

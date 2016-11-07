@@ -1,5 +1,5 @@
 <?php
-    if(isset($_SESSION['idCliente'])) {
+    if(isset($_SESSION['idCliente']) || isset($_SESSION['idVeterinario'])) {
         $controlador = new ControladorMascota();
         if(isset($_SESSION['id'])) {
             $row = $controlador->ver($_GET['id']);
@@ -62,7 +62,7 @@
     <br>
     <table class="formulario">
         <tr>
-            <td><a href="?cargar=misMascotas&id=<?php echo $_SESSION['id']; ?>">Volver</a></td>
+            <td><a href="javascript:history.back(-1);">Volver</a></td>
         </tr>
     </table>
     <br>
@@ -72,9 +72,7 @@
             while($row2 = mysqli_fetch_assoc($resultado)) {
     ?>
     <table class="formulario">
-
         <hr>
-
         <tr>
             <td><b>Fecha:</b></td>
             <td><?php echo $row2['fecha_visita_veterinaria'] ?></td>
@@ -93,7 +91,7 @@
         </tr>
         <tr>
             <td><b>Observaciones:</b></td>
-            <td><?php echo $row2['obervaciones_visita_veterinaria'] ?></td>
+            <td><?php echo $row2['observaciones_visita_veterinaria'] ?></td>
         </tr>
         <tr>
             <td><b>Atendido en la clínica:</b>
@@ -108,8 +106,7 @@
             <?php
                 if($row2['calificado_visita_veterinaria']){
                     echo "<p class='mensaje'>Visita calificada</p>";
-                    echo "</table>";
-                }else {
+                }else if(!$row2['calificado_visita_veterinaria'] && isset($_SESSION['idCliente'])){
             ?>
             </td>
         </tr>
@@ -130,9 +127,14 @@
                 </form>
             </td>
         </tr>
-    </table>
+
     <?php
-            }
+  }else if(!$row2['calificado_visita_veterinaria'] && isset($_SESSION['idVeterinario'])){
+    echo "<p class='mensaje'>Esta consulta no ha sido calificada.</p>";
+  }
+            ?>
+            </table>
+            <?php
           }
         }else {
             $mensaje = 'Tu mascota actualmente no cuenta con un historial médico para consultar';

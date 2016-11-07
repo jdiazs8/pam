@@ -302,4 +302,8 @@ UPDATE tb_veterinarias SET nombre_veterinaria = '2', nit_veterinaria = '2', dire
 
 SELECT * FROM tb_veterinarias WHERE id_veterinaria = 2;
 
-SELECT h.* FROM tb_visitas_veterinarias h, tb_veterinarias va, tb_veterinarios vo WHERE id_mascota = '1' AND h.id_veterinaria = va.id_veterinaria AND h.id_veterinario = vo.id_veterinario ORDER BY fecha_visita_veterinaria DESC
+SELECT h.*, va.nombre_veterinaria, vo.nombre_veterinario, vo.apellido_veterinario FROM tb_visitas_veterinarias h, tb_veterinarias va, tb_veterinarios vo WHERE id_mascota = '1' AND h.id_veterinaria = va.id_veterinaria AND h.id_veterinario = vo.id_veterinario ORDER BY fecha_visita_veterinaria DESC;
+
+SELECT m.*, c.nombre_cliente, c.apellido_cliente, r.nombre_raza, e.nombre_especie, v.nombre_veterinario, v.apellido_veterinario  FROM tb_mascotas m, tb_clientes c, tb_razas r, tb_especies e, tb_veterinarios v WHERE id_mascota = '1' AND m.id_cliente = c.id_cliente AND m.id_especie = e.id_especie AND m.id_raza = r.id_raza AND m.id_veterinario = v.id_veterinario LIMIT 1;
+
+INSERT INTO tb_visitas_veterinarias(peso_visita_veterinaria, sintomas_visita_veterinaria, diagnostico_visita_veterinaria, observaciones_visita_veterinaria, fecha_visita_veterinaria, id_mascota, id_veterinario, id_veterinaria) VALUES('peso', 'sintomas', 'diagnostico', 'observacion', NOW(), '1', '1', '1');

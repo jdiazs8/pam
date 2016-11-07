@@ -107,5 +107,10 @@
           return $resultado;
         }
 
+        public function ingresarHistorial($idMascota, $peso, $sintomas, $diagnostico, $observacion, $idVeterinaria, $idVeterinario) {
+            $sql = "INSERT INTO tb_visitas_veterinarias(peso_visita_veterinaria, sintomas_visita_veterinaria, diagnostico_visita_veterinaria, observaciones_visita_veterinaria, fecha_visita_veterinaria, id_mascota, id_veterinario, id_veterinaria) VALUES('{$peso}', '{$sintomas}', '{$diagnostico}', '{$observacion}', NOW(), '{$idMascota}', '{$idVeterinario}', '{$idVeterinaria}')";
+            $this->con->consultaSimple($sql);
+        }
+
     }
 ?>

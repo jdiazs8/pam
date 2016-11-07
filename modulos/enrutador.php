@@ -69,6 +69,14 @@
                     include_once('vistas/veterinario/'.$vista.'.php');
                     break;
 
+                case 'miConsultorio':
+                    include_once('vistas/veterinario/'.$vista.'.php');
+                    break;
+
+                case 'ingresarHistorial':
+                    include_once('vistas/veterinario/'.$vista.'.php');
+                    break;
+
 //-----------------------------------Veterinaria------------------------------------
                 case 'crearVeterinaria':
                     include_once('vistas/veterinaria/'.$vista.'.php');

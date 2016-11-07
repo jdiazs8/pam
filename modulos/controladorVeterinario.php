@@ -81,5 +81,11 @@
             $resultado = $this->veterinario->misVeterinarias();
             return $resultado;
         }
+
+        public function miConsultorio($id) {
+            $this->veterinario->set('idVeterinario', $id);
+            $resultado = $this->veterinario->miConsultorio();
+            return $resultado;
+        }
     }
 ?>

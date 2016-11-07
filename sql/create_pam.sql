@@ -50,7 +50,7 @@ CREATE TABLE tb_mascotas (
     fecha_registro_mascota DATETIME NOT NULL,
     fecha_ultm_mascota TIMESTAMP NOT NULL,
     id_cliente INT(10) NOT NULL,
-    id_veterinario INT(10) NOT NULL,
+    id_veterinario INT(10) DEFAULT 1,
     id_especie INT(10) NOT NULL,
     id_raza INT(10) NOT NULL
 );
@@ -76,7 +76,7 @@ CREATE TABLE tb_visitas_veterinarias (
     peso_visita_veterinaria DOUBLE(3,1) NOT NULL,
     sintomas_visita_veterinaria VARCHAR(400) NOT NULL,
     diagnostico_visita_veterinaria VARCHAR(400) NOT NULL,
-    obervaciones_visita_veterinaria VARCHAR(400) NOT NULL,
+    observaciones_visita_veterinaria VARCHAR(400) NOT NULL,
     fecha_visita_veterinaria DATETIME NOT NULL,
     calificacion_visita_veterinaria INT(1),
     calificado_visita_veterinaria BOOLEAN,
