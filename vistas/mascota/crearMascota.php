@@ -37,11 +37,11 @@
     <br>
     <input type="date" name="fechaNacimiento" required>
     <br>
-    <select name="especie" id="especie" required>
+    <select name="especie" id="especies" required>
         <option value="1">Mi mascota es...*</option>
     </select>
     <br>
-    <select name="raza" id="raza" required>
+    <select name="raza" id="razas" required>
         <option value="1">Y es de raza...*</option>
     </select>
     <input type="submit" class="boton" name="guardar" value="Registrar mascota">

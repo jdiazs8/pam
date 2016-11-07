@@ -2,9 +2,10 @@
     session_start();
     include_once('modulos/enrutador.php');
     include_once('modulos/controladorCliente.php');
-    include_once('modulos/ControladorMascota.php');
-    include_once('modulos/ControladorVeterinario.php');
-    include_once('modulos/ControladorVeterinaria.php');
+    include_once('modulos/controladorMascota.php');
+    include_once('modulos/controladorVeterinario.php');
+    include_once('modulos/controladorVeterinaria.php');
+    include_once('modulos/controladorExtra.php');
 
     if(!isset($_GET['cargar'])) {
         $_GET['cargar'] = 'inicio';
@@ -12,7 +13,6 @@
 ?>
 
 <!DOCTYPE html>
-
 
 <html lang="es">
     <head>
@@ -23,8 +23,9 @@
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script src="js/main.js"></script>
         <link rel="stylesheet" href="css/flexslider.css" type="text/css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="js/jquery.flexslider.js"></script>
+        <script src="js/function.js"></script>
         <script type="text/javascript" charset="utf-8">
             $(window).load(function() {
                 $('.flexslider').flexslider();

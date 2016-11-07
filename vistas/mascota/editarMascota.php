@@ -8,9 +8,12 @@
         }
 
         if(isset($_POST['guardar'])) {
-            if(empty($_POST['nombre']) || empty($_POST['fechaNacimiento']) || empty($_POST['especie']) || empty($_POST['raza'])){
+            if(empty($_POST['nombre']) || empty($_POST['fechaNacimiento']) || empty($_POST['raza'])){
                 $mensaje = 'Lo campos marcados con * deben estar diligenciados';
             }else {
+                if($_POST['especie'] == 0){
+                  $_POST['especie'] = $row['id_especie'];
+                }
                 $controlador->editar($_GET['id'], $_POST['nombre'], $_POST['identificacion'], $_POST['fechaNacimiento'], $_POST['direccion'], $_FILES["foto"]['name'], $_FILES["foto"]['tmp_name'], $_FILES["vacunas"]['name'], $_FILES["vacunas"]['tmp_name'], $_SESSION['id'], $_POST['especie'], $_POST['raza'], $_POST['idVeterinario']);
                 header('location: index.php?cargar=misMascotas&id='.$_SESSION['id']);
             }
@@ -44,12 +47,12 @@
     <input type="text" name="direccion" maxlength="99" placeholder="Dirección" value="<?php echo $row['direccion_mascota'] ?>">
     <br>
     <label>Mi mascota es...</label><br>
-    <select name="especie" id="especie" required>
+    <select name="especie" id="especies" required>
         <option value="<?php echo $row['id_especie'] ?>"><?php echo $row['nombre_especie'] ?></option>
     </select>
     <br>
     <label>Y es de raza...</label>
-    <select name="raza" id="raza" required>
+    <select name="raza" id="razas" required>
         <option value="<?php echo $row['id_raza'] ?>"><?php echo $row['nombre_raza'] ?></option>
     </select>
     <label>Mi veterinario es: <?php echo $row['nombre_veterinario'].' '.$row['apellido_veterinario'] ?></label><br>
