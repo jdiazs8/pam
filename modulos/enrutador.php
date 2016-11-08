@@ -135,6 +135,14 @@
                     include_once('vistas/admin/'.$vista.'.php');
                     break;
 
+                case 'verVeterinarios':
+                    include_once('vistas/admin/'.$vista.'.php');
+                    break;
+
+                case 'verVeterinarias':
+                    include_once('vistas/admin/'.$vista.'.php');
+                    break;
+
 //---------------------------------otros----------------------------------------
                 case 'cerrarSesion':
                     include_once('modulos/'.$vista.'.php');

@@ -1,8 +1,8 @@
 <?php
-    if(isset($_SESSION['idVeterinario'])) {
+    if(isset($_SESSION['idVeterinario']) || isset($_SESSION['idAdmin'])) {
         $controlador = new ControladorVeterinario();
         if(isset($_SESSION['id'])) {
-            $row = $controlador->ver($_SESSION['id']);
+            $row = $controlador->ver($_GET['id']);
 
         }
 
@@ -14,7 +14,7 @@
                     if(empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['identificacion']) || empty($_POST['tprofesional']) || empty($_POST['correo']) || empty($_POST['contrasena']) || empty($_POST['contrasena2'] || empty($_POST['direccion']) || empty($_POST['celular']) || empty($_POST['acuerdo']))){
                         $mensaje = 'Lo campos marcados con * deben estar diligenciados';
                     }else {
-                        $controlador->editar($_SESSION['id'], $_POST['nombre'], $_POST['apellido'], $_POST['identificacion'], $_POST['tprofesional'], $_POST['correo'], $_POST['contrasena'], $_POST['direccion'], $_POST['telefono'], $_POST['celular'], $_FILES['foto']['name'], $_FILES['foto']['tmp_name'], '1');
+                        $controlador->editar($_GET['id'], $_POST['nombre'], $_POST['apellido'], $_POST['identificacion'], $_POST['tprofesional'], $_POST['correo'], $_POST['contrasena'], $_POST['direccion'], $_POST['telefono'], $_POST['celular'], $_FILES['foto']['name'], $_FILES['foto']['tmp_name'], $_POST['activado']);
                         header('location: index.php?cargar=verVeterinario&id='.$row['id_veterinario']);
                     }
                 }
@@ -58,6 +58,14 @@
         <br>
         <label>Foto</label>
         <input type="file" name="foto" >
+        <br>
+        <?php
+          if(isset($_SESSION['idAdmin'])){
+        ?>
+        <input type="text" name="activado" placeholder="Activado*" value="<?php echo $row['activado_veterinario'] ?>" required>
+        <?php
+          }
+        ?>
         <br>
         <input type="password" name="contrasena" maxlength="49" placeholder="Contraseña*" required>
         <br>

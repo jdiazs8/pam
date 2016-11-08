@@ -15,7 +15,7 @@
           <li><a href="?cargar=verMascotas">Mascotas<span class="icon-dot"></span></a></li>
           <!--<li><a href="?cargar=subirFoto">Subir Fotos<span class="icon-dot"></span></a></li>-->
           <li><a href="?cargar=verVeterinarios">Veterinarios<span class="icon-dot"></span></a></li>
-          <li><a href="?cargar=verVeterinarias">Veterinaria<span class="icon-dot"></span></a></li>
+          <li><a href="?cargar=verVeterinarias">Veterinarias<span class="icon-dot"></span></a></li>
           <li><a href="?cargar=verExtras">Extras<span class="icon-dot"></span></a></li>
         </ul>
       </li >

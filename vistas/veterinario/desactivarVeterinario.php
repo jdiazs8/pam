@@ -9,7 +9,11 @@
 
         if(isset($_POST['desactivar'])) {
             $controlador->eliminar($_GET['id']);
+            if(isset($_SESSION['idAdmin'])){
+                header('location: index.php?cargar=verVeterinarios');
+            }else {
                 header('location: index.php?cargar=cerrarSesion');
+            }
 
         }
 

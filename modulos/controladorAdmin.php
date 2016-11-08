@@ -64,6 +64,16 @@
           return $resultado;
         }
 
+        public function verVeterinarios() {
+          $resultado = $this->admin->verVeterinarios();
+          return $resultado;
+        }
+
+        public function verVeterinarias() {
+          $resultado = $this->admin->verVeterinarias();
+          return $resultado;
+        }
+
         public function inicioSesion($usuario, $contrasena) {
             $this->admin->set('correo', $usuario);
             $this->admin->set('contrasena', md5($contrasena));

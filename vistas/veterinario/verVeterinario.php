@@ -1,8 +1,8 @@
 <?php
-    if(isset($_SESSION['idVeterinario'])) {
+    if(isset($_SESSION['idVeterinario']) || isset($_SESSION['idAdmin'])) {
         $controlador = new ControladorVeterinario();
         if(isset($_SESSION['id'])) {
-            $row = $controlador->ver($_SESSION['id']);
+            $row = $controlador->ver($_GET['id']);
 
         }
     }else {
@@ -44,8 +44,15 @@
     <br>
     <table class="formulario">
         <tr>
+            <?php
+              if(isset($_SESSION['idAdmin'])) {
+            ?>
+            <td><a href="?cargar=verClientes">Volver</a></td>
+            <?php
+              }
+            ?>
             <td><a href="?cargar=editarVeterinario&id=<?php echo $row['id_veterinario']; ?>">Actualizar</a></td>
-            <td><a href="?cargar=desactiVarveterinario&id=<?php echo $row['id_veterinario']; ?>">Desactivar</a></td>
+            <td><a href="?cargar=desactivarVeterinario&id=<?php echo $row['id_veterinario']; ?>">Desactivar</a></td>
         </tr>
     </table>
 </center>

@@ -98,6 +98,18 @@
           $resultado = $controlador->index();
           return $resultado;
         }
+
+        public function verVeterinarios() {
+          $controlador = new ControladorVeterinario();
+          $resultado = $controlador->index();
+          return $resultado;
+        }
+
+        public function verVeterinarias() {
+          $controlador = new ControladorVeterinaria();
+          $resultado = $controlador->index();
+          return $resultado;
+        }
     }
 
 ?>
