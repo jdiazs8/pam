@@ -1,5 +1,5 @@
 <?php
-    if(isset($_SESSION['idCliente']) || isset($_SESSION['idVeterinario'])) {
+    if(isset($_SESSION['idCliente']) || isset($_SESSION['idVeterinario']) || isset($_SESSION['idAdmin'])) {
         $controlador = new ControladorMascota();
         if(isset($_SESSION['id'])) {
             $row = $controlador->ver($_GET['id']);

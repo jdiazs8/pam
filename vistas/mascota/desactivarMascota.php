@@ -1,5 +1,5 @@
 <?php
-    if(isset($_SESSION['idCliente'])) {
+    if(isset($_SESSION['idCliente']) || isset($_SESSION['idAdmin'])) {
         $controlador = new ControladorMascota();
         if(isset($_GET['id'])) {
             $row = $controlador->ver($_GET['id']);
@@ -9,7 +9,11 @@
 
         if(isset($_POST['desactivar'])) {
             $controlador->eliminar($_GET['id']);
-            header('location: index.php?cargar=misMascotas&id='.$_SESSION['id']);
+            if(isset($_SESSION['idAdmin'])){
+                header('location: index.php?cargar=verMascotas');
+            }else {
+                header('location: index.php?cargar=misMascotas&id='.$_SESSION['id']);
+            }
 
         }
 

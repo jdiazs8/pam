@@ -98,11 +98,11 @@
                     include_once('vistas/veterinaria/'.$vista.'.php');
                     break;
 
-                case 'comentariosveterinaria':
+                case 'comentariosVeterinaria':
                     include_once('vistas/veterinaria/'.$vista.'.php');
                     break;
 
-//-------------------------------Veterinaria------------------------------------
+//----------------------------------Admin---------------------------------------
                 case 'crearAdmin':
                     include_once('vistas/admin/'.$vista.'.php');
                     break;
@@ -128,6 +128,10 @@
                     break;
 
                 case 'verClientes':
+                    include_once('vistas/admin/'.$vista.'.php');
+                    break;
+
+                case 'verMascotas':
                     include_once('vistas/admin/'.$vista.'.php');
                     break;
 

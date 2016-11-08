@@ -19,7 +19,7 @@
         <div class="redondo">
             <img class="foto-perfil" src="<?php echo $row['path_foto_cliente'] ?>" />
         </div>
-        <h4><?php echo $row['nombre_cliente']; ?></h4>
+        <h4><?php echo $row['nombre_cliente'].' '.$row['apellido_cliente']; ?></h4>
         <br>
         <table class="formulario">
             <tr>

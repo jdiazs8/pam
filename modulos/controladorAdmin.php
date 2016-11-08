@@ -59,6 +59,11 @@
           return $resultado;
         }
 
+        public function verMascotas() {
+          $resultado = $this->admin->verMascotas();
+          return $resultado;
+        }
+
         public function inicioSesion($usuario, $contrasena) {
             $this->admin->set('correo', $usuario);
             $this->admin->set('contrasena', md5($contrasena));

@@ -60,7 +60,7 @@
     <?php
       if(isset($_SESSION['idAdmin'])){
     ?>
-    <input type="text" name="activado" value="<?php echo $row['activado_cliente'] ?>" required>
+    <input type="text" name="activado" placeholder="Activado*" value="<?php echo $row['activado_cliente'] ?>" required>
     <?php
       }
     ?>

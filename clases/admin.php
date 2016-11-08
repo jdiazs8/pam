@@ -89,7 +89,13 @@
 
         public function verClientes() {
           $controlador = new ControladorCliente();
-          $resultado = $this->cliente= $controlador->index();
+          $resultado = $controlador->index();
+          return $resultado;
+        }
+
+        public function verMascotas() {
+          $controlador = new ControladorMascota();
+          $resultado = $controlador->index();
           return $resultado;
         }
     }

@@ -1,5 +1,5 @@
 <?php
-    if(isset($_SESSION['idCliente'])){
+    if(isset($_SESSION['idCliente']) || isset($_SESSION['idAdmin'])){
         $controlador = new ControladorMascota();
         $controlador2 = new ControladorVeterinario();
         if(isset($_GET['id'])) {
@@ -14,7 +14,7 @@
                 if($_POST['especie'] == 0){
                   $_POST['especie'] = $row['id_especie'];
                 }
-                $controlador->editar($_GET['id'], $_POST['nombre'], $_POST['identificacion'], $_POST['fechaNacimiento'], $_POST['direccion'], $_FILES["foto"]['name'], $_FILES["foto"]['tmp_name'], $_FILES["vacunas"]['name'], $_FILES["vacunas"]['tmp_name'], $_SESSION['id'], $_POST['especie'], $_POST['raza'], $_POST['idVeterinario']);
+                $controlador->editar($_GET['id'], $_POST['nombre'], $_POST['identificacion'], $_POST['fechaNacimiento'], $_POST['direccion'], $_FILES["foto"]['name'], $_FILES["foto"]['tmp_name'], $_FILES["vacunas"]['name'], $_FILES["vacunas"]['tmp_name'], $_SESSION['id'], $_POST['especie'], $_POST['raza'], $_POST['idVeterinario'], $_POST['activado']);
                 header('location: index.php?cargar=misMascotas&id='.$_SESSION['id']);
             }
         }
@@ -70,5 +70,12 @@
     <input type="file" name="foto">
     <label>Foto Vacunas</label>
     <input type="file" name="vacunas">
+    <?php
+      if(isset($_SESSION['idAdmin'])){
+    ?>
+    <input type="text" name="activado"  placeholder="Activado*" value="<?php echo $row['activado_mascota'] ?>" required>
+    <?php
+      }
+    ?>
     <input type="submit" class="boton" name="guardar" value="Actualizar mascota">
 </form>
