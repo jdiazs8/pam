@@ -279,31 +279,5 @@ SELECT * FROM tb_registros_vacunas;
 SELECT * FROM tb_veterinarios;
 SELECT * FROM tb_veterinarias;
 SELECT * FROM tb_comentarios_veterinarias;
-select * from tb_visitas_veterinarias;
+SELECT * FROM tb_visitas_veterinarias;
 
-insert into tb_vacunas(nombre_vacuna, activado_vacuna, fecha_registro_vacuna, id_especie) values('penta', '1', NOW(), '1');
-
-insert into tb_registros_vacunas(laboratorio_rvacuna, cepa_rvacuna, lote_rvacuna, fecha_exp_rvacuna, fecha_apli_rvacuna, dosis_rvacuna, id_mascota, id_vacuna) values('laboratorio', 'cepa', 'lote', NOW(), NOW(), '1', '2', '1');
-
-
-DELETE FROM tb_clientes WHERE id_cliente = 2;
-
-UPDATE tb_clientes SET contrasena_cliente = md5('1') WHERE id_cliente = 2;
-
-UPDATE tb_mascotas SET nombre_mascota = 'matias', identificacion_mascota = '12345', fecha_nacimiento_mascota = NOW(), direccion_mascota = '123', path_foto_mascota = '///', path_foto_cvacunas = '///', activado_mascota = '1', id_cliente = '1', id_especie = '1', id_raza = '1' WHERE id_mascota = '1';
-
-SELECT * FROM tb_visitas_veterinarias h, tb_veterinarias va, tb_veterinarios vo WHERE id_mascota = '1' AND h.id_veterinaria = va.id_veterinaria AND h.id_veterinario = vo.id_veterinario;
-
-SELECT m.*, c.nombre_cliente, c.apellido_cliente, r.nombre_raza, e.nombre_especie  FROM tb_mascotas m, tb_clientes c, tb_razas r, tb_especies e WHERE id_mascota = '1' AND m.id_cliente = c.id_cliente AND m.id_especie = e.id_especie AND m.id_raza = r.id_raza LIMIT 1;
-
-SELECT * FROM tb_veterinarias WHERE id_veterinario = 1 AND activado_veterinaria = '1';
-
-UPDATE tb_veterinarias SET nombre_veterinaria = '2', nit_veterinaria = '2', direccion_veterinaria = '2', telefono_veterinaria = '2', celular_veterinaria = '2', path_foto_veterinaria = '2', activado_veterinaria = '1', id_veterinario = '1' WHERE id_veterinaria = '1';
-
-SELECT * FROM tb_veterinarias WHERE id_veterinaria = 2;
-
-SELECT h.*, va.nombre_veterinaria, vo.nombre_veterinario, vo.apellido_veterinario FROM tb_visitas_veterinarias h, tb_veterinarias va, tb_veterinarios vo WHERE id_mascota = '1' AND h.id_veterinaria = va.id_veterinaria AND h.id_veterinario = vo.id_veterinario ORDER BY fecha_visita_veterinaria DESC;
-
-SELECT m.*, c.nombre_cliente, c.apellido_cliente, r.nombre_raza, e.nombre_especie, v.nombre_veterinario, v.apellido_veterinario  FROM tb_mascotas m, tb_clientes c, tb_razas r, tb_especies e, tb_veterinarios v WHERE id_mascota = '1' AND m.id_cliente = c.id_cliente AND m.id_especie = e.id_especie AND m.id_raza = r.id_raza AND m.id_veterinario = v.id_veterinario LIMIT 1;
-
-INSERT INTO tb_visitas_veterinarias(peso_visita_veterinaria, sintomas_visita_veterinaria, diagnostico_visita_veterinaria, observaciones_visita_veterinaria, fecha_visita_veterinaria, id_mascota, id_veterinario, id_veterinaria) VALUES('peso', 'sintomas', 'diagnostico', 'observacion', NOW(), '1', '1', '1');

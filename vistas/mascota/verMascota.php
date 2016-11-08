@@ -9,6 +9,7 @@
         if(isset($_POST['calificar'])) {
           $controlador2 = new ControladorCliente();
           $controlador2->calificarVisita($_POST['calificacion'], $_POST['comentario'], $_POST['idVisita']);
+          header('location: index.php?cargar=misMascotas&id='.$_SESSION['id']);
         }
     }else {
         header('location: index.php');
@@ -99,7 +100,7 @@
         </tr>
         <tr>
             <td><b>Médico a cargo:</b>
-            <td class="firma"><?php echo $row2['nombre_veterinario'].' '.$row2['apellido_veterinario']; ?></td>
+            <td class="firma"><em><?php echo $row2['nombre_veterinario'].' '.$row2['apellido_veterinario']; ?></em></td>
         </tr>
         <tr>
         <td colspan="2">

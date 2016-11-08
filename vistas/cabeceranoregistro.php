@@ -1,6 +1,6 @@
 <header>
   <div class="menu_bar">
-    <a href="#" class="bt-menu"><span class="icon-list2"></span>PAM</a>
+    <a href="#" class="bt-menu"><span class="icon-menu"></span>PAM</a>
   </div>
 
   <nav>
