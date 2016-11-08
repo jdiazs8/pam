@@ -59,7 +59,7 @@
                   </tr>
                   <tr>
                       <td><b>No. de dosis:</b></td>
-                      <td><?php $row2['dosis_rvacuna'] ?></td>
+                      <td><?php echo $row2['dosis_rvacuna'] ?></td>
                   </tr>
             </table>
             <hr>

@@ -73,7 +73,6 @@
 
         public function verVacunas($id) {
           $this->mascota->set('id', $id);
-
           $resultado = $this->mascota->verVacunas();
 
           return $resultado;
