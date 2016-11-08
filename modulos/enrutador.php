@@ -127,6 +127,10 @@
                     include_once('vistas/admin/'.$vista.'.php');
                     break;
 
+                case 'verClientes':
+                    include_once('vistas/admin/'.$vista.'.php');
+                    break;
+
 //---------------------------------otros----------------------------------------
                 case 'cerrarSesion':
                     include_once('modulos/'.$vista.'.php');

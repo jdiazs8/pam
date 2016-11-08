@@ -54,6 +54,11 @@
 
         }
 
+        public function verClientes() {
+          $resultado = $this->admin->verClientes();
+          return $resultado;
+        }
+
         public function inicioSesion($usuario, $contrasena) {
             $this->admin->set('correo', $usuario);
             $this->admin->set('contrasena', md5($contrasena));

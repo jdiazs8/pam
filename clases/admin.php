@@ -86,6 +86,12 @@
                 }
             }
         }
+
+        public function verClientes() {
+          $controlador = new ControladorCliente();
+          $resultado = $this->cliente= $controlador->index();
+          return $resultado;
+        }
     }
 
 ?>

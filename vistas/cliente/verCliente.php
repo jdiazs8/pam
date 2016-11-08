@@ -1,8 +1,8 @@
 <?php
-    if(isset($_SESSION['idCliente'])) {
+    if(isset($_SESSION['idCliente']) || isset($_SESSION['idAdmin'])) {
         $controlador = new ControladorCliente();
         if(isset($_SESSION['id'])) {
-            $row = $controlador->ver($_SESSION['id']);
+            $row = $controlador->ver($_GET['id']);
         }
     }else {
         header('location: index.php');
@@ -43,6 +43,13 @@
     <br>
     <table class="formulario">
         <tr>
+            <?php
+              if(isset($_SESSION['idAdmin'])) {
+            ?>
+            <td><a href="?cargar=verClientes">Volver</a></td>
+            <?php
+              }
+            ?>
             <td><a href="?cargar=editarCliente&id=<?php echo $row['id_cliente']; ?>">Actualizar</a></td>
             <td><a href="?cargar=desactivarCliente&id=<?php echo $row['id_cliente']; ?>">Desactivar</a></td>
         </tr>

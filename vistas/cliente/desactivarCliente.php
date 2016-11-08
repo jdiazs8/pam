@@ -1,5 +1,5 @@
 <?php
-    if(isset($_SESSION['idCliente'])) {
+    if(isset($_SESSION['idCliente']) || isset($_SESSION['idAdmin'])) {
         $controlador = new ControladorCliente();
         if(isset($_GET['id'])) {
             $row = $controlador->ver($_GET['id']);
@@ -9,8 +9,11 @@
 
         if(isset($_POST['desactivar'])) {
             $controlador->eliminar($_GET['id']);
+            if(isset($_SESSION['idAdmin'])){
+                header('location: index.php?cargar=verClientes');
+            }else {
                 header('location: index.php?cargar=cerrarSesion');
-
+            }
         }
 
         $mensaje = '¿Realmente quieres desactivar tu cuenta?';
