@@ -6,6 +6,7 @@
     include_once('modulos/controladorVeterinario.php');
     include_once('modulos/controladorVeterinaria.php');
     include_once('modulos/controladorExtra.php');
+    include_once('modulos/controladorAdmin.php');
 
     if(!isset($_GET['cargar'])) {
         $_GET['cargar'] = 'inicio';
@@ -37,11 +38,11 @@
     <body background="imagenes/fondo.png">
         <?php
             if(isset($_SESSION['idCliente'])) {
-                include_once('vistas/cabeceracliente.php');
+                include_once('vistas/cabeceraCliente.php');
             }else if(isset($_SESSION['idVeterinario'])) {
-                include_once('vistas/cabeceraveterinario.php');
+                include_once('vistas/cabeceraVeterinario.php');
             }else if(isset($_SESSION['idAdmin'])) {
-                include_once('vistas/cabeceraadmin.php');
+                include_once('vistas/cabeceraAdmin.php');
             }else {
                 include_once('vistas/cabeceranoregistro.php');
             }
