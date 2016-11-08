@@ -52,7 +52,7 @@
         }
 
         public function eliminar() {
-            $sql = "UPDATE tb_veterinarias SET activado_veterinaria = '{$this->activado}', WHERE id_veterinaria = '{$this->id}'";
+            $sql = "UPDATE tb_veterinarias SET activado_veterinaria = '{$this->activado}' WHERE id_veterinaria = '{$this->id}'";
             $this->con->consultaSimple($sql);
 
         }
@@ -94,7 +94,7 @@
         }
 
         public function verComentario() {
-          $sql = "SELECT * FROM tb_registros_vacunas WHERE id_mascota = {$this->id}";
+          $sql = "SELECT * FROM tb_comentarios_veterinarias WHERE id_mascota = {$this->id}";
           $vacuna = $this->con->consultaRetorno($sql);
 
           return $vacuna;

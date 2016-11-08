@@ -1,9 +1,9 @@
 <?php
-    if(isset($_SESSION['idVeterinario'])) {
+    if(isset($_SESSION['idVeterinario']) || isset($_SESSION['idAdmin'])) {
         $controlador = new ControladorVeterinaria();
         if(isset($_SESSION['id'])) {
             $row = $controlador->ver($_GET['id']);
-            $resultado = $controlador->verVacunas($_GET['id']);
+            $resultado = $controlador->verComentario($_GET['id']);
         }
     }else {
         header('location: index.php');
@@ -49,7 +49,7 @@
                 <?php
                 }
             }else {
-              $mensaje = 'Actualmente tu mascota no cuenta con un historial de vacunas.';
+              $mensaje = 'Actualmente tu veterinario no tiene comentarios.';
             }
         ?>
         <?php

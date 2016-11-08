@@ -1,5 +1,5 @@
 <?php
-    if(isset($_SESSION['idVeterinario'])){
+    if(isset($_SESSION['idVeterinario']) || isset($_SESSION['idAdmin'])){
         $controlador = new ControladorVeterinaria();
         if(isset($_GET['id'])) {
             $row = $controlador->ver($_GET['id']);
@@ -9,7 +9,7 @@
             if(empty($_POST['nombre']) || empty($_POST['nit']) || empty($_POST['direccion']) || empty($_POST['celular'])){
                 $mensaje = 'Lo campos marcados con * deben estar diligenciados';
             }else {
-                $controlador->editar($_GET['id'], $_POST['nombre'], $_POST['nit'], $_POST['direccion'], $_POST['telefono'], $_POST['celular'], $_FILES["foto"]['name'], $_FILES["foto"]['tmp_name'], $_SESSION['id'], '1');
+                $controlador->editar($_GET['id'], $_POST['nombre'], $_POST['nit'], $_POST['direccion'], $_POST['telefono'], $_POST['celular'], $_FILES["foto"]['name'], $_FILES["foto"]['tmp_name'], $_SESSION['id'], $_POST['activado']);
                 header('location: index.php?cargar=misVeterinarias&id='.$_SESSION['id']);
             }
         }
@@ -42,6 +42,13 @@
     <br>
     <input type="number" name="celular" maxlength="10" placeholder="No. Celular*" value="<?php echo $row['celular_veterinaria'] ?>" required>
     <br>
+    <?php
+      if(isset($_SESSION['idAdmin'])){
+    ?>
+    <input type="text" name="activado"  placeholder="Activado*" value="<?php echo $row['activado_veterinaria'] ?>" required>
+    <?php
+      }
+    ?>
     <label>Foto</foto>
     <input type="file" name="foto">
     <input type="submit" class="boton" name="guardar" value="Actualizar veterinaria">

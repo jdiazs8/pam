@@ -1,5 +1,5 @@
 <?php
-    if(isset($_SESSION['idVeterinario'])) {
+    if(isset($_SESSION['idVeterinario']) || isset($_SESSION['idAdmin'])) {
         $controlador = new ControladorVeterinaria();
         if(isset($_SESSION['id'])) {
             $row = $controlador->ver($_GET['id']);
@@ -60,7 +60,7 @@
     <br>
     <table class="formulario">
         <tr>
-            <td><a href="?cargar=misVeterinarias&id=<?php echo $_SESSION['id']; ?>">Volver</a></td>
+            <td><a href="javascript:history.back(-1);">Volver</a></td>
         </tr>
     </table>
 </center>
