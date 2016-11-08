@@ -134,10 +134,11 @@
   }else if(!$row2['calificado_visita_veterinaria'] && isset($_SESSION['idVeterinario'])){
     echo "<p class='mensaje'>Esta consulta no ha sido calificada.</p>";
   }
-            ?>
-            </table>
-            <?php
+
           }
+          ?>
+          </table>
+          <?php
         }else {
             $mensaje = 'Tu mascota actualmente no cuenta con un historial médico para consultar';
         }
