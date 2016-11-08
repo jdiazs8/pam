@@ -173,5 +173,12 @@
               break;
           }
         }
+
+        public function vacunasEspecie($idEspecie) {
+          $sql = "SELECT * FROM tb_vacunas WHERE id_especie = '{$idEspecie}'";
+          $resultado = $this->con->consultaRetorno($sql);
+
+          return $resultado;
+        }
     }
 ?>

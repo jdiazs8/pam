@@ -87,5 +87,11 @@
             $resultado = $this->veterinario->miConsultorio();
             return $resultado;
         }
+
+        public function ingresarVacuna($laboratorio, $cepa, $lote, $exp, $dosis, $idVacuna, $idMascota) {
+            $resultado = $this->veterinario->ingresarVacuna($laboratorio, $cepa, $lote, $exp, $dosis, $idVacuna, $idMascota);
+
+            return $resultado;
+        }
     }
 ?>

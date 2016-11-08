@@ -52,6 +52,10 @@
                     include_once('vistas/mascota/'.$vista.'.php');
                     break;
 
+                case 'ingresarVacuna':
+                    include_once('vistas/mascota/'.$vista.'.php');
+                    break;
+
 //-----------------------------------Veterinario--------------------------------
                 case 'crearVeterinario':
                     include_once('vistas/veterinario/'.$vista.'.php');

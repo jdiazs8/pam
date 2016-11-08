@@ -273,6 +273,18 @@ INSERT INTO tb_razas(nombre_raza, activado_raza, fecha_registro_raza, id_especie
 
 INSERT INTO tb_admins(nombre_admin, correo_admin, contrasena_admin, activado_admin, fecha_registro_admin, id_usuario) VALUES('Admin', 'jdiazs8@ucentral.edu.co', md5('ValentinA06'), '1', NOW(), '1');
 
+INSERT INTO tb_vacunas(nombre_vacuna, activado_vacuna, fecha_registro_vacuna, id_especie) VALUES('Triple', '1', NOW(), '1');
+INSERT INTO tb_vacunas(nombre_vacuna, activado_vacuna, fecha_registro_vacuna, id_especie) VALUES('Parvovirus', '1', NOW(), '1');
+INSERT INTO tb_vacunas(nombre_vacuna, activado_vacuna, fecha_registro_vacuna, id_especie) VALUES('Refuerzo de la Triple', '1', NOW(), '1');
+INSERT INTO tb_vacunas(nombre_vacuna, activado_vacuna, fecha_registro_vacuna, id_especie) VALUES('Refuerzo de Parvovirus', '1', NOW(), '1');
+INSERT INTO tb_vacunas(nombre_vacuna, activado_vacuna, fecha_registro_vacuna, id_especie) VALUES('Rabia', '1', NOW(), '1');
+
+INSERT INTO tb_vacunas(nombre_vacuna, activado_vacuna, fecha_registro_vacuna, id_especie) VALUES('Rinotraquetitis Viral Felina', '1', NOW(), '2');
+INSERT INTO tb_vacunas(nombre_vacuna, activado_vacuna, fecha_registro_vacuna, id_especie) VALUES('Calcivirus Felino', '1', NOW(), '2');
+INSERT INTO tb_vacunas(nombre_vacuna, activado_vacuna, fecha_registro_vacuna, id_especie) VALUES('Panleucopenia Felina', '1', NOW(), '2');
+INSERT INTO tb_vacunas(nombre_vacuna, activado_vacuna, fecha_registro_vacuna, id_especie) VALUES('Leucemia Felina', '1', NOW(), '2');
+INSERT INTO tb_vacunas(nombre_vacuna, activado_vacuna, fecha_registro_vacuna, id_especie) VALUES('Rabia', '1', NOW(), '2');
+
 SELECT * FROM tb_mascotas;
 SELECT * FROM tb_clientes;
 SELECT * FROM tb_especies;
@@ -283,5 +295,6 @@ SELECT * FROM tb_veterinarias;
 SELECT * FROM tb_comentarios_veterinarias;
 SELECT * FROM tb_visitas_veterinarias;
 SELECT * FROM tb_admins;
+SELECT * FROM tb_registros_vacunas;
 
-SELECT * FROM tb_admins WHERE correo_admin = 'jdiazs8@ucentral.edu.co' and contrasena_admin = md5('ValentinA06') LIMIT 1;
+INSERT INTO tb_registros_vacunas(laboratorio_rvacuna, cepa_rvacuna, lote_rvacuna, fecha_exp_rvacuna, fecha_apli_rvacuna, dosis_rvacuna, id_mascota, id_vacuna) VALUES('genoma', '12', '12', '', NOW(), '2', '1', '1');

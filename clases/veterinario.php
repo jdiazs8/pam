@@ -123,6 +123,13 @@
                 }
             }
         }
+
+        public function ingresarVacuna($laboratorio, $cepa, $lote, $exp, $dosis, $idVacuna, $idMascota) {
+          $sql = "INSERT INTO tb_registros_vacunas(laboratorio_rvacuna, cepa_rvacuna, lote_rvacuna, fecha_exp_rvacuna, fecha_apli_rvacuna, dosis_rvacuna, id_mascota, id_vacuna) VALUES('{$laboratorio}', '{$cepa}', '{$lote}', '{$exp}', NOW(), '{$dosis}', '{$idMascota}', '{$idVacuna}')";
+          $resultado = $this->con->consultaRetorno($sql);
+
+          return $resultado;
+        }
     }
 
 ?>

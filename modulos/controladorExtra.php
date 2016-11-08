@@ -81,5 +81,11 @@
         public function calificarVisita($calificacion, $comentario, $idVisita) {
           $this->extra->calificarVisita($calificacion, $comentario, $idVisita);
         }
+
+        public function vacunasEspecie($idEspecie) {
+          $resultado = $this->extra->vacunasEspecie($idEspecie);
+
+          return $resultado;
+        }
     }
 ?>

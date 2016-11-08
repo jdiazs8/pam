@@ -62,7 +62,7 @@
         }
 
         public function ver() {
-            $sql = "SELECT m.*, c.nombre_cliente, c.apellido_cliente, r.nombre_raza, e.nombre_especie, v.nombre_veterinario, v.apellido_veterinario  FROM tb_mascotas m, tb_clientes c, tb_razas r, tb_especies e, tb_veterinarios v WHERE id_mascota = '{$this->id}' AND m.id_cliente = c.id_cliente AND m.id_especie = e.id_especie AND m.id_raza = r.id_raza AND m.id_veterinario = v.id_veterinario LIMIT 1";
+            $sql = "SELECT m.*, c.nombre_cliente, c.apellido_cliente, r.nombre_raza, e.id_especie, e.nombre_especie, v.nombre_veterinario, v.apellido_veterinario  FROM tb_mascotas m, tb_clientes c, tb_razas r, tb_especies e, tb_veterinarios v WHERE id_mascota = '{$this->id}' AND m.id_cliente = c.id_cliente AND m.id_especie = e.id_especie AND m.id_raza = r.id_raza AND m.id_veterinario = v.id_veterinario LIMIT 1";
             $resultado = $this->con->consultaRetorno($sql);
 
 

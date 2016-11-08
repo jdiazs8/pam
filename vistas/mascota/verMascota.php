@@ -56,7 +56,7 @@
 
             <tr>
                 <td><b>Carnet de vacunas:</b></td>
-                <td><a href="?cargar=carnetVacunas&id=<?php echo $_GET['id'] ?>" target="popup" onClick="window.open(this.href, this.target, 'width=350,height=420'); return false;">Vacunas</a></td>
+                <td><a href="?cargar=carnetVacunas&id=<?php echo $_GET['id'] ?>&especie=<?php echo $row['id_especie'] ?>" target="popup" onClick="window.open(this.href, this.target, 'width=350,height=420'); return false;">Vacunas</a></td>
             </tr>
     </table>
     <br>

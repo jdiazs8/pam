@@ -1,5 +1,5 @@
 <?php
-    if(isset($_SESSION['idCliente'])) {
+    if(isset($_SESSION['idCliente']) || isset($_SESSION['idAdmin']) || isset($_SESSION['idVeterinario'])) {
         $controlador = new ControladorMascota();
         if(isset($_SESSION['id'])) {
             $row = $controlador->ver($_GET['id']);
@@ -16,6 +16,13 @@
     <table class="formulario">
         <tr>
             <td><a href="javascript:window.close();">Cerrar</a></td>
+            <?php
+                if(isset($_SESSION['idVeterinario']) || isset($_SESSION['idAdmin'])) {
+            ?>
+                  <td><a href="?cargar=ingresarVacuna&id=<?php echo $_GET['id']; ?>&especie=<?php echo $_GET['especie'] ?>">Ingresar Vacuna</a></td>
+            <?php
+                }
+            ?>
         </tr>
     </table>
     <br>
@@ -24,11 +31,12 @@
     </div>
     <br>
     <hr>
+    <?php
+        if(mysqli_num_rows($resultado) != 0) {
+          while($row2 = mysqli_fetch_assoc($resultado)){
+    ?>
     <table class="formulario">
-        <?php
-            if(mysqli_num_rows($resultado) != 0) {
-              while($row2 = mysqli_fetch_assoc($resultado)){
-        ?>
+
                   <tr>
                       <td><b>Laboratorio:</b></td>
                       <td><?php echo $row2['laboratorio_rvacuna'] ?></td>
@@ -57,6 +65,7 @@
             <hr>
                 <?php
                 }
+                echo "<br><br>";
             }else {
               $mensaje = 'Actualmente tu mascota no cuenta con un historial de vacunas.';
             }
