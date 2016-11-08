@@ -17,3 +17,4 @@ ALTER TABLE tb_visitas_veterinarias ADD FOREIGN KEY(id_mascota) REFERENCES tb_ma
 ALTER TABLE tb_visitas_veterinarias ADD FOREIGN KEY(id_veterinario) REFERENCES tb_veterinarios(id_veterinario);
 ALTER TABLE tb_visitas_veterinarias ADD FOREIGN KEY(id_veterinaria) REFERENCES tb_veterinarias(id_veterinaria);
 ALTER TABLE tb_comentarios_veterinarias ADD FOREIGN KEY(id_visita_veterinaria) REFERENCES tb_visitas_veterinarias(id_visita_veterinaria);
+ALTER TABLE tb_comentarios_veterinarias ADD FOREIGN KEY(id_veterinaria) REFERENCES tb_veterinarias(id_veterinaria);

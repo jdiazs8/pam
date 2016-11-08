@@ -174,5 +174,6 @@ CREATE TABLE tb_comentarios_veterinarias (
 	id_comentario_veterinaria INT(10) PRIMARY KEY AUTO_INCREMENT,
     texto_comentario_veterinaria VARCHAR(400) NOT NULL,
     fecha_comentario_veterinaria DATETIME,
-    id_visita_veterinaria INT(10)
+    id_visita_veterinaria INT(10),
+    id_veterinaria INT(10)
 );

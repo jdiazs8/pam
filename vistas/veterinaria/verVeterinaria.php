@@ -53,7 +53,7 @@
         </tr>
         <tr>
             <td><b>Comentarios:</b></td>
-            <td><a href="?cargar=comentariosVeterinaria&id=<?php echo $_GET['id'] ?>" target="popup" onClick="window.open(this.href, this.target, 'width=350,height=420'); return false;">Comentarios</a></td>
+            <td><a href="?cargar=comentariosVeterinaria&id=<?php echo $row['id_veterinaria'] ?>" target="popup" onClick="window.open(this.href, this.target, 'width=350,height=420'); return false;">Comentarios</a></td>
         </tr>
     </table>
     <br>

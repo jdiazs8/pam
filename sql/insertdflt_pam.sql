@@ -271,6 +271,8 @@ INSERT INTO tb_razas(nombre_raza, activado_raza, fecha_registro_raza, id_especie
 
 INSERT INTO tb_razas(nombre_raza, activado_raza, fecha_registro_raza, id_especie) VALUES('Otro', '1', NOW(), '3');
 
+INSERT INTO tb_admins(nombre_admin, correo_admin, contrasena_admin, activado_admin, fecha_registro_admin, id_usuario) VALUES('Admin', 'jdiazs8@ucentral.edu.co', md5('ValentinA06'), '1', NOW(), '1');
+
 SELECT * FROM tb_mascotas;
 SELECT * FROM tb_clientes;
 SELECT * FROM tb_especies;
@@ -280,4 +282,6 @@ SELECT * FROM tb_veterinarios;
 SELECT * FROM tb_veterinarias;
 SELECT * FROM tb_comentarios_veterinarias;
 SELECT * FROM tb_visitas_veterinarias;
+SELECT * FROM tb_admins;
 
+SELECT * FROM tb_admins WHERE correo_admin = 'jdiazs8@ucentral.edu.co' and contrasena_admin = md5('ValentinA06') LIMIT 1;

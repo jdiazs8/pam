@@ -94,7 +94,7 @@
         }
 
         public function verComentario() {
-          $sql = "SELECT * FROM tb_comentarios_veterinarias WHERE id_mascota = {$this->id}";
+          $sql = "SELECT * FROM tb_comentarios_veterinarias WHERE id_veterinaria = {$this->id}";
           $vacuna = $this->con->consultaRetorno($sql);
 
           return $vacuna;

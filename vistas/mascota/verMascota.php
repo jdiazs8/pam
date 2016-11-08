@@ -8,7 +8,7 @@
 
         if(isset($_POST['calificar'])) {
           $controlador2 = new ControladorCliente();
-          $controlador2->calificarVisita($_POST['calificacion'], $_POST['comentario'], $_POST['idVisita']);
+          $controlador2->calificarVisita($_POST['calificacion'], $_POST['comentario'], $_POST['idVisita'], $_POST['idVeterinaria']);
           header('location: index.php?cargar=misMascotas&id='.$_SESSION['id']);
         }
     }else {
@@ -123,6 +123,7 @@
                         <option value="1">Muy malo</option>
                     </select>
                     <input type="hidden" name="idVisita" value="<?php echo $row2['id_visita_veterinaria'] ?>">
+                    <input type="hidden" name="idVeterinaria" value="<?php echo $row2['id_veterinaria'] ?>">
                     <textarea name="comentario" placeholder="Escribe tu comentario"></textarea>
                     <input type="submit" class="boton" name="calificar" value="calificar">
                 </form>

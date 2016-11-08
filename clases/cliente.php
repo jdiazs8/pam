@@ -113,8 +113,8 @@
             }
         }
 
-        public function calificarVisita($calificacion, $comentario, $idVisita) {
-          $sql = "INSERT INTO tb_comentarios_veterinarias(texto_comentario_veterinaria, fecha_comentario_veterinaria, id_visita_veterinaria) VALUES('{$comentario}', NOW(), {$idVisita})";
+        public function calificarVisita($calificacion, $comentario, $idVisita, $idVeterinaria) {
+          $sql = "INSERT INTO tb_comentarios_veterinarias(texto_comentario_veterinaria, fecha_comentario_veterinaria, id_visita_veterinaria, id_veterinaria) VALUES('{$comentario}', NOW(), {$idVisita}, {$idVeterinaria})";
           $this->con->consultaSimple($sql);
 
           $sql = "UPDATE tb_visitas_veterinarias SET calificacion_visita_veterinaria = '{$calificacion}', calificado_visita_veterinaria = true  WHERE id_visita_veterinaria = '{$idVisita}'";

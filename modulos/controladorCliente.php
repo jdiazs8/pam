@@ -78,8 +78,8 @@
             return $resultado;
         }
 
-        public function calificarVisita($calificacion, $comentario, $idVisita) {
-          $this->cliente->calificarVisita($calificacion, $comentario, $idVisita);
+        public function calificarVisita($calificacion, $comentario, $idVisita, $idVeterinaria) {
+          $this->cliente->calificarVisita($calificacion, $comentario, $idVisita, $idVeterinaria);
         }
     }
 ?>

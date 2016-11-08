@@ -11,38 +11,28 @@
 ?>
 <center>
     <br>
-    <h2>Vacunas</h2>
+    <h2>Comentarios</h2>
     <br>
+    <table class="formulario">
+        <tr>
+            <td><a href="javascript:window.close();">Cerrar</a></td>
+        </tr>
+    </table>
     <br>
     <hr>
+    <?php
+        if(mysqli_num_rows($resultado) != 0) {
+          while($row2 = mysqli_fetch_assoc($resultado)){
+    ?>
     <table class="formulario">
-        <?php
-            if(mysqli_num_rows($resultado) != 0) {
-              while($row2 = mysqli_fetch_assoc($resultado)){
-        ?>
+
                   <tr>
-                      <td><b>Laboratorio:</b></td>
-                      <td><?php echo $row2['laboratorio_rvacuna'] ?></td>
+                      <td><b>Fecha:</b></td>
+                      <td><?php echo $row2['fecha_comentario_veterinaria'] ?></td>
                   </tr>
                   <tr>
-                      <td><b>Cepa:</b></td>
-                      <td><?php echo $row2['cepa_rvacuna'] ?></td>
-                  </tr>
-                  <tr>
-                      <td><b>Lote:</b></td>
-                      <td><?php echo $row2['lote_rvacuna'] ?></td>
-                  </tr>
-                  <tr>
-                      <td><b>Fecha de expiración:</b></td>
-                      <td><?php echo $row2['fecha_exp_rvacuna'] ?></td>
-                  </tr>
-                  <tr>
-                      <td><b>Fecha de aplicación:</b></td>
-                      <td><?php echo $row2['fecha_apli_rvacuna'] ?></td>
-                  </tr>
-                  <tr>
-                      <td><b>No. de dosis:</b></td>
-                      <td><?php $row2['dosis_rvacuna'] ?></td>
+                      <td><b>Comentario:</b></td>
+                      <td><?php echo $row2['texto_comentario_veterinaria'] ?></td>
                   </tr>
             </table>
             <hr>
