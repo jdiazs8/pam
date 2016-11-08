@@ -14,6 +14,9 @@
                 if($_POST['especie'] == 0){
                   $_POST['especie'] = $row['id_especie'];
                 }
+                if(!isset($_SESSION['idAdmin'])){
+                  $_POST['activado'] = 1;
+                }
                 $controlador->editar($_GET['id'], $_POST['nombre'], $_POST['identificacion'], $_POST['fechaNacimiento'], $_POST['direccion'], $_FILES["foto"]['name'], $_FILES["foto"]['tmp_name'], $_FILES["vacunas"]['name'], $_FILES["vacunas"]['tmp_name'], $_SESSION['id'], $_POST['especie'], $_POST['raza'], $_POST['idVeterinario'], $_POST['activado']);
                 header('location: index.php?cargar=misMascotas&id='.$_SESSION['id']);
             }
@@ -36,6 +39,13 @@
         }
     ?>
     <h2>Actualizar Mascota</h2>
+    <?php
+      if(isset($_SESSION['idAdmin'])){
+    ?>
+    <input type="text" name="activado"  placeholder="Activado*" value="<?php echo $row['activado_mascota'] ?>" required>
+    <?php
+      }
+    ?>
     <input type="text" name="nombre" maxlength="50" placeholder="Nombre*" value="<?php echo $row['nombre_mascota'] ?>" required>
     <br>
     <input type="text" name="identificacion" maxlength="19" placeholder="Identificación" value="<?php echo $row['identificacion_mascota'] ?>">
@@ -70,12 +80,6 @@
     <input type="file" name="foto">
     <label>Foto Vacunas</label>
     <input type="file" name="vacunas">
-    <?php
-      if(isset($_SESSION['idAdmin'])){
-    ?>
-    <input type="text" name="activado"  placeholder="Activado*" value="<?php echo $row['activado_mascota'] ?>" required>
-    <?php
-      }
-    ?>
+    <br>
     <input type="submit" class="boton" name="guardar" value="Actualizar mascota">
 </form>

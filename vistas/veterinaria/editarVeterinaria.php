@@ -9,6 +9,9 @@
             if(empty($_POST['nombre']) || empty($_POST['nit']) || empty($_POST['direccion']) || empty($_POST['celular'])){
                 $mensaje = 'Lo campos marcados con * deben estar diligenciados';
             }else {
+                if(!isset($_SESSION['idAdmin'])){
+                  $_POST['activado'] = 1;
+                }
                 $controlador->editar($_GET['id'], $_POST['nombre'], $_POST['nit'], $_POST['direccion'], $_POST['telefono'], $_POST['celular'], $_FILES["foto"]['name'], $_FILES["foto"]['tmp_name'], $_SESSION['id'], $_POST['activado']);
                 header('location: index.php?cargar=misVeterinarias&id='.$_SESSION['id']);
             }

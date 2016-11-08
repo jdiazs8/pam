@@ -14,6 +14,9 @@
                     if(empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['identificacion']) || empty($_POST['tprofesional']) || empty($_POST['correo']) || empty($_POST['contrasena']) || empty($_POST['contrasena2'] || empty($_POST['direccion']) || empty($_POST['celular']) || empty($_POST['acuerdo']))){
                         $mensaje = 'Lo campos marcados con * deben estar diligenciados';
                     }else {
+                        if(!isset($_SESSION['idAdmin'])){
+                          $_POST['activado'] = 1;
+                        }
                         $controlador->editar($_GET['id'], $_POST['nombre'], $_POST['apellido'], $_POST['identificacion'], $_POST['tprofesional'], $_POST['correo'], $_POST['contrasena'], $_POST['direccion'], $_POST['telefono'], $_POST['celular'], $_FILES['foto']['name'], $_FILES['foto']['tmp_name'], $_POST['activado']);
                         header('location: index.php?cargar=verVeterinario&id='.$row['id_veterinario']);
                     }
