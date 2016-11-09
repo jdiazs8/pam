@@ -189,6 +189,10 @@
                     include_once('vistas/'.$vista.'.php');
                     break;
 
+                case 'terminos':
+                    include_once('vistas/'.$vista.'.php');
+                    break;
+
                 default:
                     include_once('vistas/error.php');
                     break;

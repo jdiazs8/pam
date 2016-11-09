@@ -60,7 +60,7 @@
     <table>
         <tr>
             <td><input type="checkbox" class="check" name="acuerdo" required></td>
-            <td><a href="#">Acepto los términos y con...*</a></td>
+            <td><a href="?cargar=terminos&target="popup" onClick="window.open(this.href, this.target, 'width=350,height=420'); return false;">Acepto los términos y con...*</a></td>
         </tr>
     </table>
     <br>
