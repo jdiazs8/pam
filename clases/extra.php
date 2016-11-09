@@ -29,7 +29,7 @@
                 break;
 
               case 2:
-                $sql = "SELECT * FROM tb_vacunas";
+                $sql = "SELECT v.*, e.nombre_especie FROM tb_vacunas v, tb_especies e WHERE v.id_especie = e.id_especie";
                 $resultado =$this->con->consultaRetorno($sql);
                 return $resultado;
                 break;
@@ -41,7 +41,7 @@
                 break;
 
               case 4:
-                $sql = "SELECT * FROM tb_razas";
+                $sql = "SELECT r.*, e.nombre_especie FROM tb_razas r, tb_especies e WHERE r.id_especie = e.id_especie";
                 $resultado =$this->con->consultaRetorno($sql);
                 return $resultado;
                 break;
@@ -52,22 +52,26 @@
             switch ($item) {
               case 1:
                 $sql = "INSERT INTO tb_usuarios(nombre_usuario, activado_usuario, fecha_registro_usuario) VALUES('{$this->nombre}', '1', NOW())";
-                $this->con->consultaSimple($sql);
+                $resultado = $this->con->consultaRetorno($sql);
+                return $resultado;
                 break;
 
               case 2:
                 $sql = "INSERT INTO tb_vacunas(nombre_vacuna, activado_vacuna, fecha_registro_vacuna, id_especie) VALUES('{$this->nombre}', '1', NOW(), '{$this->asociado}')";
-                $this->con->consultaSimple($sql);
+                $resultado = $this->con->consultaRetorno($sql);
+                return $resultado;
                 break;
 
               case 3:
                 $sql = "INSERT INTO tb_especies(nombre_especie, activado_especie, fecha_registro_especie) VALUES('{$this->nombre}', '1', NOW())";
-                $this->con->consultaSimple($sql);
+                $resultado = $this->con->consultaRetorno($sql);
+                return $resultado;
                 break;
 
               case 4:
                 $sql = "INSERT INTO tb_razas(nombre_raza, activado_raza, fecha_registro_raza, id_especie) VALUES('{$this->nombre}', '1', NOW(), '{$this->asociado}')";
-                $this->con->consultaSimple($sql);
+                $resultado = $this->con->consultaRetorno($sql);
+                return $resultado;
                 break;
             }
         }
@@ -116,8 +120,8 @@
 
                 $row = mysqli_fetch_assoc($resultado);
 
-                $this->id = $row['id_usuario'];
-                $this->nombre = $row['nombre_usuario'];
+                $this->id = $row['id_vacuna'];
+                $this->nombre = $row['nombre_vacuna'];
                 $this->asociado = $row['id_especie'];
 
                 return $row;
@@ -129,8 +133,8 @@
 
                 $row = mysqli_fetch_assoc($resultado);
 
-                $this->id = $row['id_usuario'];
-                $this->nombre = $row['nombre_usuario'];
+                $this->id = $row['id_especie'];
+                $this->nombre = $row['nombre_especie'];
 
                 return $row;
                 break;
@@ -141,8 +145,8 @@
 
                 $row = mysqli_fetch_assoc($resultado);
 
-                $this->id = $row['id_usuario'];
-                $this->nombre = $row['nombre_usuario'];
+                $this->id = $row['id_raza'];
+                $this->nombre = $row['nombre_raza'];
                 $this->asociado = $row['id_especie'];
 
                 return $row;
@@ -151,24 +155,24 @@
         }
 
         public function editar($item) {
-          switch (variable) {
+          switch ($item) {
             case 1:
-              $sql = "UPDATE tb_usuarios SET nombre_usuario = '{$this->nombre}' WHERE id_usuario = '{$this->id}'";
+              $sql = "UPDATE tb_usuarios SET nombre_usuario = '{$this->nombre}', activado_usuario = '{$this->activado}' WHERE id_usuario = '{$this->id}'";
               $this->con->consultaSimple($sql);
               break;
 
             case 2:
-              $sql = "UPDATE tb_vacunas SET nombre_vacuna = '{$this->nombre}', id_especie = '{$this->asociado}' WHERE id_vacuna = '{$this->id}'";
+              $sql = "UPDATE tb_vacunas SET nombre_vacuna = '{$this->nombre}', id_especie = '{$this->asociado}', activado_vacuna = '{$this->activado}' WHERE id_vacuna = '{$this->id}'";
               $this->con->consultaSimple($sql);
               break;
 
             case 3:
-              $sql = "UPDATE tb_especies SET nombre_especie = '{$this->nombre}' WHERE id_especie = '{$this->id}'";
+              $sql = "UPDATE tb_especies SET nombre_especie = '{$this->nombre}', activado_especie = '{$this->activado}' WHERE id_especie = '{$this->id}'";
               $this->con->consultaSimple($sql);
               break;
 
             case 4:
-              $sql = "UPDATE tb_razas SET nombre_raza = '{$this->nombre}', id_especie = '{$this->asociado}' WHERE id_raza = '{$this->id}'";
+              $sql = "UPDATE tb_razas SET nombre_raza = '{$this->nombre}', id_especie = '{$this->asociado}', activado_raza = '{$this->activado}' WHERE id_raza = '{$this->id}'";
               $this->con->consultaSimple($sql);
               break;
           }

@@ -147,6 +147,27 @@
                     include_once('vistas/admin/'.$vista.'.php');
                     break;
 
+//----------------------------------Extra---------------------------------------
+                case 'crearExtra':
+                    include_once('vistas/extra/'.$vista.'.php');
+                    break;
+
+                case 'verExtra':
+                    include_once('vistas/extra/'.$vista.'.php');
+                    break;
+
+                case 'editarExtra':
+                    include_once('vistas/extra/'.$vista.'.php');
+                    break;
+
+                case 'desactivarExtra':
+                    include_once('vistas/extra/'.$vista.'.php');
+                    break;
+
+                case 'opcionExtras':
+                    include_once('vistas/extra/'.$vista.'.php');
+                    break;
+
 //---------------------------------otros----------------------------------------
                 case 'cerrarSesion':
                     include_once('modulos/'.$vista.'.php');

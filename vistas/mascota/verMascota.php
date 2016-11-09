@@ -73,7 +73,7 @@
             while($row2 = mysqli_fetch_assoc($resultado)) {
     ?>
     <table class="formulario">
-        <hr>
+        <center><hr></center>
         <tr>
             <td><b>Fecha:</b></td>
             <td><?php echo $row2['fecha_visita_veterinaria'] ?></td>

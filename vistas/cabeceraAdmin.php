@@ -16,7 +16,7 @@
           <!--<li><a href="?cargar=subirFoto">Subir Fotos<span class="icon-dot"></span></a></li>-->
           <li><a href="?cargar=verVeterinarios">Veterinarios<span class="icon-dot"></span></a></li>
           <li><a href="?cargar=verVeterinarias">Veterinarias<span class="icon-dot"></span></a></li>
-          <li><a href="?cargar=verExtras">Extras<span class="icon-dot"></span></a></li>
+          <li><a href="?cargar=opcionExtras">Extras<span class="icon-dot"></span></a></li>
         </ul>
       </li >
       <li><a href="?cargar=mensajes"><span class="icon-mail"></span>Ver Mensajes</a></li>

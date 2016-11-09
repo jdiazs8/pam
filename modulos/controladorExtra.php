@@ -15,77 +15,38 @@
 
         }
 
-        public function crear($nombre, $apellido, $identificacion, $correo, $contrasena) {
+        public function crear($nombre, $extra, $asociado) {
             $this->extra->set('nombre', $nombre);
-            $this->extra->set('apellido', $apellido);
-            $this->extra->set('identificacion', $identificacion);
-            $this->extra->set('correo', $correo);
-            $this->extra->set('contrasena', $contrasena);
-            $this->extra->set('activado', 1);
-            $this->extra->set('idUsuario', 2);
+            $this->extra->set('asociado', $asociado);
 
-            $resultado = $this->extra->crear();
+            $resultado = $this->extra->crear($extra);
 
             return $resultado;
-
         }
 
-        public function eliminar($id) {
+        public function eliminar($id, $extra) {
             $this->extra->set('id', $id);
             $this->extra->set('activado', '0');
-            $this->extra->eliminar();
+            $this->extra->eliminar($extra);
 
         }
 
-        public function ver($id) {
+        public function ver($id, $item) {
             $this->extra->set('id', $id);
-            $datos = $this->extra->ver();
+            $datos = $this->extra->ver($item);
 
             return $datos;
 
         }
 
-        public function editar($id, $nombre, $apellido, $identificacion, $correo, $contrasena, $direccion, $telefono, $celular, $pathFoto, $estFoto, $activado) {
+        public function editar($nombre, $asociado, $id, $extra, $activado) {
             $this->extra->set('id', $id);
             $this->extra->set('nombre', $nombre);
-            $this->extra->set('apellido', $apellido);
-            $this->extra->set('identificacion', $identificacion);
-            $this->extra->set('correo', $correo);
-            $this->extra->set('contrasena', $contrasena);
-            $this->extra->set('direccion', $direccion);
-            $this->extra->set('telefono', $telefono);
-            $this->extra->set('celular', $celular);
-            $this->extra->set('pathFoto', $pathFoto);
+            $this->extra->set('apellido', $asociado);
             $this->extra->set('activado', $activado);
 
-            $this->extra->editar($estFoto);
+            $this->extra->editar($extra);
 
-        }
-
-        public function inicioSesion($usuario, $contrasena) {
-            $this->extra->set('correo', $usuario);
-            $this->extra->set('contrasena', md5($contrasena));
-
-            $resultado = $this->extra->inicioSesion();
-
-            return $resultado;
-
-        }
-
-        public function misMascotas($id) {
-            $this->extra->set('id', $id);
-            $resultado = $this->extra->misMascotas();
-            return $resultado;
-        }
-
-        public function calificarVisita($calificacion, $comentario, $idVisita) {
-          $this->extra->calificarVisita($calificacion, $comentario, $idVisita);
-        }
-
-        public function vacunasEspecie($idEspecie) {
-          $resultado = $this->extra->vacunasEspecie($idEspecie);
-
-          return $resultado;
         }
     }
 ?>

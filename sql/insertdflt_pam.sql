@@ -296,5 +296,4 @@ SELECT * FROM tb_comentarios_veterinarias;
 SELECT * FROM tb_visitas_veterinarias;
 SELECT * FROM tb_admins;
 SELECT * FROM tb_registros_vacunas;
-
-INSERT INTO tb_registros_vacunas(laboratorio_rvacuna, cepa_rvacuna, lote_rvacuna, fecha_exp_rvacuna, fecha_apli_rvacuna, dosis_rvacuna, id_mascota, id_vacuna) VALUES('genoma', '12', '12', '', NOW(), '2', '1', '1');
+SELECT * FROM tb_usuarios;
