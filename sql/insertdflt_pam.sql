@@ -284,17 +284,3 @@ INSERT INTO tb_vacunas(nombre_vacuna, activado_vacuna, fecha_registro_vacuna, id
 INSERT INTO tb_vacunas(nombre_vacuna, activado_vacuna, fecha_registro_vacuna, id_especie) VALUES('Panleucopenia Felina', '1', NOW(), '2');
 INSERT INTO tb_vacunas(nombre_vacuna, activado_vacuna, fecha_registro_vacuna, id_especie) VALUES('Leucemia Felina', '1', NOW(), '2');
 INSERT INTO tb_vacunas(nombre_vacuna, activado_vacuna, fecha_registro_vacuna, id_especie) VALUES('Rabia', '1', NOW(), '2');
-
-SELECT * FROM tb_mascotas;
-SELECT * FROM tb_clientes;
-SELECT * FROM tb_especies;
-SELECT * FROM tb_razas;
-SELECT * FROM tb_registros_vacunas;
-SELECT * FROM tb_veterinarios;
-SELECT * FROM tb_veterinarias;
-SELECT * FROM tb_comentarios_veterinarias;
-SELECT * FROM tb_visitas_veterinarias;
-SELECT * FROM tb_admins;
-SELECT * FROM tb_registros_vacunas;
-SELECT * FROM tb_usuarios;
-SELECT * FROM tb_contacto;
