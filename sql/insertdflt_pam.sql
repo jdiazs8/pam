@@ -297,3 +297,4 @@ SELECT * FROM tb_visitas_veterinarias;
 SELECT * FROM tb_admins;
 SELECT * FROM tb_registros_vacunas;
 SELECT * FROM tb_usuarios;
+SELECT * FROM tb_contacto;

@@ -46,7 +46,22 @@
             $this->extra->set('activado', $activado);
 
             $this->extra->editar($extra);
+        }
 
+        public function contacto($nombre, $correo, $tema, $mensaje, $id) {
+          $resultado = $this->extra->contacto($nombre, $correo, $tema, $mensaje, $id);
+
+          return $resultado;
+        }
+
+        public function verMensajes() {
+          $resultado = $this->extra->verMensajes();
+
+          return $resultado;
+        }
+
+        public function contestarMensaje($id, $estado) {
+          $this->extra->contestarMensaje($id, $estado);
         }
     }
 ?>

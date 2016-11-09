@@ -184,5 +184,24 @@
 
           return $resultado;
         }
+
+        public function contacto($nombre, $correo, $tema, $mensaje, $id) {
+          $sql = "INSERT INTO tb_contacto(fecha_contacto, nombre_contacto, correo_contacto, tema_contacto, mensaje_contacto, id_usuario) VALUES(NOW(), '{$nombre}', '{$correo}', '{$tema}', '{$mensaje}', '{$id}')";
+          $resultado = $this->con->consultaRetorno($sql);
+
+          return $resultado;
+        }
+
+        public function verMensajes() {
+          $sql = "SELECT c.*, u.nombre_usuario FROM tb_contacto c, tb_usuarios u WHERE estado_contacto = '0' AND  c.id_usuario = u.id_usuario";
+          $resultado = $this->con->consultaRetorno($sql);
+
+          return $resultado;
+        }
+
+        public function contestarMensaje($id, $estado) {
+          $sql ="UPDATE tb_contacto SET estado_contacto = '{$estado}' WHERE id_contacto = '{$id}'";
+          $this->con->consultaSimple($sql);
+        }
     }
 ?>

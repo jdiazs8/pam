@@ -16,7 +16,7 @@
           <li><a href="?cargar=crearMascota">Registrar Mascota<span class="icon-dot"></span></a></li>
         </ul>
       </li >
-      <li><a href="?cargar=contacto"><span class="icon-mail"></span>Contacto</a></li>
+      <li><a href="?cargar=contacto&id=<?php echo $_SESSION['idCliente']; ?>"><span class="icon-mail"></span>Contacto</a></li>
       <li><a href="?cargar=cerrarSesion"><span class="icon-suitcase"></span>Cerrar Sesión</a></li>
     </ul>
   </nav>

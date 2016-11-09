@@ -149,6 +149,7 @@ CREATE TABLE tb_contacto (
     correo_contacto VARCHAR(100) NOT NULL,
     tema_contacto VARCHAR(50) NOT NULL,
     mensaje_contacto VARCHAR(1000) NOT NULL,
+    estado_contacto BOOLEAN NOT NULL DEFAULT 0,
     id_usuario INT(10) NOT NULL
 );
 
