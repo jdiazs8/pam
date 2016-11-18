@@ -33,6 +33,8 @@
     }
 
 ?>
+
+<section>
 <center>
     <form action="" method="post" enctype="multipart/form-data">
         <?php
@@ -77,3 +79,4 @@
         <input type="submit" class="boton" name="actualizar" value="Actualizar">
     </form>
 </center>
+</section>

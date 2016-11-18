@@ -2,7 +2,6 @@
 	padding:0;
 	margin:0;
   font-family: Arial, Verdana, Geneva, Helvetica, sans-serif;
-	src: url('../fonts/Calibri.ttf');
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -46,6 +45,7 @@ body {
 
 section {
 	padding: 2px;
+	padding-top: 31px;
 }
 
 form .check {
@@ -60,6 +60,8 @@ form .check a {
 
 header {
 	width: 100%;
+	/*position: fixed;*/
+	z-index: 1000;
 }
 
 header nav {

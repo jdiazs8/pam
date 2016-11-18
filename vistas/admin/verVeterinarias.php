@@ -9,7 +9,8 @@
     }
 ?>
 
-<center>
+<section>
+  <center>
     <div>
         <h2>Veterinarias</h2>
         <br>
@@ -35,4 +36,5 @@
         <?php
             }
         ?>
-</center>
+  </center>
+</section>

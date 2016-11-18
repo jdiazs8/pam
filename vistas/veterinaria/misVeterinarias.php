@@ -9,6 +9,7 @@
     }
 ?>
 
+<section>
 <center>
     <div>
         <h2>Mis Veterinarias</h2>
@@ -35,3 +36,4 @@
             }
         ?>
 </center>
+</section>

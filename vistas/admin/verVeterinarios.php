@@ -8,7 +8,7 @@
         header('location: index.php');
     }
 ?>
-
+<section>
 <center>
     <div>
         <h2>veterinarios</h2>
@@ -34,3 +34,4 @@
             }
         ?>
 </center>
+</section>

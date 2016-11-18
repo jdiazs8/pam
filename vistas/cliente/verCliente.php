@@ -10,6 +10,7 @@
     }
 ?>
 
+<section>
 <center>
     <h2><?php echo $row['nombre_cliente'].' '.$row['apellido_cliente']; ?></h2>
     <br>
@@ -55,3 +56,4 @@
         </tr>
     </table>
 </center>
+</section>

@@ -9,6 +9,7 @@
     }
 ?>
 
+<section>
 <center>
     <div>
         <h2>Mis Mascotas</h2>
@@ -39,3 +40,4 @@
             }
         ?>
 </center>
+</section>

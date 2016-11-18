@@ -2,7 +2,7 @@
   <div class="menu_bar">
     <a href="#" class="bt-menu"><span class="icon-menu"></span>PAM</a>
   </div>
-
+<center>
   <nav>
     <ul>
       <li><a href="?cargar=inicio"><span class="icon-house"></span>Inicio</a></li>
@@ -11,7 +11,7 @@
         <a href="#"><span class="icon-rocket"></span>Opciones<span class="caret icon-arrow-down6"></span></a>
         <ul class="children">
           <li><a href="?cargar=verCliente&id=<?php echo $_SESSION['id']; ?>">Administrar<span class="icon-dot"></span></a></li>
-          <li><a href="?cargar=subirFoto">Subir Fotos<span class="icon-dot"></span></a></li>
+          <!--<li><a href="?cargar=subirFoto">Subir Fotos<span class="icon-dot"></span></a></li>-->
           <li><a href="?cargar=misMascotas&id=<?php echo $_SESSION['id']; ?>">Mis Mascotas<span class="icon-dot"></span></a></li>
           <li><a href="?cargar=crearMascota">Registrar Mascota<span class="icon-dot"></span></a></li>
         </ul>
@@ -20,4 +20,5 @@
       <li><a href="?cargar=cerrarSesion"><span class="icon-suitcase"></span>Cerrar Sesión</a></li>
     </ul>
   </nav>
+</center>
 </header>

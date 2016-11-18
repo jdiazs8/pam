@@ -82,7 +82,7 @@
   }
 
 ?>
-
+<section>
 <form action="#" method="post">
     <center><h2>Inicio de Sesión</h2></center>
     <br>
@@ -103,3 +103,4 @@
     <br>
     <input type="submit" class="boton" name="iniciosesion" value="Iniciar Sesión">
 </form>
+</section>

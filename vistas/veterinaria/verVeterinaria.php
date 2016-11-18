@@ -11,6 +11,7 @@
     }
 ?>
 
+<section>
 <center>
     <br>
     <h2><?php echo $row['nombre_veterinaria']; ?></h2>
@@ -64,3 +65,4 @@
         </tr>
     </table>
 </center>
+</section>

@@ -10,7 +10,7 @@
 
     }
 ?>
-
+<section>
 <center>
     <h2><?php echo $row['nombre_veterinario'].' '.$row['apellido_veterinario']; ?></h2>
     <br>
@@ -56,3 +56,4 @@
         </tr>
     </table>
 </center>
+</section>

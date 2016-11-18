@@ -9,7 +9,7 @@
         header('location; index.php');
     }
 ?>
-
+<section>
 <form action="" method="post">
     <center><h2>Seleccione</h2></center>
     <select name="extra">
@@ -21,3 +21,4 @@
     </select>
     <input type="submit" class="boton" name="cargar" value="Cargar">
 </form>
+</section>

@@ -20,6 +20,7 @@
     switch ($_GET['extra']) {
       case 1:
         ?>
+        <section>
         <form action="" method="post">
           <?php
             if(!empty($mensaje)) {
@@ -33,11 +34,13 @@
           <br>
           <input type="submit" class="boton" name="actualizar" value="Actualizar">
         </form>
+      </section>
         <?php
         break;
 
       case 2:
         ?>
+        <section>
         <form action="" method="post">
           <?php
             if(!empty($mensaje)) {
@@ -63,11 +66,13 @@
           </select>
           <input type="submit" class="boton" name="actualizar" value="Actualizar">
         </form>
+      </section>
         <?php
         break;
 
       case 3:
         ?>
+        <section>
         <form action="" method="post">
           <?php
             if(!empty($mensaje)) {
@@ -82,11 +87,13 @@
           <br>
           <input type="submit" class="boton" name="actualizar" value="Actualizar">
         </form>
+      </section>
         <?php
         break;
 
         case 4:
           ?>
+          <section>
           <form action="" method="post">
             <?php
               if(!empty($mensaje)) {
@@ -112,6 +119,7 @@
             </select>
             <input type="submit" class="boton" name="actualizar" value="Actualizar">
           </form>
+        </section>
           <?php
           break;
     }

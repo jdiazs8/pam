@@ -9,6 +9,7 @@
         header('location: index.php');
     }
 ?>
+<section>
 <center>
     <br>
     <h2>Vacunas</h2>
@@ -78,3 +79,4 @@
 
         ?>
 </center>
+</section>

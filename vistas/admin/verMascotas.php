@@ -9,6 +9,7 @@
     }
 ?>
 
+<section>
 <center>
     <div>
         <h2>mascotas</h2>
@@ -36,3 +37,4 @@
             }
         ?>
 </center>
+</section>

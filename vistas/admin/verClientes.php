@@ -9,6 +9,7 @@
     }
 ?>
 
+<section>
 <center>
     <div>
         <h2>Clientes</h2>
@@ -34,3 +35,4 @@
             }
         ?>
 </center>
+</section>

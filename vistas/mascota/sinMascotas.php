@@ -15,6 +15,7 @@
         echo "</div>";
 
         if(isset($_SESSION['idCliente'])) {
+          echo "<section>";
           echo "<center>";
             echo "<table class='formulario'>";
               echo "<tr>";
@@ -24,7 +25,9 @@
               echo "</tr>";
             echo "</table>";
           echo "<center>";
+          echo "</section>";
         }else if(isset($_SESSION['idVeterinario'])) {
+          echo "<section>";
           echo "<center>";
             echo "<table class='formulario'>";
               echo "<tr>";
@@ -34,6 +37,7 @@
               echo "</tr>";
             echo "</table>";
           echo "<center>";
+          echo "</section>";
         }
     }
 ?>

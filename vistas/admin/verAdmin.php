@@ -10,6 +10,7 @@
     }
 ?>
 
+<section>
 <center>
     <br>
     <table>
@@ -50,3 +51,4 @@
         </tr>
     </table>
 </center>
+</section>

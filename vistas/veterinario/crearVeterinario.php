@@ -29,7 +29,7 @@
         }
     }
 ?>
-
+<section>
 <form action="" method="post" enctype="multipart/form-data">
     <?php
         if(!empty($mensaje)) {
@@ -66,3 +66,4 @@
     <br>
     <input type="submit" class="boton" name="guardar" value="Registrarme">
 </form>
+</section>

@@ -14,7 +14,7 @@
 
   }
 ?>
-
+<section>
 <form action="" method="post">
   <?php
       if(!empty($mensaje)) {
@@ -30,3 +30,4 @@
   <textarea name="mensaje" placeholder="Mensaje*" maxlength="999" required></textarea>
   <input type="submit" class="boton" name="enviar" value="Enviar">
 </form>
+</section>

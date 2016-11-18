@@ -21,7 +21,7 @@
 
 ?>
 
-
+<section>
 <form action="" method="post">
     <?php
         if(!empty($mensaje)) {
@@ -46,3 +46,4 @@
     </select>
     <input type="submit" class="boton" name="guardar" value="Registrar mascota">
 </form>
+</section>

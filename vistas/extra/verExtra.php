@@ -11,6 +11,7 @@
     switch ($_GET['extra']) {
       case 1:
 ?>
+<section>
 <center>
     <div>
         <h2>Tipos de Usuarios</h2>
@@ -42,11 +43,13 @@
             }
         ?>
 </center>
+</section>
 <?php
       break;
 
       case 2:
       ?>
+        <section>
           <div>
               <center>
               <h2>Vacunas</h2>
@@ -82,6 +85,7 @@
               </table>
               <br>
           </div>
+        </section>
       <?php
 
     }
@@ -89,6 +93,7 @@
 
         case 3:
         ?>
+        <section>
             <div>
                 <center>
                 <h2>Especies</h2>
@@ -120,6 +125,7 @@
                 </table>
                 <br>
             </div>
+          </section>
         <?php
 
       }
@@ -127,6 +133,7 @@
 
           case 4:
               ?>
+              <section>
                   <div>
                       <center>
                       <h2>Razas</h2>
@@ -162,6 +169,7 @@
                       </table>
                       <br>
                   </div>
+                </section>
               <?php
 
             }

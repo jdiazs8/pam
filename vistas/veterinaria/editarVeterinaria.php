@@ -25,6 +25,7 @@
 
 ?>
 
+<section>
 <form action="" method="post" enctype="multipart/form-data">
     <?php
         if(!empty($mensaje)) {
@@ -56,3 +57,4 @@
     <input type="file" name="foto">
     <input type="submit" class="boton" name="guardar" value="Actualizar veterinaria">
 </form>
+</section>

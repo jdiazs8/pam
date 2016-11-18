@@ -23,6 +23,7 @@
     }
 ?>
 
+<section>
 <form action="" method="post">
     <?php
         if(!empty($mensaje)) {
@@ -33,3 +34,4 @@
     ?>
     <input type="submit" class="boton" name="desactivar" value="Desactivar">
 </form>
+</section>

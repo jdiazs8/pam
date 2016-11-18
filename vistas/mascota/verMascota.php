@@ -16,6 +16,7 @@
     }
 ?>
 
+<section>
 <center>
     <br>
     <h2><?php echo $row['nombre_mascota']; ?></h2>
@@ -148,3 +149,4 @@
         }
     ?>
 </center>
+</section>

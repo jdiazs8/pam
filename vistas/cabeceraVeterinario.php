@@ -2,7 +2,7 @@
   <div class="menu_bar">
     <a href="#" class="bt-menu"><span class="icon-menu"></span>PAM</a>
   </div>
-
+<center>
   <nav>
     <ul>
       <li><a href="?cargar=inicio"><span class="icon-house"></span>Inicio</a></li>
@@ -21,4 +21,5 @@
       <li><a href="?cargar=cerrarSesion"><span class="icon-suitcase"></span>Cerrar Sesión</a></li>
     </ul>
   </nav>
+</center>
 </header>

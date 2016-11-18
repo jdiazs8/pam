@@ -8,7 +8,7 @@
         header('location: index.php');
     }
 ?>
-
+<section>
 <center>
     <div>
         <h2>Administradores</h2>
@@ -40,3 +40,4 @@
             }
         ?>
 </center>
+</section>

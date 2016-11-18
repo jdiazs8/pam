@@ -1,3 +1,4 @@
+<section>
 <p class="mensaje">
 <b>TÉRMINOS Y CONDICIONES DE USO GENÉRICO</b>
 <br>
@@ -84,3 +85,4 @@ Salvo indicación expresa en otro sentido, cualquier vídeo, imagen o material m
 Reacciones adversas<br>
 Si usted tiene una sospecha de reacción adversa relacionada con algún producto de PAM, de PAM , de Genzyme a PAM company  o cualquier otra información relacionada con la seguridad de algún producto de PAM, de PAM , de Genzyme a PAM company  como exposición durante el embarazo o la lactancia, falta de eficacia, error de medicación, mal uso, sobredosis o uso fuera de indicación, le rogamos que se ponga en contacto a la mayor brevedad con el Departamento de Farmacovigilancia de PAM a través del telf. 93 485 9649 o es-farmacovigilancia@PAM.com
 </p>
+</section>

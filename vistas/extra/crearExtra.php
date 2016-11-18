@@ -9,9 +9,7 @@
                 if(!isset($_POST['asociado'])) {
                   $_POST['asociado'] = '';
                 }
-                echo "--".$_POST['nombre']."<br>";
-                echo "--".$_GET['extra']."<br>";
-                echo "--".$_POST['asociado']."<br>";
+
                 $resultado = $controlador->crear($_POST['nombre'], $_GET['extra'], $_POST['asociado']);
 
                 if($resultado) {
@@ -28,6 +26,7 @@
     switch ($_GET['extra']) {
       case 1:
       ?>
+      <section>
       <form action="" method="post">
         <?php
           if(!empty($mensaje)) {
@@ -39,11 +38,13 @@
         <input type="text" name="nombre" maxlength="29" placeholder="Nombre*" required>
         <input type="submit" class="boton" name="guardar" value="Registrar Usuario">
       </form>
+      </section>
       <?php
       break;
 
       case 2:
       ?>
+      <section>
       <form action="" method="post">
         <?php
           if(!empty($mensaje)) {
@@ -66,11 +67,13 @@
         </select>
         <input type="submit" class="boton" name="guardar" value="Registrar Vacuna">
       </form>
+    </section>
       <?php
       break;
 
       case 3:
       ?>
+      <section>
       <form action="" method="post">
         <?php
           if(!empty($mensaje)) {
@@ -81,11 +84,13 @@
         <input type="text" name="nombre" maxlength="29" placeholder="Nombre*" required>
         <input type="submit" class="boton" name="guardar" value="Registrar Especie">
       </form>
+    </section>
       <?php
       break;
 
       case 4:
       ?>
+      <section>
       <form action="" method="post">
         <?php
           if(!empty($mensaje)) {
@@ -108,6 +113,7 @@
         </select>
         <input type="submit" class="boton" name="guardar" value="Registrar raza">
       </form>
+    </section>
       <?php
       break;
 

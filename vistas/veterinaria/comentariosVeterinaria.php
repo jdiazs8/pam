@@ -9,6 +9,7 @@
         header('location: index.php');
     }
 ?>
+<section>
 <center>
     <br>
     <h2>Comentarios</h2>
@@ -50,3 +51,4 @@
 
         ?>
 </center>
+</section>
