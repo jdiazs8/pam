@@ -2,6 +2,7 @@
 	padding:0;
 	margin:0;
   font-family: Arial, Verdana, Geneva, Helvetica, sans-serif;
+	src: url('../fonts/Calibri.ttf');
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -64,9 +65,9 @@ header {
 header nav {
 	background:#0489B1;
 	z-index: 1000;
-	max-width: 1000px;
-	width:95%;
-	margin:20px auto;
+	/*max-width: 1000px;*/
+	width:100%;
+	margin: 0px auto;
 }
 
 .logo {
@@ -95,6 +96,7 @@ header nav ul li a {
 	display:block;
 	text-decoration:none;
 	padding: 20px;
+	text-align: left;
 }
 
 header nav ul li a span {
@@ -142,10 +144,10 @@ footer {
     text-align: center;
     background: #0489B1;
 		bottom: 0;
-		width:95%;
-		margin:20px auto;
-		position: fixed;
+		width:100%;
 
+		position: fixed;
+		z-index: 1000;
 }
 
 footer span {
@@ -163,7 +165,6 @@ form{
 
 .boton {
     border-bottom: 0px solid #c00;
-
 }
 
 input, select {
@@ -226,6 +227,10 @@ form a {
 
 @media screen and (max-width: 800px) {
 
+	section {
+		padding: 0;
+	}
+
 	body {
 		padding-top:80px;
 	}
@@ -251,6 +256,7 @@ form a {
 
 	.menu_bar {
 		text-align: right;
+		margin-top: 0;
 	}
 
 	.menu_bar span {
@@ -260,7 +266,7 @@ form a {
 
 	header nav {
 		width: 60%;
-		height: calc(96% - 55px);
+		height: calc(96% - 54px);
 		position: fixed;
 		right:100%;
 		margin: 0;

@@ -24,7 +24,7 @@
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script src="js/main.js"></script>
         <link rel="stylesheet" href="css/flexslider.css" type="text/css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
         <script src="js/jquery.flexslider.js"></script>
         <script src="js/function.js"></script>
         <script type="text/javascript" charset="utf-8">
@@ -44,7 +44,7 @@
             }else if(isset($_SESSION['idAdmin'])) {
                 include_once('vistas/cabeceraAdmin.php');
             }else {
-                include_once('vistas/cabeceranoregistro.php');
+                include_once('vistas/cabeceraNoRegistro.php');
             }
         ?>
         <section>
@@ -58,7 +58,7 @@
 
 
         <?php
-              include_once('vistas/piepagina.php');
+              include_once('vistas/piePagina.php');
         ?>
     </body>
 

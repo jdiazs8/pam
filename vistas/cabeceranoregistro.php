@@ -3,6 +3,7 @@
     <a href="#" class="bt-menu"><span class="icon-menu"></span>PAM</a>
   </div>
 
+  <center>
   <nav>
     <ul>
       <li><a href="?cargar=inicio"><span class="icon-house"></span>Inicio</a></li>
@@ -18,4 +19,5 @@
       <li><a href="?cargar=contacto"><span class="icon-mail"></span>Contacto</a></li>
     </ul>
   </nav>
+</center>
 </header>

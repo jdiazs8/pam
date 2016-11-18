@@ -11,7 +11,7 @@
         <a href="#"><span class="icon-rocket"></span>Opciones<span class="caret icon-arrow-down6"></span></a>
         <ul class="children">
           <li><a href="?cargar=verCliente&id=<?php echo $_SESSION['id']; ?>">Administrar<span class="icon-dot"></span></a></li>
-          <!--<li><a href="?cargar=subirFoto">Subir Fotos<span class="icon-dot"></span></a></li>-->
+          <li><a href="?cargar=subirFoto">Subir Fotos<span class="icon-dot"></span></a></li>
           <li><a href="?cargar=misMascotas&id=<?php echo $_SESSION['id']; ?>">Mis Mascotas<span class="icon-dot"></span></a></li>
           <li><a href="?cargar=crearMascota">Registrar Mascota<span class="icon-dot"></span></a></li>
         </ul>

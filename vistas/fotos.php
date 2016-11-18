@@ -12,6 +12,5 @@
                         <p>titulo de la imagen 2</p>
                     </section>
                 </li>
-
             </ul>
 </section>

@@ -30,7 +30,7 @@
         }
 
     ?>
-    <h2>Registro de usuario</h2>
+    <h2>Registro de mascota</h2>
     <input type="text" name="nombre" maxlength="50" placeholder="Nombre*" required>
     <br>
     <label>Fecha nacimiento o adopción*</label>
