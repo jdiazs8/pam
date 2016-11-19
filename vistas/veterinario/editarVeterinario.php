@@ -51,7 +51,7 @@
         <br>
         <input type="text" name="identificacion" maxlength="10" placeholder="identificacion*" value="<?php echo $row['identificacion_veterinario'] ?>" required>
         <br>
-        <input type="text" name="tprofesional" maxlength="19" placeholder="No. tarjeta profesional" value="<?php echo $row['tprofesional_veterinario'] ?>">
+        <input type="text" name="tprofesional" maxlength="19" placeholder="No. Matrícula profesional*" value="<?php echo $row['tprofesional_veterinario'] ?>">
         <br>
         <input type="email" name="correo" maxlength="99" placeholder="Correo electrónico" value="<?php echo $row['correo_veterinario'] ?>" required>
         <br>
