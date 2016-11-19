@@ -45,7 +45,7 @@
     <br>
     <input type="text" name="identificacion" maxlength="10" placeholder="identificacion*" required>
     <br>
-    <input type="text" name="tprofesional" maxlength="19" placeholder="Tarjeta profesional*" required>
+    <input type="text" name="tprofesional" maxlength="19" placeholder="Matrícula profesional*" required>
     <br>
     <input type="email" name="correo" maxlength="99" placeholder="Correo electrónico*" required>
     <br>
