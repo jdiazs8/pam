@@ -60,6 +60,12 @@
           return $resultado;
         }
 
+        public function vacunasEspecie($id) {
+          $resultado = $this->extra->vacunasEspecie($id);
+
+          return $resultado;
+        }
+
         public function contestarMensaje($id, $estado) {
           $this->extra->contestarMensaje($id, $estado);
         }

@@ -4,8 +4,7 @@
         $controlador2 = new ControladorExtra();
 
         $vacunas = $controlador2->vacunasEspecie($_GET['especie']);
-
-
+    
         if(isset($_POST['guardar'])) {
             if(empty($_POST['laboratorio']) || empty($_POST['cepa']) || empty($_POST['lote']) || empty($_POST['exp']) || empty($_POST['dosis']) || empty($_POST['idVacuna'])){
                 $mensaje = 'Lo campos marcados con * deben estar diligenciados';
